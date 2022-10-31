@@ -7,11 +7,12 @@ class NodeType(Enum):
     INSTRUCTION = 1,
     CONDITIONAL_STATEMENT = 10,
     CONDITION = 11,
+    COMPARISON_OPERATOR = 12, # ==, <, >, <=, >=, !=
+    LOGICAL_OPERATOR = 13, # AND, OR
     ARITHMETICAL_EXPR = 20,
     ASSIGNMENT = 21,
     ATOM = 30,
     INT = 31,
-    FLOAT = 32,
     VAR_NAME = 33,
     TWO_ARG_OPERATOR = 40,
     ADD = 41,
@@ -21,25 +22,35 @@ class NodeType(Enum):
 class Node:
     max_nr_of_children = 5
 
+    type_to_children = {
+        NodeType.PROGRAM: [(-1, [NodeType.INSTRUCTION])],
+        NodeType.INSTRUCTION: [(1, [NodeType.CONDITIONAL_STATEMENT]), (1, [NodeType.ASSIGNMENT])],
+        NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.CONDITION, NodeType.INSTRUCTION])],
+        NodeType.CONDITION: [(3, [NodeType.ARITHMETICAL_EXPR, NodeType.COMPARISON_OPERATOR, NodeType.ARITHMETICAL_EXPR])],
+        NodeType.ARITHMETICAL_EXPR: [(1, [NodeType.ATOM]), 
+            (3, [NodeType.ATOM, NodeType.TWO_ARG_OPERATOR, NodeType.ATOM])]
+    }
+
     def __init__(self, node_type: NodeType) -> None:
         self.type = node_type
         self.children = [] # List[Node]
+
+    @staticmethod
+    def is_pseudo_type(type: NodeType) -> bool:
+        return type in [NodeType.PROGRAM, NodeType.INSTRUCTION, NodeType.CONDITION]
     
     @staticmethod
-    def generate_random_children(parent: NodeType) -> List[NodeType]:
+    def generate_random_children_types(parent: NodeType) -> List[NodeType]:
         possible_combinations = len(Node.get_possible_children(parent))
-        # print("possible combinations: ", possible_combinations)
         if possible_combinations == 0:
             return []
         idx = random.randint(0, possible_combinations-1)
-        # print("idx: ", idx)
         nr_of_children, children_types = Node.get_possible_children(parent)[idx]
-        # print("nr of children: ", nr_of_children)
+
         if nr_of_children != -1:
             return children_types
         else:
-            nr_of_children = random.randint(0, Node.max_nr_of_children-1)
-            # print("nr of children: ", nr_of_children)
+            nr_of_children = random.randint(1, Node.max_nr_of_children)
             children = []
             for idx in range(nr_of_children):
                 idx = random.randint(0, len(children_types)-1)
@@ -48,20 +59,7 @@ class Node:
     
     @staticmethod
     def get_possible_children(node_type: NodeType):
-        if node_type == NodeType.PROGRAM:
-            return [(-1, [NodeType.INSTRUCTION])]
-        elif node_type == NodeType.INSTRUCTION:
-            return [(1, [NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT])]
-        elif node_type == NodeType.CONDITIONAL_STATEMENT:
-            return [(2, [NodeType.CONDITION, NodeType.INSTRUCTION])]
-        elif node_type == NodeType.CONDITION:
-            return [] # not implemented
-        elif node_type == NodeType.ARITHMETICAL_EXPR:
-            return [(1, [NodeType.ATOM]), 
-            (3, [NodeType.ATOM, NodeType.TWO_ARG_OPERATOR, NodeType.ATOM])]
-        else:
-            return [] # not implemented
-
+        return Node.type_to_children.get(node_type, [])
 
 class GP:
     def __init__(self) -> None:
@@ -74,23 +72,24 @@ class GP:
     # TODO
     # możliwość testowania programów 
     def compute_fitness(self, individual:Node) -> float:
-        """
-        How to compute:
-        fit += Math.abs(result - targets[i][varnumber]);
-        """
-        return 2137
+        return -random.randint(0, 2137)
 
-    # TODO
-    # generowanie losowych programów (drzew) o zadanej wielkości
     def create_random_individual(self) -> Node:
-        """
-        return tree root
-        """
-        root = Node(NodeType.PROGRAM)
-        root.children = Node.generate_random_children(root.type)
+        root, level = Node(NodeType.PROGRAM), 0
+        queue = [(level,root)] # (int, Node)
+        while queue:
+            level, node = queue.pop(0)
+            types = Node.generate_random_children_types(node.type)
+            print("level: ", level, " type: ", str(node.type), " children: ", types)
+            if level < self.max_depth:
+                for idx in range(len(types)):
+                    node.children.append(Node(types[idx]))
+                    if not Node.is_pseudo_type(node.children[idx].type):
+                        queue.append((level+1, node.children[idx]))
+                    else:
+                        queue.append((level, node.children[idx]))
         return root
     
-    # TODO
     def create_random_population(self):
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual)
@@ -113,12 +112,13 @@ class GP:
         pass
 
     def display_program(self, root: Node):
+        print("\n*** PROGRAM ***")
         print("Root: ", root.type, " nr of children:", len(root.children))
         for child in root.children:
-            print(child)
+            print(child.type)
 
 
 print("---RUN---")
 gp = GP()
 root = gp.create_random_individual()
-gp.display_program(root)
+# gp.display_program(root)
