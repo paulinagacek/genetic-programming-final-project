@@ -14,9 +14,14 @@ Przygotować bibliotekę pozwalającą na generowanie i ewolucję programów w o
 
 - [ ] generowanie losowych programów (drzew) o zadanej wielkości +
 - [ ] operację krzyżowania dwóch drzew/programów +
-- [ ] operację mutacji +
-- [ ] możliwość testowania programów (obliczenia wartości funkcji przystosowania) na podstawie wektora danych wejściowych i danych wyjściowych. (Na razie nie implementujemy żadnej konkretnej funkcji przystosowania, będzie ona tworzona dla konkretnego problemu) + 
-- [ ] selekcję osobników (programów) na podstawie wartości funkcji przystosowania (na razie selekcja turniejowa za zadawaną liczbą zawodników np. 2, 5, 10, itd.)
+- [x] operację mutacji +
+- [x] możliwość testowania programów (obliczenia wartości funkcji przystosowania) na podstawie wektora danych wejściowych i danych wyjściowych. (Na razie nie implementujemy żadnej konkretnej funkcji przystosowania, będzie ona tworzona dla konkretnego problemu) + 
+- [x] selekcję osobników (programów) na podstawie wartości funkcji przystosowania (na razie selekcja turniejowa za zadawaną liczbą zawodników np. 2, 5, 10, itd.)
 - [ ] serializację i deserializację (zapisanie/wczytanie) zadanego drzewa (programu)
 
 **UWAGA: Na razie nie implementujemy wykonywania programów w mini języku (czyli interpretera, translatora czy kompilatora dla mini języka).**
+
+pętle, bloki, crossover, funkcja evolve, value do node, nawiasy ( ), operacje logiczne, ignorowanie whitespace w gramatyce
+zapisywanie programu i drzewa do pliku, gramatyka, cin/cout
+
+deserializacja na koniec

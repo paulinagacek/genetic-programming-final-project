@@ -29,15 +29,22 @@ class Node:
     type_to_children = {
         NodeType.PROGRAM: [(-1, [NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT])],
 
-        # CONDITIOANL STATEMENTS
+        # CONDITIONAL STATEMENTS
         NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.CONDITION, NodeType.ASSIGNMENT]),
                                          (2, [NodeType.CONDITION, NodeType.CONDITIONAL_STATEMENT])],
-        NodeType.CONDITION: [(3, [NodeType.ARITHMETICAL_EXPR, NodeType.EQ, NodeType.ARITHMETICAL_EXPR]), (3, [NodeType.ARITHMETICAL_EXPR, NodeType.NOT_EQ, NodeType.ARITHMETICAL_EXPR]), (3, [NodeType.ARITHMETICAL_EXPR, NodeType.LESS_THAN, NodeType.ARITHMETICAL_EXPR]), (3, [NodeType.ARITHMETICAL_EXPR, NodeType.GREATER_THAN, NodeType.ARITHMETICAL_EXPR])],
+        NodeType.CONDITION: [(3, [NodeType.ARITHMETICAL_EXPR, NodeType.EQ, NodeType.ARITHMETICAL_EXPR]),
+                             (3, [NodeType.ARITHMETICAL_EXPR, NodeType.NOT_EQ, NodeType.ARITHMETICAL_EXPR]),
+                             (3, [NodeType.ARITHMETICAL_EXPR, NodeType.LESS_THAN, NodeType.ARITHMETICAL_EXPR]),
+                             (3, [NodeType.ARITHMETICAL_EXPR, NodeType.GREATER_THAN, NodeType.ARITHMETICAL_EXPR])],
 
         # ARITHMETICAL EXPR
         NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INT])],
-        NodeType.ARITHMETICAL_EXPR: [(3, [NodeType.ARITHMETICAL_EXPR, NodeType.ADD, NodeType.ARITHMETICAL_EXPR]), (3, [NodeType.ARITHMETICAL_EXPR, NodeType.SUB, NodeType.ARITHMETICAL_EXPR]),
-                                     (3, [NodeType.ARITHMETICAL_EXPR, NodeType.DIV, NodeType.ARITHMETICAL_EXPR]), (3, [NodeType.ARITHMETICAL_EXPR, NodeType.MUL, NodeType.ARITHMETICAL_EXPR]), (1, [NodeType.INT]), (1, [NodeType.VAR_NAME])]
+        NodeType.ARITHMETICAL_EXPR: [(3, [NodeType.ARITHMETICAL_EXPR, NodeType.ADD, NodeType.ARITHMETICAL_EXPR]),
+                                     (3, [NodeType.ARITHMETICAL_EXPR, NodeType.SUB, NodeType.ARITHMETICAL_EXPR]),
+                                     (3, [NodeType.ARITHMETICAL_EXPR, NodeType.DIV, NodeType.ARITHMETICAL_EXPR]),
+                                     (3, [NodeType.ARITHMETICAL_EXPR, NodeType.MUL, NodeType.ARITHMETICAL_EXPR]),
+                                     (1, [NodeType.INT]),
+                                     (1, [NodeType.VAR_NAME])]
     }
 
     type_to_point_mutation = {
@@ -66,8 +73,8 @@ class Node:
         self.parent = None  # Node
 
     @staticmethod
-    def is_pseudo_type(type: NodeType) -> bool:
-        return type in [NodeType.ARITHMETICAL_EXPR]
+    def is_pseudo_type(type_: NodeType) -> bool:
+        return type_ in [NodeType.ARITHMETICAL_EXPR]
 
     @staticmethod
     def generate_random_children_types(parent: NodeType) -> List[NodeType]:
@@ -111,9 +118,8 @@ class GP:
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.tournament_size = 2
+        self.mutation_rate = 0.05
 
-    # TODO
-    # możliwość testowania programów
     def compute_fitness(self, individual: Node) -> float:
         return -random.randint(0, 2137)
 
@@ -176,7 +182,8 @@ class GP:
         be mutate with point mutation.
     """
 
-    def perform_point_mutation(self, parent: Node) -> Node:
+    @staticmethod
+    def perform_point_mutation(parent: Node) -> Node:
         possibilities = Node.get_possible_point_mutations(parent.type)
         if len(possibilities) == 0:
             return parent
@@ -190,9 +197,10 @@ class GP:
         queue = [root]
         while queue:
             node = queue.pop()
-            new_node = self.perform_point_mutation(node)
-            node.type = new_node.type
-            node.children = new_node.children
+            if random.random() < self.mutation_rate:
+                new_node = self.perform_point_mutation(node)
+                node.type = new_node.type
+                node.children = new_node.children
             for child in node.children:
                 queue.append(child)
         return root
@@ -209,10 +217,10 @@ class GP:
                 stack.append((level + 1, child))
 
 
-print("---RUN---")
-gp = GP()
-root = gp.create_random_individual()
-gp.create_random_population()
-gp.display_program(gp.population[0])
-gp.population[0] = gp.mutate(gp.population[0])
-gp.display_program(gp.population[0])
+if __name__ == "__main__":
+    print("---RUN---")
+    gp = GP()
+    gp.create_random_population()
+    gp.display_program(gp.population[0])
+    gp.population[0] = gp.mutate(gp.population[0])
+    gp.display_program(gp.population[0])
