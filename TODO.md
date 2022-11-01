@@ -1,12 +1,11 @@
 ### Zadania 1) 
 Przygotować wstępną gramatykę mini języka służącego do wykonywania programów w GP (jest to część projektu końcowego). Gramatyka powinna pozwolić na zapisanie całego programu jako drzewa (analogicznego do drzewa reprezentującego wyrażenia arytmetyczne w regresji symbolicznej np. w TinyGP). Język powinien posiadać m.in.:
 
-- [ ] instrukcję pętli
-- [ ] instrukcję warunkową
-- [ ] instrukcja złożona/bloku programu (jak blok w nawiasach klamrowych w języku c/c++/Java)
-- [ ] zmienne, stałe i operacje arytmetyczne + logiczne
-- [ ] operacja wczytywania z wejścia i wypisywania na wyjście
-
+- [x] instrukcję pętli
+- [x] instrukcję warunkową
+- [x] instrukcja złożona/bloku programu (jak blok w nawiasach klamrowych w języku c/c++/Java)
+- [x] zmienne, stałe i operacje arytmetyczne + logiczne
+- [x] operacja wczytywania z wejścia i wypisywania na wyjście
 - [ ] Przetestować gramatykę w programie do generowania parserów, który będzie używany w projekcie (np. w Antlr)
 
 ### Zadanie 2) 
@@ -21,7 +20,28 @@ Przygotować bibliotekę pozwalającą na generowanie i ewolucję programów w o
 
 **UWAGA: Na razie nie implementujemy wykonywania programów w mini języku (czyli interpretera, translatora czy kompilatora dla mini języka).**
 
-pętle, bloki, crossover, funkcja evolve, value do node, nawiasy ( ), operacje logiczne, ignorowanie whitespace w gramatyce
+pętle, bloki, crossover, funkcja evolve, value do node, nawiasy ( ), operacje logiczne,
 zapisywanie programu i drzewa do pliku, gramatyka, cin/cout
 
 deserializacja na koniec
+
+corssover:
+losujemy z parenta 1 miejsce  do przeszczepu
+losujemy z parenta 2 miejsce do przeszeczpu
+jesli typy sie nie zgadzaja
+jesli w n_parent_2(stała) prob nie uda sie znalezc miejsca to losujemy nowe miejsce z parenta 1
+jesli w n_parent_1(stała) prob nie uda sie znalezc miejsca to zwracamy osobnik z lepszym fitness
+
+ewolucja tak jak w tiny gp
+
+Paweł:
+- [ ] funkcja evolve
+- [ ] crossover
+- [ ] zapisywanie programu i drzewa do pliku
+
+Paulina:
+- [ ] pętle
+- [ ] bloki
+- [ ] value do node
+- [ ] nawiasy ( )
+- [ ] operacje logiczne
