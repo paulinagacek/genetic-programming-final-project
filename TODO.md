@@ -38,6 +38,7 @@ Paweł:
 - [ ] funkcja evolve
 - [ ] crossover
 - [ ] zapisywanie programu i drzewa do pliku
+- [ ] przetestowac gramatyke w antlr
 
 Paulina:
 - [ ] pętle
