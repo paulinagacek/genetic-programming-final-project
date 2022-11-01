@@ -53,6 +53,13 @@ class Node:
         NodeType.GREATER_THAN: [NodeType.NOT_EQ, NodeType.LESS_THAN, NodeType.NOT_EQ],
     }
 
+    """
+        Structure to prevent situation when non-terminal is a leaf.
+    """
+    type_to_terminal = {
+        NodeType.ARITHMETICAL_EXPR: [NodeType.INT, NodeType.VAR_NAME]
+    }
+
     def __init__(self, node_type: NodeType, children) -> None:
         self.type = node_type
         self.children = children  # List[Node]
@@ -60,7 +67,7 @@ class Node:
 
     @staticmethod
     def is_pseudo_type(type: NodeType) -> bool:
-        return type in [NodeType.PROGRAM]
+        return type in [NodeType.ARITHMETICAL_EXPR]
 
     @staticmethod
     def generate_random_children_types(parent: NodeType) -> List[NodeType]:
@@ -88,12 +95,19 @@ class Node:
     @staticmethod
     def get_possible_point_mutations(node_type: NodeType):
         return Node.type_to_point_mutation.get(node_type, [])
+    
+    @staticmethod
+    def get_random_terminal(node_type: NodeType):
+        possibilities = Node.type_to_terminal.get(node_type, [])
+        if len(possibilities) > 0:
+            idx = random.randint(0, len(possibilities)-1)
+            return possibilities[idx]
 
 
 class GP:
     def __init__(self) -> None:
         self.max_depth = 5
-        self.population_size = 5
+        self.population_size = 1
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.tournament_size = 2
@@ -104,21 +118,18 @@ class GP:
         return -random.randint(0, 2137)
 
     def create_random_individual(self) -> Node:
-        print("-- NEW INDIVIDUAL --")
         root, level = Node(NodeType.PROGRAM, []), 0
         queue = [(level, root)]  # (int, Node)
         while queue:
             level, node = queue.pop(0)
-            types = Node.generate_random_children_types(node.type)
-            print("level: ", level, " type: ", str(
-                node.type), " children: ", types)
-            if level < self.max_depth:
+            if level == self.max_depth and Node.is_pseudo_type(node.type):
+                node.type = Node.get_random_terminal(node.type)
+                node.children = []
+            elif level < self.max_depth:
+                types = Node.generate_random_children_types(node.type)
                 for idx in range(len(types)):
                     node.children.append(Node(types[idx], []))
-                    if not Node.is_pseudo_type(node.children[idx].type):
-                        queue.append((level+1, node.children[idx]))
-                    else:
-                        queue.append((level, node.children[idx]))
+                    queue.append((level+1, node.children[idx]))
         return root
 
     def create_random_population(self):
