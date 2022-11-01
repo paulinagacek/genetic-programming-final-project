@@ -14,9 +14,12 @@ class NodeType(Enum):
     ATOM = 30,
     INT = 31,
     VAR_NAME = 33,
+    VAR_NAME_IMMUTABLE = 34,
     TWO_ARG_OPERATOR = 40,
     ADD = 41,
     DIV = 42,
+    MUL = 43,
+    SUB = 44
 
 
 class Node:
@@ -28,17 +31,25 @@ class Node:
         NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.CONDITION, NodeType.INSTRUCTION])],
         NodeType.CONDITION: [(3, [NodeType.ARITHMETICAL_EXPR, NodeType.COMPARISON_OPERATOR, NodeType.ARITHMETICAL_EXPR])],
         NodeType.ARITHMETICAL_EXPR: [(1, [NodeType.ATOM]), 
-            (3, [NodeType.ATOM, NodeType.TWO_ARG_OPERATOR, NodeType.ATOM])]
+            (3, [NodeType.ATOM, NodeType.TWO_ARG_OPERATOR, NodeType.ATOM])],
+        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INT])] # add varname=varname
     }
 
-    def __init__(self, node_type: NodeType) -> None:
+    type_to_point_mutation = {
+        NodeType.INT: [NodeType.VAR_NAME],
+        NodeType.VAR_NAME: [NodeType.INT],
+        NodeType.ADD: [NodeType.DIV, NodeType.SUB, NodeType.MUL],
+        NodeType.DIV: [NodeType.ADD, NodeType.SUB, NodeType.MUL],
+    }
+
+    def __init__(self, node_type: NodeType, children) -> None:
         self.type = node_type
-        self.children = [] # List[Node]
+        self.children = children # List[Node]
         self.parent = None # Node
 
     @staticmethod
     def is_pseudo_type(type: NodeType) -> bool:
-        return type in [NodeType.PROGRAM, NodeType.INSTRUCTION, NodeType.CONDITION]
+        return type in [NodeType.PROGRAM, NodeType.INSTRUCTION]
     
     @staticmethod
     def generate_random_children_types(parent: NodeType) -> List[NodeType]:
@@ -61,6 +72,10 @@ class Node:
     @staticmethod
     def get_possible_children(node_type: NodeType):
         return Node.type_to_children.get(node_type, [])
+    
+    @staticmethod
+    def get_possible_point_mutations(node_type: NodeType):
+        return Node.type_to_point_mutation.get(node_type, [])
 
 class GP:
     def __init__(self) -> None:
@@ -76,7 +91,8 @@ class GP:
         return -random.randint(0, 2137)
 
     def create_random_individual(self) -> Node:
-        root, level = Node(NodeType.PROGRAM), 0
+        print("-- NEW INDIVIDUAL --")
+        root, level = Node(NodeType.PROGRAM, []), 0
         queue = [(level,root)] # (int, Node)
         while queue:
             level, node = queue.pop(0)
@@ -84,9 +100,7 @@ class GP:
             print("level: ", level, " type: ", str(node.type), " children: ", types)
             if level < self.max_depth:
                 for idx in range(len(types)):
-                    node.children.append(Node(types[idx]))
-                    node.children[idx].parent = node
-
+                    node.children.append(Node(types[idx], []))
                     if not Node.is_pseudo_type(node.children[idx].type):
                         queue.append((level+1, node.children[idx]))
                     else:
@@ -106,7 +120,6 @@ class GP:
         best = random.randint(0, self.population_size-1)
         for idx in range(self.tournament_size):
             competitor = random.randint(0, self.population_size-1)
-            print("idx: ", competitor)
             if self.fitness[competitor] > fbest:
                 fbest = self.fitness[competitor]
                 best = competitor
@@ -120,7 +133,6 @@ class GP:
         worst = random.randint(0, self.population_size-1)
         for idx in range(self.tournament_size):
             competitor = random.randint(0, self.population_size-1)
-            print("idx: ", competitor)
             if self.fitness[competitor] < fworst:
                 fworst = self.fitness[competitor]
                 worst = competitor
@@ -131,22 +143,48 @@ class GP:
     def perform_crossover(self, parent1: Node, parent2: None) -> Node:
         pass
 
-    # TODO
-    # operację mutacji
-    def perform_mutation(self, parent: Node, pmut: float) -> Node:
-        pass
+    """
+        Mutates provided node with other randomly chosen.
+        Not all nodes have alternatives for mutations and such nodes cannot
+        be mutate with point mutation.
+    """
+    def perform_point_mutation(self, parent: Node) -> Node:
+        possibilities = Node.get_possible_point_mutations(parent.type)
+        if len(possibilities) == 0:
+            return parent
+        else:
+            idx = random.randint(0, len(possibilities)-1)
+            new_node = Node(possibilities[idx], parent.children)
+            print("Switch", parent.type, "to", new_node.type)
+            return new_node
+    
+    def mutate(self, root: Node) -> Node:
+        queue = [root] 
+        while queue:
+            node = queue.pop()
+            new_node = self.perform_point_mutation(node)
+            node.type = new_node.type
+            node.children = new_node.children
+            for child in node.children:
+                queue.append(child)
+        return root
 
     def display_program(self, root: Node):
         print("\n*** PROGRAM ***")
-        print("Root: ", root.type, " nr of children:", len(root.children))
-        for child in root.children:
-            print(child.type)
+        level = 0
+        stack = [(level, root)]
+        while stack:
+            level, node = stack.pop(-1)
+            level_display = "".join(["  " for nr in range(level)]) + "|"
+            print(level_display, level, node.type)
+            for child in reversed(node.children):
+                stack.append((level + 1, child))
 
 
 print("---RUN---")
 gp = GP()
-root = gp.create_random_population()
-# print(gp.fitness)
-# print(gp.perform_tournament())
-# print(gp.perform_negative_tournament())
-# gp.display_program(root)
+root = gp.create_random_individual()
+gp.create_random_population()
+gp.display_program(gp.population[0])
+gp.population[0] = gp.mutate(gp.population[0])
+gp.display_program(gp.population[0])
