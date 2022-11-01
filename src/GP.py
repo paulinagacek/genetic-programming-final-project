@@ -9,6 +9,10 @@ class NodeType(Enum):
     CONDITION = 11,
     COMPARISON_OPERATOR = 12, # ==, <, >, <=, >=, !=
     LOGICAL_OPERATOR = 13, # AND, OR
+    EQ = 14,
+    NOT_EQ = 15,
+    GREATER_THAN = 16,
+    LESS_THAN = 17,
     ARITHMETICAL_EXPR = 20,
     ASSIGNMENT = 21,
     ATOM = 30,
@@ -19,7 +23,7 @@ class NodeType(Enum):
     ADD = 41,
     DIV = 42,
     MUL = 43,
-    SUB = 44
+    SUB = 44,
 
 
 class Node:
@@ -32,7 +36,10 @@ class Node:
         NodeType.CONDITION: [(3, [NodeType.ARITHMETICAL_EXPR, NodeType.COMPARISON_OPERATOR, NodeType.ARITHMETICAL_EXPR])],
         NodeType.ARITHMETICAL_EXPR: [(1, [NodeType.ATOM]), 
             (3, [NodeType.ATOM, NodeType.TWO_ARG_OPERATOR, NodeType.ATOM])],
-        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INT])] # add varname=varname
+        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INT])], # add varname=varname
+        NodeType.TWO_ARG_OPERATOR: [(1, [NodeType.ADD]), (1, [NodeType.DIV]), (1, [NodeType.MUL])],
+        NodeType.ATOM: [(1, [NodeType.INT]), (1, [NodeType.VAR_NAME])],
+        NodeType.COMPARISON_OPERATOR: [(1, [NodeType.EQ]), (1, [NodeType.NOT_EQ]), (1, [NodeType.LESS_THAN]), (1, [NodeType.GREATER_THAN]),]
     }
 
     type_to_point_mutation = {
@@ -40,6 +47,12 @@ class Node:
         NodeType.VAR_NAME: [NodeType.INT],
         NodeType.ADD: [NodeType.DIV, NodeType.SUB, NodeType.MUL],
         NodeType.DIV: [NodeType.ADD, NodeType.SUB, NodeType.MUL],
+        NodeType.SUB: [NodeType.DIV, NodeType.ADD, NodeType.MUL],
+        NodeType.MUL: [NodeType.ADD, NodeType.SUB, NodeType.DIV],
+        NodeType.EQ: [NodeType.NOT_EQ, NodeType.LESS_THAN, NodeType.GREATER_THAN],
+        NodeType.NOT_EQ: [NodeType.EQ, NodeType.LESS_THAN, NodeType.GREATER_THAN],
+        NodeType.LESS_THAN: [NodeType.NOT_EQ, NodeType.NOT_EQ, NodeType.GREATER_THAN],
+        NodeType.GREATER_THAN: [NodeType.NOT_EQ, NodeType.LESS_THAN, NodeType.NOT_EQ],
     }
 
     def __init__(self, node_type: NodeType, children) -> None:
