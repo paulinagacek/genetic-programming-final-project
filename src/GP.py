@@ -7,13 +7,17 @@ class NodeType(Enum):
     PROGRAM = 0,
     CONDITIONAL_STATEMENT = 10,
     CONDITION = 11,
-    LOGICAL_OPERATOR = 13,  # AND, OR
-    EQ = 14,
+    CONDITIONAL_EXPR = 12,
+    AND = 13,
+    OR = 14,
     NOT_EQ = 15,
     GREATER_THAN = 16,
     LESS_THAN = 17,
-    ARITHMETICAL_EXPR = 20,
+    EQ = 18,
+    TRUE = 19,
+    FALSE = 20,
     ASSIGNMENT = 21,
+    ARITHMETICAL_EXPR = 22,
     INT = 31,
     VAR_NAME = 33,
     VAR_NAME_IMMUTABLE = 34,
@@ -21,28 +25,40 @@ class NodeType(Enum):
     DIV = 42,
     MUL = 43,
     SUB = 44,
+    LOOP = 50,
+    LEFT_BRACKET = 60,
+    RIGHT_PARENT = 61,
+    EMPTY = 100
 
 
 class Node:
     max_nr_of_children = 5
 
     type_to_children = {
-        NodeType.PROGRAM: [(-1, [NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT])],
+        NodeType.PROGRAM: [(-1, [NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT, NodeType.LOOP])],
 
-        # CONDITIONAL STATEMENTS
-        NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.CONDITION, NodeType.ASSIGNMENT]),
-                                         (2, [NodeType.CONDITION, NodeType.CONDITIONAL_STATEMENT])],
+        # CONDITIONAL STATEMENTS, LOOPS
+        NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.CONDITION, NodeType.PROGRAM])],
         NodeType.CONDITION: [(3, [NodeType.ARITHMETICAL_EXPR, NodeType.EQ, NodeType.ARITHMETICAL_EXPR]),
-                             (3, [NodeType.ARITHMETICAL_EXPR, NodeType.NOT_EQ, NodeType.ARITHMETICAL_EXPR]),
-                             (3, [NodeType.ARITHMETICAL_EXPR, NodeType.LESS_THAN, NodeType.ARITHMETICAL_EXPR]),
+                             (3, [NodeType.ARITHMETICAL_EXPR,
+                              NodeType.NOT_EQ, NodeType.ARITHMETICAL_EXPR]),
+                             (3, [NodeType.ARITHMETICAL_EXPR,
+                              NodeType.LESS_THAN, NodeType.ARITHMETICAL_EXPR]),
                              (3, [NodeType.ARITHMETICAL_EXPR, NodeType.GREATER_THAN, NodeType.ARITHMETICAL_EXPR])],
+        NodeType.CONDITIONAL_EXPR: [(1, [NodeType.CONDITION]),
+                             (3, [NodeType.CONDITIONAL_EXPR, NodeType.AND, NodeType.CONDITIONAL_EXPR]),
+                             (3, [NodeType.CONDITIONAL_EXPR, NodeType.OR, NodeType.CONDITIONAL_EXPR])],
+        NodeType.LOOP: [(2, [NodeType.CONDITION, NodeType.PROGRAM])],
 
         # ARITHMETICAL EXPR
         NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INT])],
         NodeType.ARITHMETICAL_EXPR: [(3, [NodeType.ARITHMETICAL_EXPR, NodeType.ADD, NodeType.ARITHMETICAL_EXPR]),
-                                     (3, [NodeType.ARITHMETICAL_EXPR, NodeType.SUB, NodeType.ARITHMETICAL_EXPR]),
-                                     (3, [NodeType.ARITHMETICAL_EXPR, NodeType.DIV, NodeType.ARITHMETICAL_EXPR]),
-                                     (3, [NodeType.ARITHMETICAL_EXPR, NodeType.MUL, NodeType.ARITHMETICAL_EXPR]),
+                                     (3, [NodeType.ARITHMETICAL_EXPR,
+                                      NodeType.SUB, NodeType.ARITHMETICAL_EXPR]),
+                                     (3, [NodeType.ARITHMETICAL_EXPR,
+                                      NodeType.DIV, NodeType.ARITHMETICAL_EXPR]),
+                                     (3, [NodeType.ARITHMETICAL_EXPR,
+                                      NodeType.MUL, NodeType.ARITHMETICAL_EXPR]),
                                      (1, [NodeType.INT]),
                                      (1, [NodeType.VAR_NAME])]
     }
@@ -58,13 +74,23 @@ class Node:
         NodeType.NOT_EQ: [NodeType.EQ, NodeType.LESS_THAN, NodeType.GREATER_THAN],
         NodeType.LESS_THAN: [NodeType.NOT_EQ, NodeType.NOT_EQ, NodeType.GREATER_THAN],
         NodeType.GREATER_THAN: [NodeType.NOT_EQ, NodeType.LESS_THAN, NodeType.NOT_EQ],
+        NodeType.TRUE: [NodeType.FALSE],
+        NodeType.FALSE: [NodeType.TRUE],
+        NodeType.LOOP: [NodeType.CONDITIONAL_STATEMENT],
+        NodeType.CONDITIONAL_STATEMENT: [NodeType.LOOP],
     }
 
     """
         Structure to prevent situation when non-terminal is a leaf.
     """
     type_to_terminal = {
-        NodeType.ARITHMETICAL_EXPR: [NodeType.INT, NodeType.VAR_NAME]
+        NodeType.ARITHMETICAL_EXPR: [NodeType.INT, NodeType.VAR_NAME],
+        NodeType.CONDITIONAL_EXPR: [NodeType.TRUE, NodeType.FALSE],
+        NodeType.CONDITION: [NodeType.TRUE, NodeType.FALSE],
+        NodeType.PROGRAM: [NodeType.EMPTY],
+        NodeType.CONDITIONAL_STATEMENT: [NodeType.EMPTY],
+        NodeType.ASSIGNMENT: [NodeType.EMPTY],
+        NodeType.LOOP: [NodeType.EMPTY],
     }
 
     def __init__(self, node_type: NodeType, children) -> None:
@@ -74,7 +100,7 @@ class Node:
 
     @staticmethod
     def is_pseudo_type(type_: NodeType) -> bool:
-        return type_ in [NodeType.ARITHMETICAL_EXPR]
+        return type_ in [NodeType.ARITHMETICAL_EXPR, NodeType.PROGRAM, NodeType.CONDITIONAL_STATEMENT,  NodeType.ASSIGNMENT]
 
     @staticmethod
     def generate_random_children_types(parent: NodeType) -> List[NodeType]:
@@ -102,7 +128,7 @@ class Node:
     @staticmethod
     def get_possible_point_mutations(node_type: NodeType):
         return Node.type_to_point_mutation.get(node_type, [])
-    
+
     @staticmethod
     def get_random_terminal(node_type: NodeType):
         possibilities = Node.type_to_terminal.get(node_type, [])

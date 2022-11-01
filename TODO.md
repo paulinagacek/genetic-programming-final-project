@@ -41,8 +41,8 @@ Paweł:
 - [ ] przetestowac gramatyke w antlr
 
 Paulina:
-- [ ] pętle
-- [ ] bloki
+- [x] pętle
+- [x] bloki
 - [ ] value do node
 - [ ] nawiasy ( )
-- [ ] operacje logiczne
+- [x] operacje logiczne
