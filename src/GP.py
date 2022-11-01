@@ -34,6 +34,7 @@ class Node:
     def __init__(self, node_type: NodeType) -> None:
         self.type = node_type
         self.children = [] # List[Node]
+        self.parent = None # Node
 
     @staticmethod
     def is_pseudo_type(type: NodeType) -> bool:
@@ -64,7 +65,7 @@ class Node:
 class GP:
     def __init__(self) -> None:
         self.max_depth = 5
-        self.population_size = 10
+        self.population_size = 5
         self.population = [] # List[Node]
         self.fitness = [] # List[float]
         self.tournament_size = 2
@@ -84,6 +85,8 @@ class GP:
             if level < self.max_depth:
                 for idx in range(len(types)):
                     node.children.append(Node(types[idx]))
+                    node.children[idx].parent = node
+
                     if not Node.is_pseudo_type(node.children[idx].type):
                         queue.append((level+1, node.children[idx]))
                     else:
@@ -92,14 +95,36 @@ class GP:
     
     def create_random_population(self):
         for idx in range(self.population_size):
-            self.population.append(self.create_random_individual)
+            self.population.append(self.create_random_individual())
             self.fitness.append(self.compute_fitness(self.population[idx]))
 
-    # TODO
-    # możliwość testowania programów 
-    # return idx of the best individual
+    """
+        Return idx of the best individual
+    """
     def perform_tournament(self) -> int:
-        pass
+        fbest = -1.0e34
+        best = random.randint(0, self.population_size-1)
+        for idx in range(self.tournament_size):
+            competitor = random.randint(0, self.population_size-1)
+            print("idx: ", competitor)
+            if self.fitness[competitor] > fbest:
+                fbest = self.fitness[competitor]
+                best = competitor
+        return best
+    
+    """
+        Return idx of the worst individual
+    """
+    def perform_negative_tournament(self) -> int:
+        fworst = 1.0e34
+        worst = random.randint(0, self.population_size-1)
+        for idx in range(self.tournament_size):
+            competitor = random.randint(0, self.population_size-1)
+            print("idx: ", competitor)
+            if self.fitness[competitor] < fworst:
+                fworst = self.fitness[competitor]
+                worst = competitor
+        return worst
 
     # TODO
     # operację krzyżowania dwóch drzew/programów
@@ -120,5 +145,8 @@ class GP:
 
 print("---RUN---")
 gp = GP()
-root = gp.create_random_individual()
+root = gp.create_random_population()
+# print(gp.fitness)
+# print(gp.perform_tournament())
+# print(gp.perform_negative_tournament())
 # gp.display_program(root)
