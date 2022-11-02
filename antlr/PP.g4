@@ -19,7 +19,7 @@ arithmeticalExpression:
 	| variableName;
 
 assignment:
-	variableName '=' value = (variableName | integer | input) ';';
+	variableName '=' (variableName | integer | input | arithmeticalExpression) ';';
 
 conditionalStatement:
 	'IF' '(' cond = condition ')' con_body = conditionBody (
