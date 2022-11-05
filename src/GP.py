@@ -2,12 +2,14 @@ from Node import *
 
 class GP:
     def __init__(self) -> None:
-        self.max_depth = 5
-        self.population_size = 1
+        self.max_depth = 2
+        self.population_size = 4
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.tournament_size = 2
-        self.mutation_rate = 1
+        self.mutation_rate = 0.1
+        self.crossover_rate = 0.5
+        self.max_generations = 2
 
     def compute_fitness(self, individual: Node) -> float:
         return -random.randint(0, 2137)
@@ -65,7 +67,9 @@ class GP:
     # TODO
     # operację krzyżowania dwóch drzew/programów
     def perform_crossover(self, parent1: Node, parent2: None) -> Node:
-        pass
+        # TODO
+        # implementacja
+        return parent1
 
     """
         Mutates provided node with other randomly chosen.
@@ -108,11 +112,47 @@ class GP:
             for child in reversed(node.children):
                 stack.append((level + 1, child))
 
+    def evolve(self, copy=False):
+        for generation in range(self.max_generations):
+            if max(self.fitness)/len(self.population) > -0.1:
+                print("Solution found in generation", generation)
+                break
+            population_copy = self.population.copy()
+            fitness_copy = self.fitness.copy()
+            print("Generation", generation)
+
+            for i in range(self.population_size):
+                self.display_program(self.population[i])
+                print("Fitness", self.fitness[i])
+            print('\nOperations:')
+            for idx in range(len(self.population)):
+                if random.random() < self.crossover_rate:
+                    parent1 = self.perform_tournament()
+                    parent2 = self.perform_tournament()
+                    child = self.perform_crossover(self.population[parent1], self.population[parent2])
+                    print("Crossover", parent1, parent2, end=' ')
+                else:
+                    parent1 = self.perform_tournament()
+                    child = self.mutate(self.population[parent1])
+                    print("Mutation", parent1, end=' ')
+                weakest = self.perform_negative_tournament()
+                if copy:
+                    population_copy[weakest] = child
+                    fitness_copy[weakest] = self.compute_fitness(child)
+                else:
+                    self.population[weakest] = child
+                    self.fitness[weakest] = self.compute_fitness(child)
+                print("->", weakest)
+        print("Best fitness:", max(self.fitness), "worst fitness:", min(self.fitness), "avg fitness:", sum(self.fitness)/len(self.fitness))
+
 
 if __name__ == "__main__":
     print("---RUN---")
     gp = GP()
     gp.create_random_population()
-    gp.display_program(gp.population[0])
-    gp.population[0] = gp.mutate(gp.population[0])
-    gp.display_program(gp.population[0])
+    # gp.display_program(gp.population[0])
+    # gp.display_program(gp.population[1])
+    # gp.population[0] = gp.mutate(gp.population[0])
+    # gp.display_program(gp.population[0])
+    gp.evolve(copy=False)
+    gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
