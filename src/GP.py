@@ -2,14 +2,16 @@ from Node import *
 
 class GP:
     def __init__(self) -> None:
-        self.max_depth = 2
+        self.max_depth = 3
         self.population_size = 4
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.tournament_size = 2
         self.mutation_rate = 0.1
-        self.crossover_rate = 0.5
-        self.max_generations = 2
+        self.crossover_rate = 1
+        self.max_generations = 5
+        self.traverse_rate = 0.2
+        self.max_traverse_tries = 10
 
     def compute_fitness(self, individual: Node) -> float:
         return -random.randint(0, 2137)
@@ -64,12 +66,43 @@ class GP:
                 worst = competitor
         return worst
 
-    # TODO
-    # operację krzyżowania dwóch drzew/programów
-    def perform_crossover(self, parent1: Node, parent2: None) -> Node:
-        # TODO
-        # implementacja
-        return parent1
+    def perform_crossover(self, parent1: Node, parent2: Node) -> Node:
+        for i in range(self.max_traverse_tries):
+            node1 = self.get_random_node(parent1)
+            if Node.is_pseudo_type(node1.type):
+                continue
+            if node1.type == NodeType.PROGRAM:
+                continue
+            for j in range(self.max_traverse_tries):
+                node2 = self.get_random_node(parent2)
+                if Node.is_pseudo_type(node2.type):
+                    continue
+                if node2.type == NodeType.PROGRAM:
+                    continue
+                if node2.type in Node.get_possible_point_mutations(node1.type):
+                    node1.type = node2.type
+                    node1.value = node2.value
+                    node1.children = node2.children
+                    node1.parent = node2.parent
+                    for child in node1.children:
+                        child.parent = node1
+                    print("Crossover", node1.type, node2.type)
+                    return parent1
+        return parent1 if self.compute_fitness(parent1) > self.compute_fitness(parent2) else parent2
+
+    def get_random_node(self, root: Node) -> Node:
+        queue = [root]
+        while queue:
+            node = queue.pop()
+            if random.random() < self.traverse_rate:
+                if node.type == NodeType.PROGRAM:
+                    continue
+                if Node.is_pseudo_type(node.type):
+                    continue
+                return node
+            for child in node.children:
+                queue.append(child)
+        return root
 
     """
         Mutates provided node with other randomly chosen.
@@ -154,5 +187,5 @@ if __name__ == "__main__":
     # gp.display_program(gp.population[1])
     # gp.population[0] = gp.mutate(gp.population[0])
     # gp.display_program(gp.population[0])
-    gp.evolve(copy=False)
+    gp.evolve(copy=True)
     gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
