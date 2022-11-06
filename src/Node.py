@@ -27,11 +27,12 @@ class NodeType(Enum):
     SUB = 44,
     LOOP = 50,
     LEFT_BRACKET = 60,
-    RIGHT_PARENT = 61,
+    RIGHT_BRACKET = 61,
     EMPTY = 100
 
 
 class Node:
+    nr_of_variables = 0
 
     def __init__(self, node_type: NodeType, children, value=None) -> None:
         self.type = node_type
@@ -40,20 +41,34 @@ class Node:
         self.value = None
         if not value:
             self.value = Node.generate_random_value(self.type)
+            if self.value == "ERROR": # calling variable before assignment
+                self.type = NodeType.INT
+                self.value = random.randint(Node.min_val_int, Node.max_val_int)
         else:
             self.value = value
-    
+
     def print_value(self) -> str:
-        return str(self.value) if self.value else "" 
-    
+        return str(self.value) if self.value else ""
+
     @staticmethod
     def generate_random_value(type_: NodeType):
         if type_ == NodeType.INT:
             return random.randint(Node.min_val_int, Node.max_val_int)
-        elif type_ == NodeType.VAR_NAME: # existing
-            return "X1"
+        elif type_ == NodeType.VAR_NAME:  # existing
+            if Node.nr_of_variables==0: # create new
+                return "ERROR"
+            else:
+                idx = random.randint(1, Node.nr_of_variables)
+                return "X" + str(idx)
         elif type_ == NodeType.VAR_NAME_IMMUTABLE:
-            return "X2"
+            if random.random() < 0.2 or Node.nr_of_variables==0: # create new
+                Node.nr_of_variables += 1
+                return "X" + str(Node.nr_of_variables)
+            else:
+                idx = random.randint(1, Node.nr_of_variables)
+                return "X" + str(idx)
+        else:
+            return None
 
     @staticmethod
     def has_value(type_: NodeType) -> bool:
@@ -89,7 +104,7 @@ class Node:
     @staticmethod
     def get_possible_point_mutations(node_type: NodeType):
         return Node.type_to_point_mutation.get(node_type, [])
-    
+
     @staticmethod
     def get_possible_crossover(node_type: NodeType):
         return Node.type_to_cross_over.get(node_type, [])
@@ -100,14 +115,14 @@ class Node:
         if len(possibilities) > 0:
             idx = random.randint(0, len(possibilities)-1)
             return possibilities[idx]
-    
+
     @staticmethod
     def get_random_terminal_node(node_type: NodeType):
         possibilities = Node.type_to_terminal.get(node_type, [])
         if len(possibilities) > 0:
             idx = random.randint(0, len(possibilities)-1)
             return Node(possibilities[idx], [], None)
-    
+
     # static attributes
 
     max_nr_of_children = 5
@@ -121,15 +136,20 @@ class Node:
 
         # CONDITIONAL STATEMENTS, LOOPS
         NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.CONDITION, NodeType.PROGRAM])],
+        NodeType.CONDITIONAL_EXPR: [(1, [NodeType.CONDITION]),
+                                    (3, [NodeType.CONDITIONAL_EXPR,
+                                     NodeType.AND, NodeType.CONDITIONAL_EXPR]),
+                                    (3, [NodeType.CONDITIONAL_EXPR, NodeType.OR, NodeType.CONDITIONAL_EXPR])],
         NodeType.CONDITION: [(3, [NodeType.ARITHMETICAL_EXPR, NodeType.EQ, NodeType.ARITHMETICAL_EXPR]),
                              (3, [NodeType.ARITHMETICAL_EXPR,
                               NodeType.NOT_EQ, NodeType.ARITHMETICAL_EXPR]),
                              (3, [NodeType.ARITHMETICAL_EXPR,
                               NodeType.LESS_THAN, NodeType.ARITHMETICAL_EXPR]),
-                             (3, [NodeType.ARITHMETICAL_EXPR, NodeType.GREATER_THAN, NodeType.ARITHMETICAL_EXPR])],
-        NodeType.CONDITIONAL_EXPR: [(1, [NodeType.CONDITION]),
-                             (3, [NodeType.CONDITIONAL_EXPR, NodeType.AND, NodeType.CONDITIONAL_EXPR]),
-                             (3, [NodeType.CONDITIONAL_EXPR, NodeType.OR, NodeType.CONDITIONAL_EXPR])],
+                             (3, [NodeType.ARITHMETICAL_EXPR,
+                              NodeType.GREATER_THAN, NodeType.ARITHMETICAL_EXPR]),
+                             (1, [NodeType.FALSE]),
+                             (1, [NodeType.TRUE])],
+
         NodeType.LOOP: [(2, [NodeType.CONDITION, NodeType.PROGRAM])],
 
         # ARITHMETICAL EXPR
@@ -147,7 +167,7 @@ class Node:
 
     type_to_point_mutation = {
         NodeType.INT: [NodeType.VAR_NAME, NodeType.INT],
-        NodeType.VAR_NAME: [NodeType.INT],
+        NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.INT],
         NodeType.ADD: [NodeType.DIV, NodeType.SUB, NodeType.MUL],
         NodeType.DIV: [NodeType.ADD, NodeType.SUB, NodeType.MUL],
         NodeType.SUB: [NodeType.DIV, NodeType.ADD, NodeType.MUL],
@@ -160,6 +180,8 @@ class Node:
         NodeType.FALSE: [NodeType.TRUE],
         NodeType.LOOP: [NodeType.CONDITIONAL_STATEMENT],
         NodeType.CONDITIONAL_STATEMENT: [NodeType.LOOP],
+        NodeType.AND: [NodeType.OR],
+        NodeType.OR: [NodeType.AND]
     }
 
     """
@@ -175,7 +197,8 @@ class Node:
         NodeType.LOOP: [NodeType.EMPTY],
     }
 
-    types_with_value = [NodeType.INT, NodeType.VAR_NAME, NodeType.VAR_NAME_IMMUTABLE]
+    types_with_value = [NodeType.INT,
+                        NodeType.VAR_NAME, NodeType.VAR_NAME_IMMUTABLE]
 
     type_to_cross_over = {
         NodeType.PROGRAM: [NodeType.CONDITIONAL_STATEMENT, NodeType.PROGRAM, NodeType.LOOP, NodeType.ASSIGNMENT],
@@ -201,4 +224,4 @@ class Node:
         NodeType.DIV: [NodeType.DIV, NodeType.SUB, NodeType.ADD, NodeType.MUL],
         NodeType.MUL: [NodeType.MUL, NodeType.SUB, NodeType.DIV, NodeType.ADD],
         NodeType.EMPTY: [NodeType.EMPTY],
-        }
+    }
