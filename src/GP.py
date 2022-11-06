@@ -37,6 +37,23 @@ class GP:
                     node.children.append(Node(types[idx], [], None))
                     queue.append((level+1, node.children[idx]))
         return root
+    
+    def create_individual_with_start(self, start_node) -> Node:
+        root, level = Node(start_node, [], None), 0
+        queue = [(level, root)]  # (int, Node)
+        while queue:
+            level, node = queue.pop(0)
+            if level == self.max_depth and Node.is_pseudo_type(node.type):
+                new_node = Node.get_random_terminal_node(node.type)
+                node.type = new_node.type
+                node.value = new_node.value
+                node.children = []
+            elif level < self.max_depth:
+                types = Node.generate_random_children_types(node.type)
+                for idx in range(len(types)):
+                    node.children.append(Node(types[idx], [], None))
+                    queue.append((level+1, node.children[idx]))
+        return root
 
     def perform_tournament(self) -> int:
         """
@@ -66,9 +83,9 @@ class GP:
 
     def perform_crossover(self, parent1: Node, parent2: Node) -> Node:
         for i in range(self.max_traverse_tries):
-            node1 = self.get_random_node(parent1)
+            node1 = GP.get_random_node(parent1)
             for j in range(self.max_traverse_tries):
-                node2 = self.get_random_node(parent2)
+                node2 = GP.get_random_node(parent2)
                 if node2.type in Node.get_possible_crossover(node1.type):
                     print("Node1:", node1.type, node1.value, "  Node2:", node2.type, node2.value)
                     print("Crossover", node1.type, node1.value, node2.type, node2.value)
@@ -85,6 +102,19 @@ class GP:
 
         return parent1 if self.compute_fitness(parent1) > self.compute_fitness(parent2) else parent2
 
+    def perform_subtree_mutation(self, parent: Node) -> Node:
+        start_node = GP.get_random_node(parent)
+        new_subtree = self.create_individual_with_start(start_node)
+        print("Start node:", start_node.type, start_node.value)
+        print("New subtree:")
+        self.display_program(new_subtree)
+        start_node.type = new_subtree.type
+        start_node.value = new_subtree.value
+        start_node.children = new_subtree.children
+        for child in start_node.children:
+            child.parent = start_node
+        return parent
+    
     @staticmethod
     def perform_point_mutation(parent: Node) -> Node:
         """
@@ -113,7 +143,7 @@ class GP:
         while queue:
             node = queue.pop()
             if random.random() < self.mutation_rate:  # 10%
-                new_node = self.perform_point_mutation(node)
+                new_node = GP.perform_point_mutation(node) if random.random() < 0.5 else self.perform_subtree_mutation(node)
                 node.type = new_node.type
                 node.value = new_node.value
                 node.children = new_node.children
@@ -121,7 +151,8 @@ class GP:
                 queue.append(child)
         return root
     
-    def get_random_node(self, root: Node) -> Node:
+    @staticmethod
+    def get_random_node(root: Node) -> Node:
         queue = [root]
         node_set = []
         while queue:
@@ -145,20 +176,19 @@ class GP:
 
     def evolve(self, copy=False):
         for generation in range(self.nr_of_generations):
-            print("\n\nGeneration", generation,
-                  " ----------------------------")
+            # print("\n\nGeneration", generation," ------------------------")
             if max(self.fitness)/len(self.population) > -0.1:
-                print("Solution found in generation", generation)
+                # print("Solution found in generation", generation)
                 break
 
             if copy:
                 population_copy = self.population.copy()
                 fitness_copy = self.fitness.copy()
 
-            for i in range(self.population_size):
-                print("\nIndividual nr", i)
-                self.display_program(self.population[i])
-                print("Fitness", self.fitness[i])
+            # for i in range(self.population_size):
+                # print("\nIndividual nr", i)
+                # self.display_program(self.population[i])
+                # print("Fitness", self.fitness[i])
 
             print("\n***** Operations ***")
             for idx in range(len(self.population)):
@@ -182,13 +212,13 @@ class GP:
                     self.population[weakest_idx] = child
                     self.fitness[weakest_idx] = self.compute_fitness(child)
                 print("-> weakest idx:", weakest_idx)
-            print("\nBest fitness:", max(self.fitness), "worst fitness:", min(
-                self.fitness), "avg fitness:", sum(self.fitness)/len(self.fitness))
+            # print("\nBest fitness:", max(self.fitness), "worst fitness:", min(
+            #     self.fitness), "avg fitness:", sum(self.fitness)/len(self.fitness))
 
 
 if __name__ == "__main__":
     gp = GP()
     gp.create_random_population()
     gp.evolve(copy=False)
-    print("\nBest individual:")
-    gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
+    # print("\nBest individual:")
+    # gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
