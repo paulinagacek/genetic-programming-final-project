@@ -10,7 +10,7 @@ class GP:
         self.mutation_rate = 0.1
         self.crossover_rate = 1
         self.max_generations = 5
-        self.traverse_rate = 0.2
+        self.traverse_rate = 0.1
         self.max_traverse_tries = 10
 
     def compute_fitness(self, individual: Node) -> float:
@@ -71,8 +71,6 @@ class GP:
             node1 = self.get_random_node(parent1)
             if Node.is_pseudo_type(node1.type):
                 continue
-            if node1.type == NodeType.PROGRAM:
-                continue
             for j in range(self.max_traverse_tries):
                 node2 = self.get_random_node(parent2)
                 if Node.is_pseudo_type(node2.type):
@@ -80,29 +78,27 @@ class GP:
                 if node2.type == NodeType.PROGRAM:
                     continue
                 if node2.type in Node.get_possible_point_mutations(node1.type):
+                    print("Crossover", node1.type, node2.type)
                     node1.type = node2.type
                     node1.value = node2.value
                     node1.children = node2.children
-                    node1.parent = node2.parent
+                    # node1.parent = node2.parent
                     for child in node1.children:
                         child.parent = node1
-                    print("Crossover", node1.type, node2.type)
+                    # print("Crossover", node1.type, node2.type)
                     return parent1
         return parent1 if self.compute_fitness(parent1) > self.compute_fitness(parent2) else parent2
 
     def get_random_node(self, root: Node) -> Node:
         queue = [root]
+        node_set = []
         while queue:
             node = queue.pop()
-            if random.random() < self.traverse_rate:
-                if node.type == NodeType.PROGRAM:
-                    continue
-                if Node.is_pseudo_type(node.type):
-                    continue
-                return node
+            if node != root:
+                node_set.append(node)
             for child in node.children:
                 queue.append(child)
-        return root
+        return random.sample(node_set, k=1)[0]
 
     """
         Mutates provided node with other randomly chosen.

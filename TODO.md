@@ -35,7 +35,7 @@ jesli w n_parent_1(stała) prob nie uda sie znalezc miejsca to zwracamy osobnik 
 ewolucja tak jak w tiny gp
 
 Paweł:
-- [ ] funkcja evolve
+- [x] funkcja evolve
 - [ ] crossover
 - [ ] zapisywanie programu i drzewa do pliku
 - [ ] przetestowac gramatyke w antlr
