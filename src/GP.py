@@ -3,14 +3,15 @@ from Node import *
 
 class GP:
     def __init__(self) -> None:
-        self.max_depth = 2
-        self.population_size = 4
+        self.max_depth = 4
+        self.population_size = 6
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.tournament_size = 2
         self.mutation_rate = 0.5
-        self.crossover_rate = 0.5
-        self.nr_of_generations = 2
+        self.crossover_rate = 1
+        self.nr_of_generations = 1
+        self.max_traverse_tries = 10
 
     def compute_fitness(self, individual: Node) -> float:
         return -random.randint(0, 2137)
@@ -63,12 +64,26 @@ class GP:
                 worst = competitor
         return worst
 
-    # TODO
-    # operację krzyżowania dwóch drzew/programów
-    def perform_crossover(self, parent1: Node, parent2: None) -> Node:
-        # TODO
-        # implementacja
-        return parent1
+    def perform_crossover(self, parent1: Node, parent2: Node) -> Node:
+        for i in range(self.max_traverse_tries):
+            node1 = self.get_random_node(parent1)
+            for j in range(self.max_traverse_tries):
+                node2 = self.get_random_node(parent2)
+                if node2.type in Node.get_possible_crossover(node1.type):
+                    print("Node1:", node1.type, node1.value, "  Node2:", node2.type, node2.value)
+                    print("Crossover", node1.type, node1.value, node2.type, node2.value)
+                    print("Parent1:")
+                    self.display_program(parent1)
+                    print("Parent2:")
+                    self.display_program(parent2)
+                    node1.type = node2.type
+                    node1.value = node2.value
+                    node1.children = node2.children
+                    for child in node1.children:
+                        child.parent = node1
+                    return parent1
+
+        return parent1 if self.compute_fitness(parent1) > self.compute_fitness(parent2) else parent2
 
     @staticmethod
     def perform_point_mutation(parent: Node) -> Node:
@@ -105,6 +120,18 @@ class GP:
             for child in node.children:
                 queue.append(child)
         return root
+    
+    def get_random_node(self, root: Node) -> Node:
+        queue = [root]
+        node_set = []
+        while queue:
+            node = queue.pop()
+            if node != root:
+                node_set.append(node)
+            for child in node.children:
+                queue.append(child)
+        
+        return random.choice(node_set)
 
     def display_program(self, root: Node):
         level = 0
@@ -141,6 +168,8 @@ class GP:
                     child = self.perform_crossover(
                         self.population[parent1], self.population[parent2])
                     print("Crossover", parent1, parent2, end=' ')
+                    print("Child:")
+                    self.display_program(child)
                 else:
                     parent1 = self.perform_tournament()
                     child = self.mutate(self.population[parent1])

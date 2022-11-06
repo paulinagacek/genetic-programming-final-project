@@ -89,6 +89,10 @@ class Node:
     @staticmethod
     def get_possible_point_mutations(node_type: NodeType):
         return Node.type_to_point_mutation.get(node_type, [])
+    
+    @staticmethod
+    def get_possible_crossover(node_type: NodeType):
+        return Node.type_to_cross_over.get(node_type, [])
 
     @staticmethod
     def get_random_terminal(node_type: NodeType):
@@ -172,3 +176,29 @@ class Node:
     }
 
     types_with_value = [NodeType.INT, NodeType.VAR_NAME, NodeType.VAR_NAME_IMMUTABLE]
+
+    type_to_cross_over = {
+        NodeType.PROGRAM: [NodeType.CONDITIONAL_STATEMENT, NodeType.PROGRAM, NodeType.LOOP, NodeType.ASSIGNMENT],
+        NodeType.CONDITIONAL_STATEMENT: [NodeType.CONDITIONAL_STATEMENT, NodeType.PROGRAM, NodeType.LOOP, NodeType.ASSIGNMENT],
+        NodeType.CONDITION: [NodeType.CONDITION, NodeType.CONDITIONAL_EXPR],
+        NodeType.CONDITIONAL_EXPR: [NodeType.CONDITIONAL_EXPR, NodeType.CONDITION],
+        NodeType.LOOP: [NodeType.LOOP, NodeType.PROGRAM, NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT],
+        NodeType.ASSIGNMENT: [NodeType.ASSIGNMENT, NodeType.PROGRAM, NodeType.CONDITIONAL_STATEMENT, NodeType.LOOP],
+        NodeType.ARITHMETICAL_EXPR: [NodeType.ARITHMETICAL_EXPR, NodeType.INT, NodeType.VAR_NAME],
+        NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.ARITHMETICAL_EXPR, NodeType.INT],
+        NodeType.INT: [NodeType.INT, NodeType.ARITHMETICAL_EXPR, NodeType.VAR_NAME],
+        NodeType.VAR_NAME_IMMUTABLE: [NodeType.VAR_NAME_IMMUTABLE],
+        NodeType.TRUE: [NodeType.TRUE, NodeType.FALSE, NodeType.CONDITIONAL_EXPR, NodeType.CONDITION],
+        NodeType.FALSE: [NodeType.FALSE, NodeType.TRUE, NodeType.CONDITIONAL_EXPR, NodeType.CONDITION],
+        NodeType.AND: [NodeType.AND, NodeType.OR],
+        NodeType.OR: [NodeType.OR, NodeType.AND],
+        NodeType.EQ: [NodeType.EQ, NodeType.NOT_EQ, NodeType.LESS_THAN, NodeType.GREATER_THAN],
+        NodeType.NOT_EQ: [NodeType.NOT_EQ, NodeType.EQ, NodeType.LESS_THAN, NodeType.GREATER_THAN],
+        NodeType.LESS_THAN: [NodeType.LESS_THAN, NodeType.NOT_EQ, NodeType.EQ, NodeType.GREATER_THAN],
+        NodeType.GREATER_THAN: [NodeType.GREATER_THAN, NodeType.NOT_EQ, NodeType.LESS_THAN, NodeType.EQ],
+        NodeType.ADD: [NodeType.ADD, NodeType.SUB, NodeType.DIV, NodeType.MUL],
+        NodeType.SUB: [NodeType.SUB, NodeType.ADD, NodeType.DIV, NodeType.MUL],
+        NodeType.DIV: [NodeType.DIV, NodeType.SUB, NodeType.ADD, NodeType.MUL],
+        NodeType.MUL: [NodeType.MUL, NodeType.SUB, NodeType.DIV, NodeType.ADD],
+        NodeType.EMPTY: [NodeType.EMPTY],
+        }

@@ -62,4 +62,3 @@ antlr4 -Dlanguage=Python3 ./antlr4/App.g4  -visitor -o dist3
 3. Run programm: 
       - with realtime interpreter - `python3 main.py`
       - from file in `\examples` - `python3 main.py <filename>`
-      - 
