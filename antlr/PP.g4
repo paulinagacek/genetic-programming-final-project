@@ -1,6 +1,6 @@
 grammar PP;
 
-primaryExpression: (instruction)+;
+program: (instruction)+ EOF;
 
 instruction: assignment | conditionalStatement | loop | print;
 
@@ -19,12 +19,10 @@ arithmeticalExpression:
 	| variableName;
 
 assignment:
-	variableName '=' (variableName | integer | input | arithmeticalExpression) ';';
+	variableName '=' (input | arithmeticalExpression) ';';
 
 conditionalStatement:
-	'IF' '(' cond = condition ')' con_body = conditionBody (
-		else_stat = elseStatement
-	)? ';';
+	'IF' '(' cond = condition ')' con_body = conditionBody (else_stat = elseStatement)? ';';
 
 condition:
 	left_expr = arithmeticalExpression op = (
