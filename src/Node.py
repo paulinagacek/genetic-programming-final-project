@@ -28,7 +28,6 @@ class NodeType(Enum):
     LOOP = 50,
     LEFT_BRACKET = 60,
     RIGHT_BRACKET = 61,
-    EMPTY = 100
 
 
 class Node:
@@ -41,7 +40,7 @@ class Node:
         self.value = None
         if not value:
             self.value = Node.generate_random_value(self.type)
-            if self.value == "ERROR": # calling variable before assignment
+            if self.value == "ERROR":  # calling variable before assignment
                 self.type = NodeType.INT
                 self.value = random.randint(Node.min_val_int, Node.max_val_int)
         else:
@@ -55,13 +54,13 @@ class Node:
         if type_ == NodeType.INT:
             return random.randint(Node.min_val_int, Node.max_val_int)
         elif type_ == NodeType.VAR_NAME:  # existing
-            if Node.nr_of_variables==0: # create new
+            if Node.nr_of_variables == 0:  # create new
                 return "ERROR"
             else:
                 idx = random.randint(1, Node.nr_of_variables)
                 return "X" + str(idx)
         elif type_ == NodeType.VAR_NAME_IMMUTABLE:
-            if random.random() < 0.2 or Node.nr_of_variables==0: # create new
+            if random.random() < 0.2 or Node.nr_of_variables == 0:  # create new
                 Node.nr_of_variables += 1
                 return "X" + str(Node.nr_of_variables)
             else:
@@ -71,12 +70,9 @@ class Node:
             return None
 
     @staticmethod
-    def has_value(type_: NodeType) -> bool:
-        return type_ in Node.types_with_value
-
-    @staticmethod
-    def is_pseudo_type(type_: NodeType) -> bool:
-        return type_ in [NodeType.ARITHMETICAL_EXPR, NodeType.PROGRAM, NodeType.CONDITIONAL_STATEMENT,  NodeType.ASSIGNMENT, NodeType.LOOP]
+    def is_non_terminal(type_: NodeType) -> bool:
+        return type_ in [NodeType.ARITHMETICAL_EXPR, NodeType.PROGRAM, NodeType.CONDITIONAL_STATEMENT,
+                         NodeType.ASSIGNMENT, NodeType.LOOP, NodeType.CONDITIONAL_EXPR, NodeType.CONDITION]
 
     @staticmethod
     def generate_random_children_types(parent: NodeType) -> List[NodeType]:
@@ -110,18 +106,25 @@ class Node:
         return Node.type_to_cross_over.get(node_type, [])
 
     @staticmethod
-    def get_random_terminal(node_type: NodeType):
-        possibilities = Node.type_to_terminal.get(node_type, [])
-        if len(possibilities) > 0:
-            idx = random.randint(0, len(possibilities)-1)
-            return possibilities[idx]
+    def get_children_to_finish(node_type: NodeType):
+        """
+        Returns such children set to finish as fast as possible
+        """
+        possible_combinations = len(Node.type_to_finish.get(node_type, []))
+        if possible_combinations == 0:
+            return []
+        idx = random.randint(0, possible_combinations-1)
+        nr_of_children, children_types = Node.type_to_finish.get(node_type, [])[
+            idx]
+        return children_types
 
     @staticmethod
-    def get_random_terminal_node(node_type: NodeType):
-        possibilities = Node.type_to_terminal.get(node_type, [])
-        if len(possibilities) > 0:
-            idx = random.randint(0, len(possibilities)-1)
-            return Node(possibilities[idx], [], None)
+    def get_random_program_substitute():
+        """
+        It returns node type which can be placed in the tree instead of PROGRAMM 
+        if it is leaf parent (we want to finish as fast as possible)
+        """
+        return random.choice([NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT, NodeType.LOOP])
 
     # static attributes
 
@@ -184,22 +187,6 @@ class Node:
         NodeType.OR: [NodeType.AND]
     }
 
-    """
-        Structure to prevent situation when non-terminal is a leaf.
-    """
-    type_to_terminal = {
-        NodeType.ARITHMETICAL_EXPR: [NodeType.INT, NodeType.VAR_NAME],
-        NodeType.CONDITIONAL_EXPR: [NodeType.TRUE, NodeType.FALSE],
-        NodeType.CONDITION: [NodeType.TRUE, NodeType.FALSE],
-        NodeType.PROGRAM: [NodeType.EMPTY],
-        NodeType.CONDITIONAL_STATEMENT: [NodeType.EMPTY],
-        NodeType.ASSIGNMENT: [NodeType.EMPTY],
-        NodeType.LOOP: [NodeType.EMPTY],
-    }
-
-    types_with_value = [NodeType.INT,
-                        NodeType.VAR_NAME, NodeType.VAR_NAME_IMMUTABLE]
-
     type_to_cross_over = {
         NodeType.PROGRAM: [NodeType.CONDITIONAL_STATEMENT, NodeType.PROGRAM, NodeType.LOOP, NodeType.ASSIGNMENT],
         NodeType.CONDITIONAL_STATEMENT: [NodeType.CONDITIONAL_STATEMENT, NodeType.PROGRAM, NodeType.LOOP, NodeType.ASSIGNMENT],
@@ -223,5 +210,69 @@ class Node:
         NodeType.SUB: [NodeType.SUB, NodeType.ADD, NodeType.DIV, NodeType.MUL],
         NodeType.DIV: [NodeType.DIV, NodeType.SUB, NodeType.ADD, NodeType.MUL],
         NodeType.MUL: [NodeType.MUL, NodeType.SUB, NodeType.DIV, NodeType.ADD],
-        NodeType.EMPTY: [NodeType.EMPTY],
+    }
+
+    type_to_finish = {
+        NodeType.ARITHMETICAL_EXPR: [(3, [NodeType.INT, NodeType.ADD, NodeType.INT]),
+                                     (3, [NodeType.INT, NodeType.SUB, NodeType.INT]),
+                                     (3, [NodeType.INT, NodeType.DIV, NodeType.INT]),
+                                     (3, [NodeType.INT, NodeType.MUL, NodeType.INT]),
+
+                                     (3, [NodeType.INT, NodeType.ADD,
+                                      NodeType.VAR_NAME]),
+                                     (3, [NodeType.INT, NodeType.SUB,
+                                      NodeType.VAR_NAME]),
+                                     (3, [NodeType.INT, NodeType.DIV,
+                                      NodeType.VAR_NAME]),
+                                     (3, [NodeType.INT, NodeType.MUL,
+                                      NodeType.VAR_NAME]),
+
+                                     (3, [NodeType.VAR_NAME,
+                                      NodeType.ADD, NodeType.VAR_NAME]),
+                                     (3, [NodeType.VAR_NAME,
+                                      NodeType.SUB, NodeType.VAR_NAME]),
+                                     (3, [NodeType.VAR_NAME,
+                                      NodeType.DIV, NodeType.VAR_NAME]),
+                                     (3, [NodeType.VAR_NAME,
+                                      NodeType.MUL, NodeType.VAR_NAME]),
+
+                                     (3, [NodeType.VAR_NAME,
+                                      NodeType.ADD, NodeType.INT]),
+                                     (3, [NodeType.VAR_NAME,
+                                      NodeType.SUB, NodeType.INT]),
+                                     (3, [NodeType.VAR_NAME,
+                                      NodeType.DIV, NodeType.INT]),
+                                     (3, [NodeType.VAR_NAME, NodeType.MUL, NodeType.INT]), ],
+        NodeType.PROGRAM: [(1, [NodeType.ASSIGNMENT])],
+        NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.CONDITION, NodeType.ASSIGNMENT])],
+        NodeType.CONDITION: [(3, [NodeType.INT, NodeType.EQ, NodeType.INT]),
+                             (3, [NodeType.INT, NodeType.NOT_EQ, NodeType.INT]),
+                             (3, [NodeType.INT, NodeType.LESS_THAN, NodeType.INT]),
+                             (3, [NodeType.INT, NodeType.GREATER_THAN, NodeType.INT]),
+
+                             (3, [NodeType.VAR_NAME, NodeType.EQ, NodeType.INT]),
+                             (3, [NodeType.VAR_NAME, NodeType.NOT_EQ, NodeType.INT]),
+                             (3, [NodeType.VAR_NAME,
+                              NodeType.LESS_THAN, NodeType.INT]),
+                             (3, [NodeType.VAR_NAME,
+                              NodeType.GREATER_THAN, NodeType.INT]),
+
+                             (3, [NodeType.INT, NodeType.EQ, NodeType.VAR_NAME]),
+                             (3, [NodeType.INT, NodeType.NOT_EQ, NodeType.VAR_NAME]),
+                             (3, [NodeType.INT, NodeType.LESS_THAN, NodeType.VAR_NAME]),
+                             (3, [NodeType.INT, NodeType.GREATER_THAN,
+                              NodeType.VAR_NAME]),
+
+                             (3, [NodeType.VAR_NAME, NodeType.EQ, NodeType.VAR_NAME]),
+                             (3, [NodeType.VAR_NAME,
+                              NodeType.NOT_EQ, NodeType.VAR_NAME]),
+                             (3, [NodeType.VAR_NAME,
+                              NodeType.LESS_THAN, NodeType.VAR_NAME]),
+                             (3, [NodeType.VAR_NAME,
+                              NodeType.GREATER_THAN, NodeType.VAR_NAME]),
+
+                             (1, [NodeType.FALSE]),
+                             (1, [NodeType.TRUE])],
+        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INT])],
+        NodeType.LOOP: [(2, [NodeType.CONDITION, NodeType.ASSIGNMENT])],
     }

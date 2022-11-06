@@ -27,28 +27,13 @@ class GP:
         queue = [(level, root)]  # (int, Node)
         while queue:
             level, node = queue.pop(0)
-            if level == self.max_depth and Node.is_pseudo_type(node.type):
-                new_node = Node.get_random_terminal_node(node.type)
-                node.type = new_node.type
-                node.value = new_node.value
-                node.children = []
-            elif level < self.max_depth:
-                types = Node.generate_random_children_types(node.type)
-                for idx in range(len(types)):
-                    node.children.append(Node(types[idx], [], None))
+            if level >= self.max_depth-1 and Node.is_non_terminal(node.type):
+                if node.type == NodeType.PROGRAM:
+                    node.type = Node.get_random_program_substitute()
+                children_types = Node.get_children_to_finish(node.type)
+                for idx in range(len(children_types)):
+                    node.children.append(Node(children_types[idx], [], None))
                     queue.append((level+1, node.children[idx]))
-        return root
-    
-    def create_individual_with_start(self, start_node: NodeType) -> Node:
-        root, level = Node(start_node, [], None), 0
-        queue = [(level, root)]  # (int, Node)
-        while queue:
-            level, node = queue.pop(0)
-            if level == self.max_depth and Node.is_pseudo_type(node.type):
-                new_node = Node.get_random_terminal_node(node.type)
-                node.type = new_node.type
-                node.value = new_node.value
-                node.children = []
             elif level < self.max_depth:
                 types = Node.generate_random_children_types(node.type)
                 for idx in range(len(types)):
@@ -101,20 +86,6 @@ class GP:
                     return parent1
 
         return parent1 if self.compute_fitness(parent1) > self.compute_fitness(parent2) else parent2
-
-    def perform_subtree_mutation(self, parent: Node) -> Node:
-        start_node = GP.get_random_node(parent)
-        new_subtree = self.create_individual_with_start(start_node)
-        print("\n---- Subtree mutation ---")
-        print("Start node:", start_node.type, start_node.value)
-        print("New subtree:")
-        self.display_program(new_subtree)
-        start_node.type = new_subtree.type
-        start_node.value = new_subtree.value
-        start_node.children = new_subtree.children
-        for child in parent.children:
-            child.parent = start_node
-        return parent
     
     @staticmethod
     def perform_point_mutation(parent: Node) -> Node:
