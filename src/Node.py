@@ -149,9 +149,7 @@ class Node:
                              (3, [NodeType.ARITHMETICAL_EXPR,
                               NodeType.LESS_THAN, NodeType.ARITHMETICAL_EXPR]),
                              (3, [NodeType.ARITHMETICAL_EXPR,
-                              NodeType.GREATER_THAN, NodeType.ARITHMETICAL_EXPR]),
-                             (1, [NodeType.FALSE]),
-                             (1, [NodeType.TRUE])],
+                              NodeType.GREATER_THAN, NodeType.ARITHMETICAL_EXPR])],
 
         NodeType.LOOP: [(2, [NodeType.CONDITION, NodeType.PROGRAM])],
 

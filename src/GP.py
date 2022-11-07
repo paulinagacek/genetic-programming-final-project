@@ -1,5 +1,5 @@
 from Node import *
-
+from Converter import *
 
 class GP:
     def __init__(self) -> None:
@@ -187,10 +187,30 @@ class GP:
             print("\nBest fitness:", max(self.fitness), "worst fitness:", min(
                 self.fitness), "avg fitness:", sum(self.fitness)/len(self.fitness), "\n\n")
 
+    def generate_program_str(self,root: Node) -> str:
+        """
+        dfs?
+        """
+        output_str = ""
+        level = 0
+        stack = [(level, root)]
+        while stack:
+            level, node = stack.pop(-1)
+            if node.type == NodeType.ASSIGNMENT:
+                output_str += Converter.get_assignment(node)
+            elif node.type == NodeType.CONDITION:
+                output_str += Converter.get_condition(node)
+            else:
+                for child in reversed(node.children):
+                    stack.append((level + 1, child))
+        return output_str
+
 
 if __name__ == "__main__":
     gp = GP()
     gp.create_random_population()
     gp.evolve(copy=False)
+    indiv = gp.population[0]
+    print(gp.generate_program_str(indiv))
     # print("\nBest individual:")
     # gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
