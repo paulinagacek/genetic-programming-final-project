@@ -20,6 +20,7 @@ class GP:
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual())
             self.fitness.append(self.compute_fitness(self.population[idx]))
+            gp.display_program(self.population[idx])
 
     def create_random_individual(self) -> Node:
         Node.nr_of_variables = 0 # no global variables
@@ -198,7 +199,7 @@ class GP:
             level, node = stack.pop(-1)
             if node.type == NodeType.ASSIGNMENT:
                 output_str += Converter.get_assignment(node)
-            elif node.type == NodeType.CONDITION:
+            elif node.type == NodeType.COMPARISON:
                 output_str += Converter.get_condition(node)
             else:
                 for child in reversed(node.children):
@@ -209,8 +210,8 @@ class GP:
 if __name__ == "__main__":
     gp = GP()
     gp.create_random_population()
-    gp.evolve(copy=False)
-    indiv = gp.population[0]
-    print(gp.generate_program_str(indiv))
+    # gp.evolve(copy=False)
+    # indiv = gp.population[0]
+    # print(gp.generate_program_str(indiv))
     # print("\nBest individual:")
-    # gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
+    gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
