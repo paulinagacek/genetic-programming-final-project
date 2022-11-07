@@ -8,8 +8,8 @@ class GP:
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.tournament_size = 2
-        self.mutation_rate = 0.5
-        self.crossover_rate = 0.9
+        self.mutation_rate = 1
+        self.crossover_rate = 1
         self.nr_of_generations = 1
         self.max_traverse_tries = 10
 
@@ -24,12 +24,12 @@ class GP:
 
     def create_random_individual(self) -> Node:
         Node.nr_of_variables = 0 # no global variables
-        root, level = Node(NodeType.PROGRAM, [], None), 0
+        root, level = Node(NodeType.SEQUENCE, [], None), 0
         queue = [(level, root)]  # (int, Node)
         while queue:
             level, node = queue.pop(0)
             if level >= self.max_depth-1 and Node.is_non_terminal(node.type):
-                if node.type == NodeType.PROGRAM:
+                if node.type == NodeType.SEQUENCE:
                     node.type = Node.get_random_program_substitute()
                 children_types = Node.get_children_to_finish(node.type)
                 for idx in range(len(children_types)):
@@ -210,7 +210,7 @@ class GP:
 if __name__ == "__main__":
     gp = GP()
     gp.create_random_population()
-    # gp.evolve(copy=False)
+    gp.evolve(copy=False)
     # indiv = gp.population[0]
     # print(gp.generate_program_str(indiv))
     # print("\nBest individual:")
