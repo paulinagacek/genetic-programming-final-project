@@ -1,5 +1,6 @@
 from Node import *
 from Converter import *
+from Plotter import *
 
 
 class GP:
@@ -201,10 +202,11 @@ class GP:
 
 if __name__ == "__main__":
     gp = GP()
+    plotter = Plotter()
     gp.create_random_population()
     gp.evolve(copy=False)
-    indiv = gp.population[0]
-    gp.display_program(indiv)
-    print(GP.generate_program_str(indiv))
+    # gp.display_program(gp.population[0])
+    print(GP.generate_program_str(gp.population[0]))
+    plotter.plot(gp.population[0])
     # print("\nBest individual:")
     # gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
