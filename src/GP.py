@@ -1,6 +1,7 @@
 from Node import *
 from Converter import *
 
+
 class GP:
     def __init__(self) -> None:
         self.max_depth = 4
@@ -8,8 +9,8 @@ class GP:
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.tournament_size = 2
-        self.mutation_rate = 1
-        self.crossover_rate = 1
+        self.mutation_rate = 0.5
+        self.crossover_rate = 0.9
         self.nr_of_generations = 1
         self.max_traverse_tries = 10
 
@@ -20,10 +21,10 @@ class GP:
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual())
             self.fitness.append(self.compute_fitness(self.population[idx]))
-            gp.display_program(self.population[idx])
+            # gp.display_program(self.population[idx])
 
     def create_random_individual(self) -> Node:
-        Node.nr_of_variables = 0 # no global variables
+        Node.nr_of_variables = 0  # no global variables
         root, level = Node(NodeType.SEQUENCE, [], None), 0
         queue = [(level, root)]  # (int, Node)
         while queue:
@@ -74,7 +75,8 @@ class GP:
             for j in range(self.max_traverse_tries):
                 node2 = GP.get_random_node(parent2)
                 if node2.type in Node.get_possible_crossover(node1.type):
-                    print("Crossover", node1.type, node1.value, node2.type, node2.value)
+                    print("Crossover", node1.type,
+                          node1.value, node2.type, node2.value)
                     # print("Parent1:")
                     # self.display_program(parent1)
                     # print("Parent2:")
@@ -87,7 +89,7 @@ class GP:
                     return parent1
 
         return parent1 if self.compute_fitness(parent1) > self.compute_fitness(parent2) else parent2
-    
+
     @staticmethod
     def perform_point_mutation(parent: Node) -> Node:
         """
@@ -116,14 +118,15 @@ class GP:
         while queue:
             node = queue.pop()
             if random.random() < self.mutation_rate:  # 10%
-                new_node = GP.perform_point_mutation(node) # if random.random() < 0.5 else self.perform_subtree_mutation(node)
+                # if random.random() < 0.5 else self.perform_subtree_mutation(node)
+                new_node = GP.perform_point_mutation(node)
                 node.type = new_node.type
                 node.value = new_node.value
                 node.children = new_node.children
             for child in node.children:
                 queue.append(child)
         return root
-    
+
     @staticmethod
     def get_random_node(root: Node) -> Node:
         queue = [root]
@@ -134,7 +137,7 @@ class GP:
                 node_set.append(node)
             for child in node.children:
                 queue.append(child)
-        
+
         return random.choice(node_set) if node_set else root
 
     def display_program(self, root: Node):
@@ -149,7 +152,7 @@ class GP:
 
     def evolve(self, copy=False):
         for generation in range(self.nr_of_generations):
-            print("Generation", generation," ------------------------")
+            print("Generation", generation, " ------------------------")
             if max(self.fitness)/len(self.population) > -0.1:
                 # print("Solution found in generation", generation)
                 break
@@ -188,30 +191,37 @@ class GP:
             print("\nBest fitness:", max(self.fitness), "worst fitness:", min(
                 self.fitness), "avg fitness:", sum(self.fitness)/len(self.fitness), "\n\n")
 
-    def generate_program_str(self,root: Node) -> str:
+    def generate_program_str(self, root: Node) -> str:
         """
         dfs?
         """
         output_str = ""
-        level = 0
-        stack = [(level, root)]
-        while stack:
-            level, node = stack.pop(-1)
-            if node.type == NodeType.ASSIGNMENT:
-                output_str += Converter.get_assignment(node)
-            elif node.type == NodeType.COMPARISON:
-                output_str += Converter.get_condition(node)
-            else:
-                for child in reversed(node.children):
-                    stack.append((level + 1, child))
-        return output_str
+        # level = 0
+        # stack = [(level, root)]
+        # while stack:
+        #     level, node = stack.pop(-1)
+        #     if node.type == NodeType.ASSIGNMENT:
+        #         output_str += Converter.get_assignment(node)
+        #     elif node.type == NodeType.LOOP:
+        #         output_str += Converter.get_loop(node)
+        #     elif node.type == NodeType.CONDITIONAL_STATEMENT:
+        #         output_str += Converter.get_conditional_statement(node)
+        #     elif node.type == NodeType.LOGICAL_OP:
+        #         output_str += Converter.get_logical_op(node)
+        #     elif node.type == NodeType.COMPARISON:
+        #         output_str += Converter.get_comparison(node)
+        #     else:
+        #         for child in reversed(node.children):
+        #             stack.append((level + 1, child))
+        return Converter.get_proper_node(root)
 
 
 if __name__ == "__main__":
     gp = GP()
     gp.create_random_population()
-    gp.evolve(copy=False)
-    # indiv = gp.population[0]
-    # print(gp.generate_program_str(indiv))
+    # gp.evolve(copy=False)
+    indiv = gp.population[0]
+    gp.display_program(indiv)
+    print(gp.generate_program_str(indiv))
     # print("\nBest individual:")
-    gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
+    # gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
