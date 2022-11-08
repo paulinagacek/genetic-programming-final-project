@@ -191,37 +191,20 @@ class GP:
             print("\nBest fitness:", max(self.fitness), "worst fitness:", min(
                 self.fitness), "avg fitness:", sum(self.fitness)/len(self.fitness), "\n\n")
 
-    def generate_program_str(self, root: Node) -> str:
+    @staticmethod
+    def generate_program_str(root: Node) -> str:
         """
-        dfs?
+        Converts program tree to program string and returns it.
         """
-        output_str = ""
-        # level = 0
-        # stack = [(level, root)]
-        # while stack:
-        #     level, node = stack.pop(-1)
-        #     if node.type == NodeType.ASSIGNMENT:
-        #         output_str += Converter.get_assignment(node)
-        #     elif node.type == NodeType.LOOP:
-        #         output_str += Converter.get_loop(node)
-        #     elif node.type == NodeType.CONDITIONAL_STATEMENT:
-        #         output_str += Converter.get_conditional_statement(node)
-        #     elif node.type == NodeType.LOGICAL_OP:
-        #         output_str += Converter.get_logical_op(node)
-        #     elif node.type == NodeType.COMPARISON:
-        #         output_str += Converter.get_comparison(node)
-        #     else:
-        #         for child in reversed(node.children):
-        #             stack.append((level + 1, child))
         return Converter.get_proper_node(root)
 
 
 if __name__ == "__main__":
     gp = GP()
     gp.create_random_population()
-    # gp.evolve(copy=False)
+    gp.evolve(copy=False)
     indiv = gp.population[0]
     gp.display_program(indiv)
-    print(gp.generate_program_str(indiv))
+    print(GP.generate_program_str(indiv))
     # print("\nBest individual:")
     # gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])

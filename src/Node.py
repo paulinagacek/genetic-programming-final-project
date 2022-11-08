@@ -8,26 +8,16 @@ class NodeType(Enum):
     CONDITIONAL_STATEMENT = 10,
     COMPARISON = 11,
     LOGICAL_OP = 12,
-    AND = 13,
-    OR = 14,
-    NOT_EQ = 15,
-    GREATER_THAN = 16,
-    LESS_THAN = 17,
-    EQ = 18,
-    TRUE = 19,
-    FALSE = 20,
     ASSIGNMENT = 21,
     ARITHMETICAL_OP = 22,
     INT = 31,
     VAR_NAME = 33,
     VAR_NAME_IMMUTABLE = 34,
-    ADD = 41,
-    DIV = 42,
-    MUL = 43,
-    SUB = 44,
     LOOP = 50,
     LEFT_BRACKET = 60,
     RIGHT_BRACKET = 61,
+    PRINT = 70,
+    INPUT = 71,
 
 
 class Node:
@@ -139,14 +129,14 @@ class Node:
     max_nr_of_variables = 100
 
     type_to_children = {
-        NodeType.SEQUENCE: [(-1, [NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT, NodeType.LOOP])],
+        NodeType.SEQUENCE: [(-1, [NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT, NodeType.LOOP, NodeType.PRINT])],
 
         # CONDITIONAL STATEMENTS, LOOPS
         NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.LOGICAL_OP, NodeType.SEQUENCE]), (2, [NodeType.COMPARISON, NodeType.SEQUENCE])],
         NodeType.LOGICAL_OP: [(2, [NodeType.LOGICAL_OP, NodeType.LOGICAL_OP]),
-                                    (2, [NodeType.COMPARISON, NodeType.COMPARISON]),
+                              (2, [NodeType.COMPARISON, NodeType.COMPARISON]),
                               (2, [NodeType.LOGICAL_OP,
-                                     NodeType.COMPARISON]),
+                                   NodeType.COMPARISON]),
                               (2, [NodeType.COMPARISON, NodeType.LOGICAL_OP])],
         NodeType.COMPARISON: [(2, [NodeType.ARITHMETICAL_OP, NodeType.ARITHMETICAL_OP]),
                               (2, [NodeType.INT, NodeType.VAR_NAME]),
@@ -159,7 +149,11 @@ class Node:
         NodeType.LOOP: [(2, [NodeType.COMPARISON, NodeType.SEQUENCE])],
 
         # ARITHMETICAL EXPR
-        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INT, NodeType.ARITHMETICAL_OP])],
+        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INT]),
+                              (2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INPUT]),
+                              (2, [NodeType.VAR_NAME_IMMUTABLE,
+                               NodeType.ARITHMETICAL_OP]),
+                              (2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.VAR_NAME])],
         NodeType.ARITHMETICAL_OP: [
             (2, [NodeType.ARITHMETICAL_OP, NodeType.ARITHMETICAL_OP]),
             (2, [NodeType.INT, NodeType.ARITHMETICAL_OP]),
@@ -169,7 +163,10 @@ class Node:
             (2, [NodeType.ARITHMETICAL_OP, NodeType.VAR_NAME]),
             (2, [NodeType.VAR_NAME, NodeType.VAR_NAME]),
             (2, [NodeType.VAR_NAME, NodeType.INT]),
-            (2, [NodeType.INT, NodeType.VAR_NAME])]
+            (2, [NodeType.INT, NodeType.VAR_NAME])],
+        NodeType.PRINT: [(1, [NodeType.ARITHMETICAL_OP]),
+                         (1, [NodeType.INT]),
+                         (1, [NodeType.VAR_NAME])]
     }
 
     type_to_possible_value = {
@@ -179,8 +176,9 @@ class Node:
     }
 
     type_to_point_mutation = {
-        NodeType.INT: [NodeType.VAR_NAME, NodeType.INT],
-        NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.INT],
+        NodeType.INT: [NodeType.VAR_NAME, NodeType.INT, NodeType.INPUT],
+        NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.INT, NodeType.INPUT],
+        NodeType.INPUT: [NodeType.VAR_NAME, NodeType.INT, NodeType.INPUT],
         NodeType.COMPARISON: [NodeType.COMPARISON],
         NodeType.LOGICAL_OP: [NodeType.LOGICAL_OP],
         NodeType.LOOP: [NodeType.CONDITIONAL_STATEMENT, NodeType.LOOP],
@@ -198,13 +196,14 @@ class Node:
         NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP, NodeType.INT],
         NodeType.INT: [NodeType.INT, NodeType.ARITHMETICAL_OP, NodeType.VAR_NAME],
         NodeType.VAR_NAME_IMMUTABLE: [NodeType.VAR_NAME_IMMUTABLE],
+        NodeType.INPUT: [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP, NodeType.INT],
     }
 
     type_to_finish = {
         NodeType.ARITHMETICAL_OP: [(2, [NodeType.INT, NodeType.INT]),
-                                     (2, [NodeType.INT, NodeType.VAR_NAME]),
-                                     (2, [NodeType.VAR_NAME, NodeType.VAR_NAME]),
-                                     (2, [NodeType.VAR_NAME, NodeType.INT])],
+                                   (2, [NodeType.INT, NodeType.VAR_NAME]),
+                                   (2, [NodeType.VAR_NAME, NodeType.VAR_NAME]),
+                                   (2, [NodeType.VAR_NAME, NodeType.INT])],
         NodeType.SEQUENCE: [(1, [NodeType.ASSIGNMENT])],
         NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.COMPARISON, NodeType.ASSIGNMENT])],
         NodeType.COMPARISON: [(2, [NodeType.INT, NodeType.INT]),
