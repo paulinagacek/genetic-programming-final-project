@@ -26,16 +26,22 @@ class Converter:
         middlechild = node.value
         rightchild = Converter.get_arithmetical_op(
             node.children[1]) if node.children[1].type == NodeType.ARITHMETICAL_OP else node.children[1].value
-        return "(" + str(leftchild) + middlechild + str(rightchild)+")"
+        return str(leftchild) + middlechild + str(rightchild)
 
     @staticmethod
     def get_arithmetical_op(node: Node) -> str:
-        leftchild = Converter.get_arithmetical_op(
-            node.children[0]) if node.children[0].type == NodeType.ARITHMETICAL_OP else node.children[0].value
+        leftchild = None
+        if node.children[0].type == NodeType.ARITHMETICAL_OP:
+            leftchild = "(" + str(Converter.get_arithmetical_op(node.children[0])) + ")"
+        else: 
+            leftchild = str(node.children[0].value)
         middlechild = node.value
-        rightchild = Converter.get_arithmetical_op(
-            node.children[1]) if node.children[1].type == NodeType.ARITHMETICAL_OP else node.children[1].value
-        return "(" + str(leftchild) + middlechild+str(rightchild) + ")"
+        rightchild = None
+        if node.children[1].type == NodeType.ARITHMETICAL_OP:
+            rightchild = "(" + str(Converter.get_arithmetical_op(node.children[1])) + ")"
+        else: 
+            rightchild = str(node.children[1].value)
+        return leftchild+ middlechild+rightchild
 
     @staticmethod
     def get_logical_op(node: Node) -> str:
@@ -44,27 +50,27 @@ class Converter:
         middlechild = node.value
         right_child = Converter.get_logical_op(
             node.children[1]) if node.children[1].type == NodeType.LOGICAL_OP else Converter.get_comparison(node.children[1])
-        return "(" + str(left_child) + middlechild+str(right_child) + ")"
+        return "(" + str(left_child) +")"+ middlechild+"("+str(right_child) + ")"
 
     @staticmethod
     def get_conditional_statement(node: Node) -> str:
         left_child = Converter.get_logical_op(
             node.children[0]) if node.children[0].type == NodeType.LOGICAL_OP else Converter.get_comparison(node.children[0])
         right_child = Converter.get_proper_node(node.children[1])
-        return "IF" + str(left_child) + right_child + ";"
+        return "IF(" + str(left_child) +")"+ right_child + ";"
 
     @staticmethod
     def get_loop(node: Node) -> str:
         left_child = Converter.get_logical_op(
             node.children[0]) if node.children[0].type == NodeType.LOGICAL_OP else Converter.get_comparison(node.children[0])
         right_child = Converter.get_proper_node(node.children[1])
-        return "LOOP" + str(left_child) + right_child + ";"
+        return "LOOP(" + str(left_child) +")"+ right_child + ";"
 
     @staticmethod
     def get_print(node: Node) -> str:
         leftchild = Converter.get_arithmetical_op(
             node.children[0]) if node.children[0].type == NodeType.ARITHMETICAL_OP else node.children[0].value
-        return "print" + str(leftchild) + ";"
+        return "print(" + str(leftchild) + ");"
 
     @staticmethod
     def get_proper_node(node: Node) -> str:
