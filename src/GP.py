@@ -9,11 +9,26 @@ class GP:
         self.population_size = 6
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
+        self.program_input = []
+        self.expected_output = []
         self.tournament_size = 2
         self.mutation_rate = 0.5
         self.crossover_rate = 0.9
         self.nr_of_generations = 1
         self.max_traverse_tries = 10
+
+    def get_train_data(self, filename):
+        with open(filename, "r") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    x, y = line.split(';')
+                    x = x.strip().split(' ')
+                    x = [int(val) for val in x]
+                    y = y.strip().split(' ')
+                    y = [int(val) for val in y]
+                    self.program_input.append(x)
+                    self.expected_output.append(y)
 
     def compute_fitness(self, individual: Node) -> float:
         return -random.randint(0, 2137)
@@ -202,11 +217,12 @@ class GP:
 
 if __name__ == "__main__":
     gp = GP()
+    gp.get_train_data('input.txt')
     plotter = Plotter()
     gp.create_random_population()
     gp.evolve(copy=False)
     # gp.display_program(gp.population[0])
     print(GP.generate_program_str(gp.population[0]))
-    plotter.plot(gp.population[0])
+    plotter.plot(gp.population[0], filename="plot1")
     # print("\nBest individual:")
     # gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
