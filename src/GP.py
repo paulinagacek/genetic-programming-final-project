@@ -1,7 +1,7 @@
 from Node import *
 from Converter import *
 from Plotter import *
-
+import pickle
 
 class GP:
     def __init__(self) -> None:
@@ -166,8 +166,10 @@ class GP:
             for child in reversed(node.children):
                 stack.append((level + 1, child))
 
-    def evolve(self, copy=False):
-        for generation in range(self.nr_of_generations):
+    def evolve(self, copy=False, steps=-1):
+        if steps == -1:
+            steps = self.nr_of_generations
+        for generation in range(steps):
             print("Generation", generation, " ------------------------")
             if max(self.fitness)/len(self.population) > -0.1:
                 # print("Solution found in generation", generation)
@@ -214,15 +216,36 @@ class GP:
         """
         return Converter.get_proper_node(root)
 
+    @staticmethod
+    def dump_individual(root_node=None, filename='individual.txt'):
+        with open(filename, 'wb') as f:
+            pickle.dump(root_node, f)
+
+    @staticmethod
+    def load_individual(filename='individual.txt'):
+        with open(filename, 'rb') as f:
+            return pickle.load(f)
+
+
+def demonstrate_load_save():
+    genetic = GP()
+    plott = Plotter()
+    root = genetic.create_random_individual()
+    plott.plot(root, filename="plot2")
+    GP.dump_individual(root, filename='individual1.txt')
+    root2 = GP.load_individual(filename='individual1.txt')
+    plott.plot(root2, filename="plot3")
+
 
 if __name__ == "__main__":
-    gp = GP()
-    gp.get_train_data('input.txt')
-    plotter = Plotter()
-    gp.create_random_population()
-    gp.evolve(copy=False)
+    # gp = GP()
+    # gp.get_train_data('input.txt')
+    # plotter = Plotter()
+    # gp.create_random_population()
+    # gp.evolve(copy=False)
     # gp.display_program(gp.population[0])
-    print(GP.generate_program_str(gp.population[0]))
-    plotter.plot(gp.population[0], filename="plot1")
+    # print(GP.generate_program_str(gp.population[0]))
+    # plotter.plot(gp.population[0], filename="plot1")
     # print("\nBest individual:")
     # gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
+    demonstrate_load_save()
