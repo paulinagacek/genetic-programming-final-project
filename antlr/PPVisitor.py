@@ -34,15 +34,34 @@ class PPVisitor(ParseTreeVisitor):
 
     # to do
     def visitConditionalStatement(self, ctx: PPParser.ConditionalStatementContext):
-        return self.visitChildren(ctx)
+        if self.visit(ctx.cond):
+            self.visit(ctx.cond_body)
 
     # to do
     def visitCondition(self, ctx: PPParser.ConditionContext):
-        return self.visitChildren(ctx)
+        left_expr = self.visit(ctx.left_expr)
+        right_expr = self.visit(ctx.right_expr)
+        op = ctx.op.text
+        operation = {
+            "<": lambda: left_expr < right_expr,
+            ">": lambda: left_expr > right_expr,
+            "==": lambda: left_expr == right_expr,
+            "!=": lambda: left_expr != right_expr,
+        }
+        return operation[op](left_expr, right_expr)
 
     # to do
     def visitLogicalExpression(self, ctx: PPParser.LogicalExpressionContext):
-        return self.visitChildren(ctx)
+        if ctx.condition_:
+            return self.visit(ctx.condition)
+        left = self.visit(ctx.left)
+        right = self.visit(ctx.right)
+        op = ctx.op.text
+        operation = {
+            "&&": lambda x, y: x and y,
+            "||": lambda x, y: x or y,
+        }
+        return operation[op](left, right)
 
     def visitArithmeticalExpression(self, ctx: PPParser.ArithmeticalExpressionContext):
         if ctx.integer_:
@@ -66,7 +85,8 @@ class PPVisitor(ParseTreeVisitor):
 
     # to do
     def visitLoop(self, ctx: PPParser.LoopContext):
-        return self.visitChildren(ctx)
+        while self.visit(ctx.cond):
+            self.visit(ctx.loop_body)
 
     def visitAssignment(self, ctx: PPParser.AssignmentContext):
         varname = self.visit(ctx.children[0])
