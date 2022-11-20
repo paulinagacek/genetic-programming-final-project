@@ -32,15 +32,15 @@ class PPVisitor(ParseTreeVisitor):
             value = PPVisitor.variables.get(input)
         return value
 
-    # Visit a parse tree produced by PPParser#conditionalStatement.
+    # to do
     def visitConditionalStatement(self, ctx: PPParser.ConditionalStatementContext):
         return self.visitChildren(ctx)
 
-    # Visit a parse tree produced by PPParser#condition.
+    # to do
     def visitCondition(self, ctx: PPParser.ConditionContext):
         return self.visitChildren(ctx)
 
-    # Visit a parse tree produced by PPParser#logicalExpression.
+    # to do
     def visitLogicalExpression(self, ctx: PPParser.LogicalExpressionContext):
         return self.visitChildren(ctx)
 
@@ -64,7 +64,7 @@ class PPVisitor(ParseTreeVisitor):
         }
         return operation.get(op, lambda: None)()
 
-    # Visit a parse tree produced by PPParser#loop.
+    # to do
     def visitLoop(self, ctx: PPParser.LoopContext):
         return self.visitChildren(ctx)
 
@@ -78,11 +78,9 @@ class PPVisitor(ParseTreeVisitor):
     def visitInteger(self, ctx: PPParser.IntegerContext):
         return int(ctx.getText())
 
-    # Visit a parse tree produced by PPParser#conditionBody.
     def visitConditionBody(self, ctx: PPParser.ConditionBodyContext):
         return self.visitChildren(ctx)
 
-    # Visit a parse tree produced by PPParser#loopBody.
     def visitLoopBody(self, ctx: PPParser.LoopBodyContext):
         return self.visitChildren(ctx)
 
