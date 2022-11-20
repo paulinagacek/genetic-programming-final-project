@@ -132,7 +132,8 @@ class Node:
         NodeType.SEQUENCE: [(-1, [NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT, NodeType.LOOP, NodeType.PRINT])],
 
         # CONDITIONAL STATEMENTS, LOOPS
-        NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.LOGICAL_OP, NodeType.SEQUENCE]), (2, [NodeType.COMPARISON, NodeType.SEQUENCE])],
+        NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.LOGICAL_OP, NodeType.SEQUENCE]),
+                                         (2, [NodeType.COMPARISON, NodeType.SEQUENCE])],
         NodeType.LOGICAL_OP: [(2, [NodeType.LOGICAL_OP, NodeType.LOGICAL_OP]),
                               (2, [NodeType.COMPARISON, NodeType.COMPARISON]),
                               (2, [NodeType.LOGICAL_OP,
@@ -146,7 +147,7 @@ class Node:
                               (2, [NodeType.ARITHMETICAL_OP, NodeType.VAR_NAME]),
                               (2, [NodeType.ARITHMETICAL_OP, NodeType.INT])],
 
-        NodeType.LOOP: [(2, [NodeType.COMPARISON, NodeType.SEQUENCE])],
+        NodeType.LOOP: [(2, [NodeType.LOGICAL_OP, NodeType.SEQUENCE])],
 
         # ARITHMETICAL EXPR
         NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INT]),
