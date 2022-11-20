@@ -2,7 +2,28 @@ grammar PP;
 
 program: (instruction)+ EOF;
 
-instruction: assignment | conditionalStatement | loop | print;
+instruction: (conditionalStatement | assignment | loop | print);
+
+conditionalStatement:
+	'IF(' cond = logicalExpression ')' con_body = conditionBody  ';';
+
+condition:
+	left_expr = arithmeticalExpression op = ('==' | '!=' | '>' | '<') right_expr = arithmeticalExpression;
+
+logicalExpression:
+    '(' left_expr = logicalExpression ')' op = ('AND' | 'OR') '(' right_expr = logicalExpression ')'
+    | cond = condition;
+
+
+arithmeticalExpression:
+	 left = arithmeticalExpression op = ('+' | '-' | '/' | '*') right = arithmeticalExpression
+	| integer
+	| variableName;
+
+loop: 'LOOP(' cond = logicalExpression ')' loop_body = loopBody ';';
+
+assignment:
+	variableName '=' (input | arithmeticalExpression) ';';
 
 print: 'print(' arithmeticalExpression ');';
 
@@ -13,25 +34,7 @@ variableName: 'X' NONZERODIGIT (NONZERODIGIT | ZERO)*;
 integer: (minus = '-')? NONZERODIGIT (NONZERODIGIT | ZERO)*
 	| ZERO;
 
-arithmeticalExpression:
-	left = arithmeticalExpression op = ('+' | '-' | '/' | '*') right = arithmeticalExpression
-	| integer
-	| variableName;
-
-assignment:
-	variableName '=' (input | arithmeticalExpression) ';';
-
-conditionalStatement:
-	'IF(' cond = condition ')' con_body = conditionBody (else_stat = elseStatement)? ';';
-
-condition:
-	left_expr = arithmeticalExpression op = ('==' | '!=' | '>' | '<') right_expr = arithmeticalExpression;
-
 conditionBody: (instruction)+;
-
-elseStatement: 'ELSE' con_body = conditionBody;
-
-loop: 'LOOP(' cond = condition ')' loop_body = loopBody ';';
 
 loopBody: (instruction)+;
 
