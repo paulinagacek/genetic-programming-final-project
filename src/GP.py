@@ -237,15 +237,37 @@ def demonstrate_load_save():
     plott.plot(root2, filename="plot3")
 
 
+def demonstrate_mutation():
+    genetic = GP()
+    plotter = Plotter()
+    root = genetic.create_random_individual()
+    plotter.plot(root, filename="mut1")
+    root = genetic.mutate(root)
+    plotter.plot(root, filename="mut2")
+
+
+def demonstrate_crossover():
+    genetic = GP()
+    plotter = Plotter()
+    root1 = genetic.create_random_individual()
+    root2 = genetic.create_random_individual()
+    plotter.plot(root1, filename="cross1")
+    plotter.plot(root2, filename="ross2")
+    root = genetic.perform_crossover(root1, root2)
+    plotter.plot(root, filename="cross3")
+
+
 if __name__ == "__main__":
     # gp = GP()
     # gp.get_train_data('input.txt')
     # plotter = Plotter()
     # gp.create_random_population()
-    # gp.evolve(copy=False)
+    # gp.evolve(copy=True)
     # gp.display_program(gp.population[0])
     # print(GP.generate_program_str(gp.population[0]))
     # plotter.plot(gp.population[0], filename="plot1")
     # print("\nBest individual:")
     # gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
     demonstrate_load_save()
+    demonstrate_mutation()
+    demonstrate_crossover()

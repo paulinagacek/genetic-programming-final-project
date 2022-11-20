@@ -44,7 +44,7 @@ class Plotter:
         graph_dict, id_to_node, node_to_id = self.generate_graph_dict()
         for node_id in range(len(graph_dict)):
             node_type = str(id_to_node[node_id].type)[9:]
-            node_value = str(id_to_node[node_id].value)
+            node_value = '' if id_to_node[node_id].value is None else str(id_to_node[node_id].value)
             node_str = node_type + "\n" + node_value
             self.G.node(str(node_id), node_str)
         for node_id in range(len(graph_dict)):
