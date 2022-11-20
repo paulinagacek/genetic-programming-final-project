@@ -2,7 +2,11 @@ grammar PP;
 
 program: (instruction)+ EOF;
 
-instruction: (conditionalStatement | assignment | loop | print);
+instruction: (conditionalStatement | assignment | loop | printExpression);
+
+printExpression: 'print(' arithmeticalExpression ');';
+
+inputExpression: 'input';
 
 conditionalStatement:
 	'IF(' cond = logicalExpression ')' con_body = conditionBody  ';';
@@ -17,17 +21,13 @@ logicalExpression:
 
 arithmeticalExpression:
 	 left = arithmeticalExpression op = ('+' | '-' | '/' | '*') right = arithmeticalExpression
-	| integer
-	| variableName;
+	| integer_ = integer
+	| variable_name_ = variableName;
 
 loop: 'LOOP(' cond = logicalExpression ')' loop_body = loopBody ';';
 
 assignment:
-	variableName '=' (input | arithmeticalExpression) ';';
-
-print: 'print(' arithmeticalExpression ');';
-
-input: 'input';
+	variableName '=' (input_=inputExpression | art_expr =arithmeticalExpression) ';';
 
 variableName: 'X' NONZERODIGIT (NONZERODIGIT | ZERO)*;
 

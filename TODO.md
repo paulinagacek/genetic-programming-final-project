@@ -46,3 +46,6 @@ Paulina:
 - [ ] value do node
 - [ ] nawiasy ( )
 - [x] operacje logiczne
+
+# Zbudowanie parsera
+- [ ] dodać osobne przejście po kodzie sprawdzające składnie, które nie wykonuje kodu jak są błędy
