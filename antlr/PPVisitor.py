@@ -47,10 +47,10 @@ class PPVisitor(ParseTreeVisitor):
         right_expr = self.visit(ctx.right_expr)
         op = ctx.op.text
         operation = {
-            "<": lambda: left_expr < right_expr,
-            ">": lambda: left_expr > right_expr,
-            "==": lambda: left_expr == right_expr,
-            "!=": lambda: left_expr != right_expr,
+            "<": lambda x, y: x < y,
+            ">": lambda x, y: x > y,
+            "==": lambda x, y: x == y,
+            "!=": lambda x, y: x != y,
         }
         return operation[op](left_expr, right_expr)
 
