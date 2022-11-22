@@ -61,8 +61,8 @@ class PPVisitor(ParseTreeVisitor):
         right = self.visit(ctx.right_expr)
         op = ctx.op.text
         operation = {
-            "&&": lambda x, y: x and y,
-            "||": lambda x, y: x or y,
+            "AND": lambda x, y: x and y,
+            "OR": lambda x, y: x or y,
         }
         return operation[op](left, right)
 
