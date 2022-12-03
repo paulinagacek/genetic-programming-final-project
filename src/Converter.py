@@ -16,7 +16,7 @@ class Converter:
         elif node.children[1].type == NodeType.INPUT:
             rightchild = "input"
         else:
-            rightchild = node.children[0].value
+            rightchild = node.children[1].value
         return str(leftchild) + "=" + str(rightchild) + ";"
 
     @staticmethod
