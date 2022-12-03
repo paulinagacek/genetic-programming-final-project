@@ -22,6 +22,7 @@ class PPVisitor(ParseTreeVisitor):
 
     def visitInstruction(self, ctx: PPParser.InstructionContext):
         if self.ticks >= self.max_nr_of_ticks:
+            print("Max ticks")
             return None
         return self.visitChildren(ctx)
 

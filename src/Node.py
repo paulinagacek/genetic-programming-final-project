@@ -12,7 +12,6 @@ class NodeType(Enum):
     ARITHMETICAL_OP = 22,
     INT = 31,
     VAR_NAME = 33,
-    VAR_NAME_IMMUTABLE = 34,
     LOOP = 50,
     LEFT_BRACKET = 60,
     RIGHT_BRACKET = 61,
@@ -44,13 +43,7 @@ class Node:
         if type_ == NodeType.INT:
             return random.randint(Node.min_val_int, Node.max_val_int)
         elif type_ == NodeType.VAR_NAME:  # existing
-            if Node.nr_of_variables == 0:  # create new
-                return "ERROR"
-            else:
-                idx = random.randint(1, Node.nr_of_variables)
-                return "X" + str(idx)
-        elif type_ == NodeType.VAR_NAME_IMMUTABLE:
-            if random.random() < 0.8 or Node.nr_of_variables == 0:  # create new
+            if random.random() < 0.5 or Node.nr_of_variables == 0:  # create new
                 Node.nr_of_variables += 1
                 return "X" + str(Node.nr_of_variables)
             else:
@@ -150,11 +143,11 @@ class Node:
         NodeType.LOOP: [(2, [NodeType.LOGICAL_OP, NodeType.SEQUENCE])],
 
         # ARITHMETICAL EXPR
-        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INT]),
-                              (2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INPUT]),
-                              (2, [NodeType.VAR_NAME_IMMUTABLE,
+        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME, NodeType.INT]),
+                              (2, [NodeType.VAR_NAME, NodeType.INPUT]),
+                              (2, [NodeType.VAR_NAME,
                                NodeType.ARITHMETICAL_OP]),
-                              (2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.VAR_NAME])],
+                              (2, [NodeType.VAR_NAME, NodeType.VAR_NAME])],
         NodeType.ARITHMETICAL_OP: [
             (2, [NodeType.ARITHMETICAL_OP, NodeType.ARITHMETICAL_OP]),
             (2, [NodeType.INT, NodeType.ARITHMETICAL_OP]),
@@ -196,7 +189,7 @@ class Node:
         NodeType.ARITHMETICAL_OP: [NodeType.ARITHMETICAL_OP, NodeType.INT, NodeType.VAR_NAME],
         NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP, NodeType.INT],
         NodeType.INT: [NodeType.INT, NodeType.ARITHMETICAL_OP, NodeType.VAR_NAME],
-        NodeType.VAR_NAME_IMMUTABLE: [NodeType.VAR_NAME_IMMUTABLE],
+        NodeType.VAR_NAME: [NodeType.VAR_NAME],
         NodeType.INPUT: [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP, NodeType.INT],
     }
 
@@ -211,7 +204,7 @@ class Node:
                               (2, [NodeType.VAR_NAME, NodeType.INT]),
                               (2, [NodeType.INT,  NodeType.VAR_NAME]),
                               (2, [NodeType.VAR_NAME, NodeType.VAR_NAME])],
-        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME_IMMUTABLE, NodeType.INT])],
+        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME, NodeType.INT])],
         NodeType.LOOP: [(2, [NodeType.COMPARISON, NodeType.ASSIGNMENT])],
         NodeType.LOGICAL_OP: [(2, [NodeType.COMPARISON, NodeType.COMPARISON])],
     }
