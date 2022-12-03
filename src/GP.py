@@ -4,7 +4,7 @@ from Plotter import *
 import pickle
 
 class GP:
-    def __init__(self) -> None:
+    def __init__(self, inputs, outputs) -> None:
         self.max_depth = 4
         self.population_size = 6
         self.population = []  # List[Node]
@@ -16,6 +16,8 @@ class GP:
         self.crossover_rate = 0.9
         self.nr_of_generations = 1
         self.max_traverse_tries = 10
+        self.inputs = inputs
+        self.outputs = outputs
 
     def get_train_data(self, filename):
         with open(filename, "r") as f:
