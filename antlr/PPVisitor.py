@@ -10,10 +10,11 @@ else:
 
 class PPVisitor(ParseTreeVisitor):
 
-    def __init__(self, max_nr_of_ticks: int = 100) -> None:
+    def __init__(self, input_var, max_nr_of_ticks: int = 100) -> None:
         self.variables = {}  # mapps names to values
         self.max_nr_of_ticks = max_nr_of_ticks
         self.ticks = 0
+        self.input_var = input_var
 
     def visitProgram(self, ctx: PPParser.ProgramContext):
         self.visitChildren(ctx)
@@ -32,13 +33,14 @@ class PPVisitor(ParseTreeVisitor):
             return None
         self.ticks += 1
         # only inputs of type: integer, variableName are accepted
-        value = input("input:")
-        if value.isnumeric():
-            value = int(input)
+        value = self.input_var.pop(0) if input else 1
+        print("input value: ", value)
+        if type(value) == int:
+            return value
         else:  # str -> syntax should be checked
-            if not self.variables.get(input):
-                self.variables[input] = 0
-            value = self.variables.get(input)
+            if not self.variables.get(value):
+                self.variables[value] = 1
+            value = self.variables.get(value)
         return value
 
     def visitConditionalStatement(self, ctx: PPParser.ConditionalStatementContext):
@@ -86,7 +88,7 @@ class PPVisitor(ParseTreeVisitor):
         if ctx.variable_name_:
             varname = self.visit(ctx.variable_name_)
             if not self.variables.get(varname):
-                self.variables[varname] = 0
+                self.variables[varname] = 1
             return self.variables.get(varname)
 
         left = self.visit(ctx.left)
@@ -95,8 +97,8 @@ class PPVisitor(ParseTreeVisitor):
         operation = {
             '+': lambda: left + right,
             '-': lambda: left - right,
-            '*': lambda: left * right,
-            '/': lambda: left / right,
+            '*': lambda: int(left * right),
+            '/': lambda: int(left / right),
         }
         return operation.get(op, lambda: None)()
 

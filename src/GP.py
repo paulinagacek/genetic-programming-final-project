@@ -1,7 +1,6 @@
 from src.Node import *
 from src.Converter import *
 from src.Plotter import *
-import sys
 from antlr.PPVisitor import *
 from antlr.PPListener import *
 from antlr.PPLexer import *
@@ -12,7 +11,7 @@ import pickle
 class GP:
     def __init__(self, inputs=[], outputs=[]) -> None:
         self.max_depth = 4
-        self.population_size = 6
+        self.population_size = 1
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.program_input = inputs
@@ -36,12 +35,13 @@ class GP:
                     y = [int(val) for val in y]
                     self.program_input.append(x)
                     self.expected_output.append(y)
-        print(self.program_input)
-        print(self.expected_output)
+        print("Inputs: ", self.program_input)
+        print("Outputs: ", self.expected_output)
 
     def compute_fitness(self, program: Node) -> float:
-        data = InputStream(program)
-        GP.interprateInput(data)
+        for example_idx in range(len(self.program_input)):
+            data = InputStream(program)
+            self.interprateInput(data, self.program_input[example_idx])
         return -random.randint(0, 2137)
 
     def create_random_population(self):
@@ -239,8 +239,7 @@ class GP:
         with open(filename, 'rb') as f:
             return pickle.load(f)
     
-    @staticmethod
-    def interprateInput(data):
+    def interprateInput(self, data, input_variables):
         # lexer
         lexer = PPLexer(data)
         stream = CommonTokenStream(lexer)
@@ -254,7 +253,7 @@ class GP:
             return
 
         # evaluator
-        visitor = PPVisitor()
+        visitor = PPVisitor(input_variables)
         output = visitor.visit(tree)
 
 

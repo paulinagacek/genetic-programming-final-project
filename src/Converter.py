@@ -32,13 +32,13 @@ class Converter:
     def get_arithmetical_op(node: Node) -> str:
         leftchild = None
         if node.children[0].type == NodeType.ARITHMETICAL_OP:
-            leftchild = "(" + str(Converter.get_arithmetical_op(node.children[0])) + ")"
+            leftchild = str(Converter.get_arithmetical_op(node.children[0]))
         else: 
             leftchild = str(node.children[0].value)
         middlechild = node.value
         rightchild = None
         if node.children[1].type == NodeType.ARITHMETICAL_OP:
-            rightchild = "(" + str(Converter.get_arithmetical_op(node.children[1])) + ")"
+            rightchild = str(Converter.get_arithmetical_op(node.children[1]))
         else: 
             rightchild = str(node.children[1].value)
         return leftchild+ middlechild+rightchild

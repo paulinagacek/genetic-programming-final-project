@@ -50,7 +50,7 @@ class Node:
                 idx = random.randint(1, Node.nr_of_variables)
                 return "X" + str(idx)
         elif type_ == NodeType.VAR_NAME_IMMUTABLE:
-            if random.random() < 0.2 or Node.nr_of_variables == 0:  # create new
+            if random.random() < 0.8 or Node.nr_of_variables == 0:  # create new
                 Node.nr_of_variables += 1
                 return "X" + str(Node.nr_of_variables)
             else:
