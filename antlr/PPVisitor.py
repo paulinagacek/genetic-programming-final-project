@@ -20,12 +20,17 @@ class PPVisitor(ParseTreeVisitor):
         self.display_variables()
 
     def visitInstruction(self, ctx: PPParser.InstructionContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return None
         return self.visitChildren(ctx)
 
     def visitPrintExpression(self, ctx: PPParser.PrintExpressionContext):
         print("print:", self.visitChildren(ctx))
 
     def visitInputExpression(self, ctx: PPParser.InputExpressionContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return None
+        self.ticks += 1
         # only inputs of type: integer, variableName are accepted
         value = input("input:")
         if value.isnumeric():
@@ -37,10 +42,15 @@ class PPVisitor(ParseTreeVisitor):
         return value
 
     def visitConditionalStatement(self, ctx: PPParser.ConditionalStatementContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return None
         if self.visit(ctx.cond):
             self.visit(ctx.con_body)
 
     def visitCondition(self, ctx: PPParser.ConditionContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return False
+        self.ticks += 1
         left_expr = self.visit(ctx.left_expr)
         right_expr = self.visit(ctx.right_expr)
         op = ctx.op.text
@@ -53,6 +63,9 @@ class PPVisitor(ParseTreeVisitor):
         return operation[op](left_expr, right_expr)
 
     def visitLogicalExpression(self, ctx: PPParser.LogicalExpressionContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return False
+        self.ticks += 1
         if ctx.cond:
             return self.visit(ctx.cond)
         left = self.visit(ctx.left_expr)
@@ -65,6 +78,9 @@ class PPVisitor(ParseTreeVisitor):
         return operation[op](left, right)
 
     def visitArithmeticalExpression(self, ctx: PPParser.ArithmeticalExpressionContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return None
+        self.ticks += 1
         if ctx.integer_:
             return self.visit(ctx.integer_)
         if ctx.variable_name_:
@@ -85,25 +101,41 @@ class PPVisitor(ParseTreeVisitor):
         return operation.get(op, lambda: None)()
 
     def visitLoop(self, ctx: PPParser.LoopContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return None
+        self.ticks += 1
         while self.ticks < self.max_nr_of_ticks and self.visit(ctx.cond):
             self.visit(ctx.loop_body)
             self.ticks += 1
 
     def visitAssignment(self, ctx: PPParser.AssignmentContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return None
+        self.ticks += 1
         varname = self.visit(ctx.children[0])
         self.variables[str(varname)] = self.visit(
             ctx.art_expr) if ctx.art_expr else self.visit(ctx.input_)
 
     def visitVariableName(self, ctx: PPParser.VariableNameContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return None
+        self.ticks += 1
         return ctx.getText()
 
     def visitInteger(self, ctx: PPParser.IntegerContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return None
+        self.ticks += 1
         return int(ctx.getText())
 
     def visitConditionBody(self, ctx: PPParser.ConditionBodyContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return None
         return self.visitChildren(ctx)
 
     def visitLoopBody(self, ctx: PPParser.LoopBodyContext):
+        if self.ticks >= self.max_nr_of_ticks:
+            return None
         return self.visitChildren(ctx)
 
     def display_variables(self):
