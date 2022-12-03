@@ -40,6 +40,7 @@ class GP:
 
     def compute_fitness(self, program: Node) -> float:
         for example_idx in range(len(self.program_input)):
+            print("----- example " + str(example_idx))
             data = InputStream(program)
             self.interprateInput(data, self.program_input[example_idx])
         return -random.randint(0, 2137)
