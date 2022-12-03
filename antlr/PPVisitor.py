@@ -36,12 +36,10 @@ class PPVisitor(ParseTreeVisitor):
             value = self.variables.get(input)
         return value
 
-    # to do
     def visitConditionalStatement(self, ctx: PPParser.ConditionalStatementContext):
         if self.visit(ctx.cond):
             self.visit(ctx.con_body)
 
-    # to do
     def visitCondition(self, ctx: PPParser.ConditionContext):
         left_expr = self.visit(ctx.left_expr)
         right_expr = self.visit(ctx.right_expr)

@@ -1,7 +1,6 @@
 ## Requirements
 - python >= 3.8
 
-
 ### How to generate grammar - on linux
 1. Install jdk
 ```bash
@@ -37,10 +36,21 @@
 antlr4 -Dlanguage=Python3 ./antlr/PP.g4 -visitor -o dist
 ```
 
-## Run
-### How to run interpreter - linux
+## Running interpreter
+- command prompt will appear and user can enter commands
+- after command submission by `ENTER` command will be interpreted
+
 1. Go into project folder
-2. Activate virtual env `source venv/bin/activate`
+2. Activate virtual env:
+   - linux:  `source venv/bin/activate`
+   - windows: `.\venv\Scripts\activate`
 3. Run programm: 
-      - with realtime interpreter - `python3 run.py`
-      <!-- - from file in `\examples` - `python3 main.py <filename>` -->
+   - with realtime interpreter - `python runInterpreter.py`
+
+## Generating programs
+1. Go into project folder
+2. Activate virtual env:
+   - linux:  `source venv/bin/activate`
+   - windows: `.\venv\Scripts\activate`
+3. Run programm: 
+   - with realtime interpreter - `python runGP.py`
