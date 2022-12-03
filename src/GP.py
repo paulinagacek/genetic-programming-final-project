@@ -1,23 +1,28 @@
-from Node import *
-from Converter import *
-from Plotter import *
+from src.Node import *
+from src.Converter import *
+from src.Plotter import *
+import sys
+from antlr.PPVisitor import *
+from antlr.PPListener import *
+from antlr.PPLexer import *
+from antlr.PPParser import *
+from antlr.PPErrorListener import *
 import pickle
 
 class GP:
-    def __init__(self, inputs, outputs) -> None:
+    def __init__(self, inputs=[], outputs=[]) -> None:
         self.max_depth = 4
         self.population_size = 6
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
-        self.program_input = []
-        self.expected_output = []
+        self.program_input = inputs
+        self.expected_output = outputs
         self.tournament_size = 2
         self.mutation_rate = 0.5
         self.crossover_rate = 0.9
         self.nr_of_generations = 1
         self.max_traverse_tries = 10
-        self.inputs = inputs
-        self.outputs = outputs
+        print("Tiny GP is running...")
 
     def get_train_data(self, filename):
         with open(filename, "r") as f:
@@ -31,15 +36,21 @@ class GP:
                     y = [int(val) for val in y]
                     self.program_input.append(x)
                     self.expected_output.append(y)
+        print(self.program_input)
+        print(self.expected_output)
 
-    def compute_fitness(self, individual: Node) -> float:
+    def compute_fitness(self, program: Node) -> float:
+        data = InputStream(program)
+        GP.interprateInput(data)
         return -random.randint(0, 2137)
 
     def create_random_population(self):
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual())
-            self.fitness.append(self.compute_fitness(self.population[idx]))
-            # gp.display_program(self.population[idx])
+
+            program_str = self.generate_program_str(self.population[idx])
+            print("population " + str(idx) + ":\n" + program_str + "\n")
+            self.fitness.append(self.compute_fitness(program_str))
 
     def create_random_individual(self) -> Node:
         Node.nr_of_variables = 0  # no global variables
@@ -227,6 +238,24 @@ class GP:
     def load_individual(filename='individual.txt'):
         with open(filename, 'rb') as f:
             return pickle.load(f)
+    
+    @staticmethod
+    def interprateInput(data):
+        # lexer
+        lexer = PPLexer(data)
+        stream = CommonTokenStream(lexer)
+        # parser
+        parser = PPParser(stream)
+        parser.addErrorListener(PPErrorListener())  # add error listener
+        try:
+            tree = parser.program()
+        except Exception as e:
+            print(e)
+            return
+
+        # evaluator
+        visitor = PPVisitor()
+        output = visitor.visit(tree)
 
 
 def demonstrate_load_save():

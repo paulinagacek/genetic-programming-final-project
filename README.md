@@ -21,6 +21,7 @@
     pip install --upgrade setuptools
     pip install wheel
     pip install antlr4-python3-runtime==4.9.2
+    pip install graphviz
 ```
 4. Add to your .bashrc:
 ```

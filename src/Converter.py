@@ -1,4 +1,4 @@
-from Node import *
+from src.Node import *
 
 
 class Converter:
