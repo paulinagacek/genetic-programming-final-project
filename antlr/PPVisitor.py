@@ -10,7 +10,7 @@ else:
 
 class PPVisitor(ParseTreeVisitor):
 
-    def __init__(self, input_var, max_nr_of_ticks: int = 100) -> None:
+    def __init__(self, input_var, max_nr_of_ticks: int = 500) -> None:
         self.variables = {}  # mapps names to values
         self.max_nr_of_ticks = max_nr_of_ticks
         self.ticks = 0
@@ -40,13 +40,13 @@ class PPVisitor(ParseTreeVisitor):
         return value
 
     def visitConditionalStatement(self, ctx: PPParser.ConditionalStatementContext):
+        self.ticks += 1
+        if self.ticks >= self.max_nr_of_ticks:
+            return
         if self.visit(ctx.cond):
             self.visit(ctx.con_body)
 
     def visitCondition(self, ctx: PPParser.ConditionContext):
-        if self.ticks >= self.max_nr_of_ticks:
-            return False
-        self.ticks += 1
         left_expr = self.visit(ctx.left_expr)
         right_expr = self.visit(ctx.right_expr)
         op = ctx.op.text
@@ -59,9 +59,6 @@ class PPVisitor(ParseTreeVisitor):
         return operation[op](left_expr, right_expr)
 
     def visitLogicalExpression(self, ctx: PPParser.LogicalExpressionContext):
-        if self.ticks >= self.max_nr_of_ticks:
-            return False
-        self.ticks += 1
         if ctx.cond:
             return self.visit(ctx.cond)
         left = self.visit(ctx.left_expr)
@@ -74,7 +71,6 @@ class PPVisitor(ParseTreeVisitor):
         return operation[op](left, right)
 
     def visitArithmeticalExpression(self, ctx: PPParser.ArithmeticalExpressionContext):
-        self.ticks += 1
         if ctx.integer_:
             return self.visit(ctx.integer_)
         if ctx.variable_name_:
@@ -102,6 +98,8 @@ class PPVisitor(ParseTreeVisitor):
 
     def visitAssignment(self, ctx: PPParser.AssignmentContext):
         self.ticks += 1
+        if self.ticks >= self.max_nr_of_ticks:
+            return
         varname = self.visit(ctx.children[0])
         if not self.variables.get(str(varname)):
             self.variables[str(varname)] = 1
@@ -109,11 +107,12 @@ class PPVisitor(ParseTreeVisitor):
             ctx.art_expr) if ctx.art_expr else self.visit(ctx.input_)
 
     def visitVariableName(self, ctx: PPParser.VariableNameContext):
-        self.ticks += 1
-        return ctx.getText()
+        varname = ctx.getText()
+        if not self.variables.get(varname):
+            self.variables[varname] = 1
+        return varname
 
     def visitInteger(self, ctx: PPParser.IntegerContext):
-        self.ticks += 1
         return int(ctx.getText())
 
     def visitConditionBody(self, ctx: PPParser.ConditionBodyContext):
