@@ -15,16 +15,20 @@ class PPVisitor(ParseTreeVisitor):
         self.max_nr_of_ticks = max_nr_of_ticks
         self.ticks = 0
         self.input_var = input_var
+        self.prints = []
 
     def visitProgram(self, ctx: PPParser.ProgramContext):
         self.visitChildren(ctx)
-        self.display_variables()
+        return self.prints
+        # self.display_variables()
 
     def visitInstruction(self, ctx: PPParser.InstructionContext):
         return self.visitChildren(ctx)
 
     def visitPrintExpression(self, ctx: PPParser.PrintExpressionContext):
-        print("print:", self.visitChildren(ctx))
+        value_to_print = self.visitChildren(ctx)
+        # print("print:", value_to_print)
+        self.prints.append(value_to_print)
 
     def visitInputExpression(self, ctx: PPParser.InputExpressionContext):
         self.ticks += 1

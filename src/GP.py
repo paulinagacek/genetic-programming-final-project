@@ -11,7 +11,7 @@ import pickle
 class GP:
     def __init__(self, inputs=[], outputs=[]) -> None:
         self.max_depth = 4
-        self.population_size = 1
+        self.population_size = 3
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.program_input = inputs
@@ -39,10 +39,16 @@ class GP:
         print("Outputs: ", self.expected_output)
 
     def compute_fitness(self, program: Node) -> float:
-        for example_idx in range(len(self.program_input)):
-            print("----- example " + str(example_idx))
+        fitness = 0 # the smaller the better
+        epochs = len(self.program_input)
+        for example_idx in range(epochs):
             data = InputStream(program)
-            self.interprateInput(data, self.program_input[example_idx])
+            prints = self.interprateInput(data, self.program_input[example_idx])
+            print(str(example_idx) + " prints:", prints, " expected output: ", self.expected_output[example_idx])
+            # difference between nr of outputs - multiply by 100
+            fitness += 100 * abs(len(prints)-len(self.expected_output[example_idx]))
+            # sth specific for individual
+        print("Total fitness: ", fitness, " avg fitness per epoch:", fitness/epochs)
         return -random.randint(0, 2137)
 
     def create_random_population(self):
@@ -255,7 +261,7 @@ class GP:
 
         # evaluator
         visitor = PPVisitor(input_variables)
-        output = visitor.visit(tree)
+        return visitor.visit(tree)
 
 
 def demonstrate_load_save():
