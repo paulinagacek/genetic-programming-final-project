@@ -19,7 +19,7 @@ class GP:
         self.expected_output = outputs
         self.tournament_size = 2
         self.mutation_rate = 0.5
-        self.crossover_rate = 1 # no mutations
+        self.crossover_rate = 0 # no mutations
         self.nr_of_generations = 1
         self.max_traverse_tries = 10
         print("Tiny GP is running...")
@@ -71,12 +71,19 @@ class GP:
                     node.type = Node.get_random_program_substitute()
                 children_types = Node.get_children_to_finish(node.type)
                 for idx in range(len(children_types)):
-                    node.children.append(Node(children_types[idx], [], None))
+                    can_mutate = True
+                    if node.type == NodeType.ASSIGNMENT and idx == 0:
+                        can_mutate = False
+                    node.children.append(Node(children_types[idx], [], None, can_mutate))
                     queue.append((level+1, node.children[idx]))
+            
             elif level < self.max_depth:
                 types = Node.generate_random_children_types(node.type)
                 for idx in range(len(types)):
-                    node.children.append(Node(types[idx], [], None))
+                    can_mutate = True
+                    if node.type == NodeType.ASSIGNMENT and idx == 0:
+                        can_mutate = False
+                    node.children.append(Node(types[idx], [], None, can_mutate))
                     queue.append((level+1, node.children[idx]))
         return root
 
@@ -131,19 +138,24 @@ class GP:
         return parent1 if self.compute_fitness(parent1_str) > self.compute_fitness(parent2_str) else parent2
 
     @staticmethod
-    def perform_point_mutation(parent: Node) -> Node:
+    def perform_point_mutation(curr_node: Node) -> Node:
         """
         Mutates provided node with other randomly chosen.
         Not all nodes have alternatives for mutations and such nodes cannot
         be mutated using point mutation.
         """
-        possibilities = Node.get_possible_point_mutations(parent.type)
+        if not curr_node.can_mutate:
+            print("Cannot mutate")
+            return curr_node
+        possibilities = Node.get_possible_point_mutations(curr_node.type)
         if len(possibilities) == 0:  # node cannot be mutated
-            return parent
+            return curr_node
         else:
             idx = random.randint(0, len(possibilities)-1)
-            new_node = Node(possibilities[idx], parent.children, None)
-            print("Mutation (", parent.type, ", ", parent.value,
+            new_node = Node(possibilities[idx], curr_node.children, None)
+            if new_node.type == NodeType.INPUT:
+                new_node.value = "input"
+            print("Mutation (", curr_node.type, ", ", curr_node.value,
                   ") -> (", new_node.type, ", ", new_node.value, ")")
             return new_node
 
@@ -153,7 +165,7 @@ class GP:
         with probability of self.mutation_rate=10%. 
         Returns the root of mutated tree
         """
-
+        print("Before mutation:", self.generate_program_str(root))
         queue = [root]
         while queue:
             node = queue.pop()
@@ -165,6 +177,7 @@ class GP:
                 node.children = new_node.children
             for child in node.children:
                 queue.append(child)
+        print("After mutation:",  self.generate_program_str(root))
         return root
 
     @staticmethod

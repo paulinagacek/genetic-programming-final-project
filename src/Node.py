@@ -22,11 +22,12 @@ class NodeType(Enum):
 class Node:
     nr_of_variables = 0
 
-    def __init__(self, node_type: NodeType, children, value=None) -> None:
+    def __init__(self, node_type: NodeType, children, value=None, can_mutate=True) -> None:
         self.type = node_type
         self.children = children  # List[Node]
         self.parent = None  # Node
         self.value = None
+        self.can_mutate = can_mutate
         if not value:
             self.value = Node.generate_random_value(self.type)
             if self.value == "ERROR":  # calling variable before assignment
@@ -170,9 +171,9 @@ class Node:
     }
 
     type_to_point_mutation = {
-        NodeType.INT: [NodeType.VAR_NAME, NodeType.INT, NodeType.INPUT],
-        NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.INT, NodeType.INPUT],
-        NodeType.INPUT: [NodeType.VAR_NAME, NodeType.INT, NodeType.INPUT],
+        NodeType.INT: [NodeType.VAR_NAME, NodeType.INT], # INPUT
+        NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.INT], # INPUT
+        NodeType.INPUT: [NodeType.VAR_NAME, NodeType.INT], # INPUT
         NodeType.COMPARISON: [NodeType.COMPARISON],
         NodeType.LOGICAL_OP: [NodeType.LOGICAL_OP],
         NodeType.LOOP: [NodeType.CONDITIONAL_STATEMENT, NodeType.LOOP],
