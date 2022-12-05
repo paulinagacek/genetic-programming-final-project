@@ -49,3 +49,20 @@ Paulina:
 
 # Zbudowanie parsera
 - [ ] dodać osobne przejście po kodzie sprawdzające składnie, które nie wykonuje kodu jak są błędy
+
+
+# Problemy
+```
+    File "C:\Users\pauli\OneDrive\Pulpit\5ty SEM\genetic-programming-vol2\src\Converter.py", line 85, 
+    in get_proper_node
+        return Converter.get_loop(node)
+    File "C:\Users\pauli\OneDrive\Pulpit\5ty SEM\genetic-programming-vol2\src\Converter.py", line 66, 
+    in get_loop
+    right_child = Converter.get_proper_node(node.children[1])
+    File "C:\Users\pauli\OneDrive\Pulpit\5ty SEM\genetic-programming-vol2\src\Converter.py", line 80, 
+    in get_proper_node
+    output += Converter.get_proper_node(child)
+    File "C:\Users\pauli\OneDrive\Pulpit\5ty SEM\genetic-programming-vol2\src\Converter.py", line 85, in get_proper_node
+    return Converter.get_loop(node)
+    maximum recursion depth exceeded while getting the str of an object
+```

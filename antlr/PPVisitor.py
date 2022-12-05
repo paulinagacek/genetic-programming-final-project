@@ -34,7 +34,7 @@ class PPVisitor(ParseTreeVisitor):
         self.ticks += 1
         # only inputs of type: integer, variableName are accepted
         value = self.input_var.pop(0) if self.input_var else 1
-        print("input value: ", value)
+        # print("input value: ", value)
         if type(value) == int:
             return value
         else:  # str -> syntax should be checked

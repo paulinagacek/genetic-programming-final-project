@@ -14,11 +14,12 @@ class GP:
         self.population_size = 3
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
+        self.program_strings = [] # List[str]
         self.program_input = inputs
         self.expected_output = outputs
         self.tournament_size = 2
         self.mutation_rate = 0.5
-        self.crossover_rate = 0.9
+        self.crossover_rate = 1 # no mutations
         self.nr_of_generations = 1
         self.max_traverse_tries = 10
         print("Tiny GP is running...")
@@ -38,25 +39,25 @@ class GP:
         print("Inputs: ", self.program_input)
         print("Outputs: ", self.expected_output)
 
-    def compute_fitness(self, program: Node) -> float:
+    def compute_fitness(self, program: str) -> float:
         fitness = 0 # the smaller the better
         epochs = len(self.program_input)
         for example_idx in range(epochs):
             data = InputStream(program)
             prints = self.interprateInput(data, self.program_input[example_idx])
-            print(str(example_idx) + " prints:", prints, " expected output: ", self.expected_output[example_idx])
+            # print(str(example_idx) + " prints:", prints, " expected output: ", self.expected_output[example_idx])
             # difference between nr of outputs - multiply by 100
             fitness += 100 * abs(len(prints)-len(self.expected_output[example_idx]))
             # sth specific for individual
-        print("Total fitness: ", fitness, " avg fitness per epoch:", fitness/epochs)
-        return -random.randint(0, 2137)
+        print("Total fitness: ", fitness, " avg fitness per epoch:", fitness/epochs, "\n")
+        return -fitness - 5
 
     def create_random_population(self):
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual())
-
             program_str = self.generate_program_str(self.population[idx])
-            print("population " + str(idx) + ":\n" + program_str + "\n")
+            print("individual nr: " + str(idx) + ":\n" + program_str + "\n")
+            self.program_strings.append(program_str)
             self.fitness.append(self.compute_fitness(program_str))
 
     def create_random_individual(self) -> Node:
@@ -123,8 +124,11 @@ class GP:
                     for child in node1.children:
                         child.parent = node1
                     return parent1
+        
+        parent1_str = self.generate_program_str(parent1)
+        parent2_str = self.generate_program_str(parent2)
 
-        return parent1 if self.compute_fitness(parent1) > self.compute_fitness(parent2) else parent2
+        return parent1 if self.compute_fitness(parent1_str) > self.compute_fitness(parent2_str) else parent2
 
     @staticmethod
     def perform_point_mutation(parent: Node) -> Node:
@@ -192,7 +196,7 @@ class GP:
         for generation in range(steps):
             print("Generation", generation, " ------------------------")
             if max(self.fitness)/len(self.population) > -0.1:
-                # print("Solution found in generation", generation)
+                print("Solution found in generation", generation)
                 break
 
             if copy:
@@ -201,7 +205,8 @@ class GP:
 
             for i in range(self.population_size):
                 print("\nIndividual nr", i)
-                self.display_program(self.population[i])
+                # self.display_program(self.population[i])
+                print(self.generate_program_str(self.population[i]))
                 print("Fitness", self.fitness[i])
 
             print("\n***** Operations ***")
@@ -209,10 +214,14 @@ class GP:
                 if random.random() < self.crossover_rate:  # 50%
                     parent1 = self.perform_tournament()
                     parent2 = self.perform_tournament()
-                    print("Crossover", parent1, parent2)
+                    # print("Crossover", parent1, parent2)
+                    print("parent 1:")
+                    self.display_program(self.population[parent1])
+                    print("parent 2:")
+                    self.display_program(self.population[parent2])
                     child = self.perform_crossover(
                         self.population[parent1], self.population[parent2])
-                    print("Child:")
+                    # print("Child:")
                     self.display_program(child)
                 else:
                     parent1 = self.perform_tournament()
@@ -221,10 +230,12 @@ class GP:
                 weakest_idx = self.perform_negative_tournament()
                 if copy:
                     population_copy[weakest_idx] = child
-                    fitness_copy[weakest_idx] = self.compute_fitness(child)
+                    child_str = self.generate_program_str(child)
+                    fitness_copy[weakest_idx] = self.compute_fitness(child_str)
                 else:
                     self.population[weakest_idx] = child
-                    self.fitness[weakest_idx] = self.compute_fitness(child)
+                    child_str = self.generate_program_str(child)
+                    self.fitness[weakest_idx] = self.compute_fitness(child_str)
                 print("-> weakest idx:", weakest_idx)
             print("\nBest fitness:", max(self.fitness), "worst fitness:", min(
                 self.fitness), "avg fitness:", sum(self.fitness)/len(self.fitness), "\n\n")
