@@ -86,6 +86,10 @@ class PPVisitor(ParseTreeVisitor):
         left = self.visit(ctx.left)
         right = self.visit(ctx.right)
         op = ctx.op.text
+        
+        if op == "/" and right == 0: # division by 0
+            right = 0.1
+        
         operation = {
             '+': lambda: left + right,
             '-': lambda: left - right,
