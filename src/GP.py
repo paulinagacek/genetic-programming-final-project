@@ -11,7 +11,7 @@ import pickle
 class GP:
     def __init__(self, inputs=[], outputs=[]) -> None:
         self.max_depth = 4
-        self.population_size = 3
+        self.population_size = 1
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.program_strings = [] # List[str]
@@ -227,15 +227,18 @@ class GP:
                 if random.random() < self.crossover_rate:  # 50%
                     parent1 = self.perform_tournament()
                     parent2 = self.perform_tournament()
-                    # print("Crossover", parent1, parent2)
-                    print("parent 1:")
-                    self.display_program(self.population[parent1])
-                    print("parent 2:")
-                    self.display_program(self.population[parent2])
-                    child = self.perform_crossover(
-                        self.population[parent1], self.population[parent2])
-                    # print("Child:")
-                    self.display_program(child)
+                    if parent1 == parent2:
+                        child = self.mutate(self.population[parent1])
+                    else:
+                        # print("Crossover", parent1, parent2)
+                        print("parent 1:")
+                        self.display_program(self.population[parent1])
+                        print("parent 2:")
+                        self.display_program(self.population[parent2])
+                        child = self.perform_crossover(
+                            self.population[parent1], self.population[parent2])
+                        # print("Child:")
+                        self.display_program(child)
                 else:
                     parent1 = self.perform_tournament()
                     child = self.mutate(self.population[parent1])
