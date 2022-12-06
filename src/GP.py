@@ -19,7 +19,7 @@ class GP:
         self.expected_output = outputs
         self.tournament_size = 2
         self.mutation_rate = 0.5
-        self.crossover_rate = 0 # no mutations
+        self.crossover_rate = 1
         self.nr_of_generations = 1
         self.max_traverse_tries = 10
         print("Tiny GP is running...")
