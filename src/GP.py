@@ -11,7 +11,7 @@ import pickle
 class GP:
     def __init__(self, inputs=[], outputs=[]) -> None:
         self.max_depth = 4
-        self.population_size = 1
+        self.population_size = 100
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.program_strings = [] # List[str]
@@ -19,10 +19,11 @@ class GP:
         self.expected_output = outputs
         self.tournament_size = 2
         self.mutation_rate = 0.5
-        self.crossover_rate = 1
-        self.nr_of_generations = 1
+        self.crossover_rate = 0.9
+        self.nr_of_generations = 100
         self.max_traverse_tries = 10
-        print("Tiny GP is running...")
+        self.best_indiv_idx = 0
+        self.best_fitness = -10000
 
     def get_train_data(self, filename):
         with open(filename, "r") as f:
@@ -45,11 +46,10 @@ class GP:
         for example_idx in range(epochs):
             data = InputStream(program)
             prints = self.interprateInput(data, self.program_input[example_idx])
-            # print(str(example_idx) + " prints:", prints, " expected output: ", self.expected_output[example_idx])
             # difference between nr of outputs - multiply by 100
             fitness += 100 * abs(len(prints)-len(self.expected_output[example_idx]))
             # sth specific for individual
-        print("Total fitness: ", fitness, " avg fitness per epoch:", fitness/epochs, "\n")
+        # print("Total fitness: ", fitness, " avg fitness per epoch:", fitness/epochs, "\n")
         return -fitness - 5
 
     def create_random_population(self):
@@ -121,10 +121,6 @@ class GP:
                 if node2.type in Node.get_possible_crossover(node1.type):
                     print("Crossover", node1.type,
                           node1.value, node2.type, node2.value)
-                    # print("Parent1:")
-                    # self.display_program(parent1)
-                    # print("Parent2:")
-                    # self.display_program(parent2)
                     node1.type = node2.type
                     node1.value = node2.value
                     node1.children = node2.children
@@ -145,7 +141,7 @@ class GP:
         be mutated using point mutation.
         """
         if not curr_node.can_mutate:
-            print("Cannot mutate")
+            # print("Cannot mutate")
             return curr_node
         possibilities = Node.get_possible_point_mutations(curr_node.type)
         if len(possibilities) == 0:  # node cannot be mutated
@@ -155,8 +151,8 @@ class GP:
             new_node = Node(possibilities[idx], curr_node.children, None)
             if new_node.type == NodeType.INPUT:
                 new_node.value = "input"
-            print("Mutation (", curr_node.type, ", ", curr_node.value,
-                  ") -> (", new_node.type, ", ", new_node.value, ")")
+            # print("Mutation (", curr_node.type, ", ", curr_node.value,
+            #       ") -> (", new_node.type, ", ", new_node.value, ")")
             return new_node
 
     def mutate(self, root: Node) -> Node:
@@ -165,7 +161,7 @@ class GP:
         with probability of self.mutation_rate=10%. 
         Returns the root of mutated tree
         """
-        print("Before mutation:", self.generate_program_str(root))
+        # print("Before mutation:", self.generate_program_str(root))
         queue = [root]
         while queue:
             node = queue.pop()
@@ -177,7 +173,7 @@ class GP:
                 node.children = new_node.children
             for child in node.children:
                 queue.append(child)
-        print("After mutation:",  self.generate_program_str(root))
+        # print("After mutation:",  self.generate_program_str(root))
         return root
 
     @staticmethod
@@ -208,7 +204,7 @@ class GP:
             steps = self.nr_of_generations
         for generation in range(steps):
             print("Generation", generation, " ------------------------")
-            if max(self.fitness)/len(self.population) > -0.1:
+            if self.best_fitness/len(self.population) > -0.1:
                 print("Solution found in generation", generation)
                 break
 
@@ -220,7 +216,7 @@ class GP:
                 print("\nIndividual nr", i)
                 # self.display_program(self.population[i])
                 print(self.generate_program_str(self.population[i]))
-                print("Fitness", self.fitness[i])
+                # print("Fitness", self.fitness[i])
 
             print("\n***** Operations ***")
             for idx in range(len(self.population)):
@@ -231,14 +227,14 @@ class GP:
                         child = self.mutate(self.population[parent1])
                     else:
                         # print("Crossover", parent1, parent2)
-                        print("parent 1:")
-                        self.display_program(self.population[parent1])
-                        print("parent 2:")
-                        self.display_program(self.population[parent2])
+                        # print("parent 1:")
+                        # self.display_program(self.population[parent1])
+                        # print("parent 2:")
+                        # self.display_program(self.population[parent2])
                         child = self.perform_crossover(
                             self.population[parent1], self.population[parent2])
                         # print("Child:")
-                        self.display_program(child)
+                        # self.display_program(child)
                 else:
                     parent1 = self.perform_tournament()
                     child = self.mutate(self.population[parent1])
@@ -252,9 +248,11 @@ class GP:
                     self.population[weakest_idx] = child
                     child_str = self.generate_program_str(child)
                     self.fitness[weakest_idx] = self.compute_fitness(child_str)
-                print("-> weakest idx:", weakest_idx)
-            print("\nBest fitness:", max(self.fitness), "worst fitness:", min(
-                self.fitness), "avg fitness:", sum(self.fitness)/len(self.fitness), "\n\n")
+                if self.fitness[weakest_idx] > self.best_fitness:
+                    self.best_fitness = self.fitness[weakest_idx]
+                    self.best_indiv_idx = weakest_idx
+            print("\nBest fitness:", self.best_fitness, " best indiv:")
+            print(self.generate_program_str(self.population[self.best_indiv_idx]))
 
     @staticmethod
     def generate_program_str(root: Node) -> str:
