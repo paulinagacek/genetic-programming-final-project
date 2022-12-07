@@ -7,6 +7,7 @@ from antlr.PPLexer import *
 from antlr.PPParser import *
 from antlr.PPErrorListener import *
 import pickle
+import numpy as np
 
 class GP:
     def __init__(self, inputs=[], outputs=[]) -> None:
@@ -47,7 +48,11 @@ class GP:
             data = InputStream(program)
             prints = self.interprateInput(data, self.program_input[example_idx])
             # difference between nr of outputs - multiply by 100
-            fitness += 100 * abs(len(prints)-len(self.expected_output[example_idx]))
+            try:
+                fitness += abs(min(prints) - 1)
+            except ValueError:
+                fitness += 10e+9
+            # fitness += 100 * abs(len(prints)-len(self.expected_output[example_idx]))
             # sth specific for individual
         # print("Total fitness: ", fitness, " avg fitness per epoch:", fitness/epochs, "\n")
         return -fitness - 5
@@ -56,7 +61,7 @@ class GP:
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual())
             program_str = self.generate_program_str(self.population[idx])
-            print("individual nr: " + str(idx) + ":\n" + program_str + "\n")
+            # print("individual nr: " + str(idx) + ":\n" + program_str + "\n")
             self.program_strings.append(program_str)
             self.fitness.append(self.compute_fitness(program_str))
 
@@ -119,8 +124,8 @@ class GP:
             for j in range(self.max_traverse_tries):
                 node2 = GP.get_random_node(parent2)
                 if node2.type in Node.get_possible_crossover(node1.type):
-                    print("Crossover", node1.type,
-                          node1.value, node2.type, node2.value)
+                    # print("Crossover", node1.type,
+                    #       node1.value, node2.type, node2.value)
                     node1.type = node2.type
                     node1.value = node2.value
                     node1.children = node2.children
@@ -199,12 +204,19 @@ class GP:
             for child in reversed(node.children):
                 stack.append((level + 1, child))
 
+    def deepcopy_tree(self, root: Node) -> Node:
+        new_node = Node(root.type, [], None, root.can_mutate)
+        new_node.value = root.value
+        for child in root.children:
+            new_node.children.append(self.deepcopy_tree(child))
+        return new_node
+
     def evolve(self, copy=False, steps=-1):
         if steps == -1:
             steps = self.nr_of_generations
         for generation in range(steps):
             print("Generation", generation, " ------------------------")
-            if self.best_fitness/len(self.population) > -0.1:
+            if self.best_fitness/len(self.population) > -10e-5:
                 print("Solution found in generation", generation)
                 break
 
@@ -212,10 +224,10 @@ class GP:
                 population_copy = self.population.copy()
                 fitness_copy = self.fitness.copy()
 
-            for i in range(self.population_size):
-                print("\nIndividual nr", i)
+            # for i in range(self.population_size):
+            #     print("\nIndividual nr", i)
                 # self.display_program(self.population[i])
-                print(self.generate_program_str(self.population[i]))
+                # print(self.generate_program_str(self.population[i]))
                 # print("Fitness", self.fitness[i])
 
             print("\n***** Operations ***")
@@ -240,17 +252,23 @@ class GP:
                     child = self.mutate(self.population[parent1])
 
                 weakest_idx = self.perform_negative_tournament()
+                child_copy = self.deepcopy_tree(child)
                 if copy:
-                    population_copy[weakest_idx] = child
-                    child_str = self.generate_program_str(child)
+                    population_copy[weakest_idx] = child_copy
+                    child_str = self.generate_program_str(child_copy)
                     fitness_copy[weakest_idx] = self.compute_fitness(child_str)
                 else:
-                    self.population[weakest_idx] = child
-                    child_str = self.generate_program_str(child)
+                    self.population[weakest_idx] = child_copy
+                    child_str = self.generate_program_str(child_copy)
                     self.fitness[weakest_idx] = self.compute_fitness(child_str)
-                if self.fitness[weakest_idx] > self.best_fitness:
-                    self.best_fitness = self.fitness[weakest_idx]
-                    self.best_indiv_idx = weakest_idx
+                # if self.fitness[weakest_idx] > self.best_fitness:
+                #     self.best_fitness = self.fitness[weakest_idx]
+                #     self.best_indiv_idx = weakest_idx
+            if copy:
+                self.population = population_copy
+                self.fitness = fitness_copy
+            self.best_fitness = np.min(self.fitness)
+            self.best_indiv_idx = np.argmin(self.fitness)
             print("\nBest fitness:", self.best_fitness, " best indiv:")
             print(self.generate_program_str(self.population[self.best_indiv_idx]))
 
