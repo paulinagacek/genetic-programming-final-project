@@ -1,0 +1,810 @@
+Inputs:  [[3, 1], [2, 0], [8, 4], [5, 3], [8, 1], [6, 1], [6, 0], [7, 2], [4, 0], [8, 6], [8, 7], [4, 2], [2, 1], [4, 1], [7, 1], [8, 5], [7, 6], [3, 0], [6, 4], [8, 2], [8, 3], [5, 1], [7, 3], [7, 0], [4, 3], [5, 2], [6, 5], [3, 2], [8, 0], [7, 4], [6, 2], [1, 0], [5, 0]]
+Outputs:  [[4], [2], [12], [8], [9], [7], [6], [9], [4], [14], [15], [6], [3], [5], [8], [13], [13], [3], [10], [10], [11], [6], [10], [7], [7], [7], [11], [5], [8], [11], [8], [1], [5]]
+Final fitness: -6813.341097791099
+Final fitness: -6600
+Final fitness: -6600
+Final fitness: -547826.9916805419
+Final fitness: -3657.540764790765
+Final fitness: -4769.079864579864
+Final fitness: -9933.0
+Final fitness: -6600
+Final fitness: -10083.299500499503
+Final fitness: -22.98336108336109
+Random population generated
+Generation 0  ------------------------
+Final fitness: -6600
+Final fitness: -6600
+Final fitness: -3657.540764790765
+Final fitness: -9933.0
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -9933.0
+Final fitness: -6600
+Final fitness: -6600
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(90);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X6=97;;print(X1);;IF(72/X2==X2*X1)print(X1);IF(X5==X4)X1=84;;LOOP(14>X2)X7=21;;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X5!=X1)X7=66;;;
+Generation 1  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -3657.540764790765
+Final fitness: -6600
+Final fitness: -3657.540764790765
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -4769.079864579864
+Final fitness: -3657.540764790765
+Final fitness: -4769.079864579864
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(90);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X6=97;;print(X1);;IF(72/X2==X2*X1)print(X1);X3=38;LOOP(14>X2)X7=21;;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X5!=X1)X7=66;;; 
+Generation 2  ------------------------
+Final fitness: -4769.079864579864
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -4769.079864579864
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -4769.079864579864
+Final fitness: -22.98336108336109
+Final fitness: -4769.079864579864
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>X1)OR((64>X3)AND(X2>X1)))print(90);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X2=93;;IF(50!=14)X3=38;;LOOP(40>69)X6=97;;print(X1);;IF(72/X2==X2*X1)print(X1);IF(X5==X4)X1=84;;LOOP(14>X2)X7=21;;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X5!=X1)X7=66;;;
+Generation 3  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -4769.079864579864
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>X1)OR((64>X3)AND(X2>X1)))print(90);IF(X3<X1)X1=7;;;X1=input;X1=input;IF(72/X2==X2*X1)X6=97;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X5!=X1)X7=66;;;
+Generation 4  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>X1)OR((64>X3)AND(X2>X1)))print(90);IF(X3<X1)X1=7;;;X1=input;X1=input;IF(72/X2==X2*X1)X6=97;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X5!=X1)X7=66;;;
+Generation 5  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -555.8153069153071
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -555.8153069153071
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(90);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X6=97;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(14>X2)X7=21;;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X5!=X1)X1=66;;;
+Generation 6  ------------------------
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -555.8153069153071
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -555.8153069153071
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(90);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X6=97;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(14>X6)X7=21;;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X5!=X1)X1=66;;;
+Generation 7  ------------------------
+Final fitness: -26.991680541680545
+Final fitness: -26.991680541680545
+Final fitness: -6600
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -99.1830280830281
+Final fitness: -26.991680541680545
+Final fitness: -525.7737096237096
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(90);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X6=97;;print(X1);;LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X6=97;;print(X1);IF(X1<72)print(22);X2=20;X3=68;IF(X5!=X1)X1=66;;;
+Generation 8  ------------------------
+Final fitness: -525.7737096237096
+Final fitness: -26.991680541680545
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP(X2>X1)print(X1*26-X1+40);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=72)X5=93;;IF(50!=14)X3=38;;LOOP(40>68)X6=97;;print(X1);;IF(72/X2==X3)print(X1);X3=38;print(90);IF(X3<X5)X1=7;;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X5!=X1)X7=66;;;
+Generation 9  ------------------------
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X6=97;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X7=21;;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X5!=X1)X1=66;;;
+Generation 10  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X6=97;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X7=21;;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X1<72)X1=66;;;
+Generation 11  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=X3;;LOOP(40>X2)X6=97;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X7=21;;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X5!=X1)X1=66;;;
+Generation 12  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=X3;;LOOP(40>X2)X6=97;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X7=21;;;IF(X1<72)print(X2+X6);X2=20;X3=68;IF(X5!=X1)X1=66;;;
+Generation 13  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);IF(X5<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>X2)X6=97;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X7=21;;;IF(X2<72)print(X2+X6);X3=38;X3=68;IF(X5!=X1)X1=18;;;
+Generation 14  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>X2+X6))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X1=66;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X2=21;;;IF(X1<72)print(X2+X6);X1=7;X1=input;IF(18>X4)X1=66;;;
+Generation 15  ------------------------
+Final fitness: -821726.9916805419
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -821726.9916805419
+Final fitness: -22.98336108336109
+Final fitness: -821726.9916805419
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X6)))print(X2);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)print(X1);IF(X5==X4)X1=84;;LOOP(X5==X4)X7=21;;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X2=21;;;IF(X1<72)print(X2+X6);X2=20;X1=input;IF(X5!=X1)X1=66;;;
+Generation 16  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X6)))print(X2);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)print(X1);IF(X5==X4)X1=84;;LOOP(X5==X4)X7=21;;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X2=21;;;IF(X1<72)print(X2+X6);X2=20;X1=input;IF(X5!=X1)X1=66;;;
+Generation 17  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -399.59900099900096
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -399.59900099900096
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X3=66;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X2=21;;;IF(X1<72)print(X2+X6);X1=7;X1=input;IF(18>X4)X1=66;;;
+Generation 18  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X3=66;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X2=21;;;IF(X1<72)print(X2+X6);X1=7;X1=input;IF(18>X4)X1=X3;;;
+Generation 19  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP(X2>X1)print(X1*26-X3);IF(X3<X7)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>X4))AND(93!=22))LOOP(32!=72)X5=93;;IF(50!=14)X3=38;;LOOP(40>14)X6=97;;print(X1);;IF(72/X2==X3)print(X1);X3=93;print(69);IF(X3<X5)X1=7;;;IF(X1<72)print(X2+X6);X2=20;X3=72/X2;IF(X5!=X1)LOOP(32!=59)X5=93;;IF(50!=14)X3=38;;LOOP(40>69)X3=66;;print(X1);;;
+Generation 20  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -6626.9916805416815
+Final fitness: -6626.9916805416815
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))X7=66;;X3=66;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)IF(18>X4)X1=66;;;LOOP(40>69)X1=66;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=X3;;IF(72/X2!=14)X3=38;;;IF(X1<72)print(X2+X6);X2=20;X1=input;IF(72/X2==X3)print(X1);X3=93;print(69);IF(X3<X5)X1=X1;;;;
+Generation 21  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X1)AND(X2>X1)))X7=66;;X3=66;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)IF(18>X4)X1=66;;;LOOP(40>69)X1=66;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=X3;;IF(72/X2!=14)X3=38;;;IF(X1<72)print(X2+X6);X2=20;X1=input;IF(72/X2==X3)print(X1);X3=93;print(69);IF(X3<X5)X1=X1;;;;
+Generation 22  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -3322.983361083361
+Final fitness: -3322.983361083361
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X1)AND(X2>X1)))X7=66;;X3=66;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(50!=14)IF(18>X4)X1=66;;;LOOP(40>69)X1=66;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=X3;;IF(72/X2!=14)X3=38;;;IF(X1<72)print(X2+X6);X2=20;X1=input;IF(72/X2==X3)print(X1);X3=93;print(69);IF(X3<X5)X1=X1;;;;
+Generation 23  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -3322.983361083361
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);IF(X3<X1)X1=7;;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=59)X5=93;;IF(7!=14)X3=38;;LOOP(40>69)X3=X6;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(72/X2==X3)X1=X6;;LOOP(X3>X6)X2=21;;;IF(X1<72)print(X2+X6);X1=7;X2=input;IF(18>X4)LOOP((40>69)OR((64>X1)AND(X2>X1)))print(X2);IF(X3<X1)X1=7;;;;;
+Generation 24  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -3326.991680541681
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X1)AND(X2>X1)))X7=66;;X3=66;LOOP(((X4>X2)AND(18>98))AND(66!=22))LOOP(32!=59)X5=93;;IF(50!=14)IF(18>X4)X1=66;;;LOOP(40>69)X1=66;;print(X1);;X3=38;IF(X1<72)print(X2+X6);X2=20;X1=input;IF(72/X2==X3)print(X1);X3=93;print(69);IF(X3<X5)X1=X1;;;;
+Generation 25  ------------------------
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -6600
+Final fitness: -6600
+Final fitness: -6600
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X1)AND(X2>X1)))X7=66;;X3=66;LOOP(((X4>X2)AND(18>98))AND(66!=22))LOOP(32!=59)X5=93;;IF(50!=14)IF(18>X4)X1=66;;;LOOP(40>69)X1=66;;print(X1);;X3=38;IF(X1<72)print(X2+X6);X2=20;X1=input;IF(72/X2==X3)print(X1);X3=93;print(69);IF(X3<X5)X1=X1;;;;
+Generation 26  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X1)AND(X2>X1)))X7=66;;X3=66;LOOP(((X3>X2)AND(18>98))AND(66!=22))LOOP(32!=59)X5=93;;IF(50!=14)IF(18>X4)X1=66;;;LOOP(40>69)X1=66;;print(X1);;X3=38;IF(X1<72)print(X4+X6);X2=20;X1=input;IF(72/X2==X3)print(X1);X3=93;print(69);IF(X3<X5)X1=X1;;;;
+Generation 27  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -6600
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X7>89)OR((64>X1)AND(X2>X1)))X7=66;;X3=66;LOOP(((X3>X2)AND(18>98))AND(66!=22))LOOP(32!=59)X5=93;;IF(50!=14)IF(18>X4)X1=66;;;LOOP(40>69)X1=66;;print(X1);;X3=38;IF(X1<72)print(X4+X6);X2=20;X1=input;IF(72/X2==X3)print(X1);X3=93;print(69);IF(X3<X5)X1=X1;;;;
+Generation 28  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);X3=66;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=38)X5=93;;IF(50!=14)X3=38;;LOOP(32!=59)X3=66;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X2=X2+X6;;;IF(X4<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)X1=X3;;;
+Generation 29  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);X3=66;;X1=input;LOOP(((X4>X2)AND(18>98))AND(93!=22))LOOP(32!=38)X5=93;;IF(50!=14)X3=38;;LOOP(32!=59)X3=66;;print(X1);;IF(72/X2==X2*X5)print(X1);IF(X5==X4)X1=84;;LOOP(X3>X6)X2=X2+X6;;;IF(X4<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)X1=X3;;;
+Generation 30  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -159.2662226662227
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((X1<72)AND(X1<72)))X7=66;;X3=66;LOOP(((X4>X2)AND(18>98))AND(66!=22))IF(X1==X3)print(X1);X3=93;print(69);IF(X3<X5)X1=X1;;;;print(X2+X6);X2=X2;X1=input;IF(72/X2==X3)print(X1);X3=93;X1=X3;;X2=X2+X6;
+Generation 31  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -159.2662226662227
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);X3=66;;X1=input;LOOP(((X4>X3)AND(18>98))AND(X4>X2))LOOP(32!=X5)X5=93;;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))print(X2);X3=66;;LOOP(32!=59)X3=66;;print(X1);;IF(72/X2==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)X1=X3;;;
+Generation 32  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -3322.983361083361
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X1);X3=66;;X1=input;LOOP(((X4>X3)AND(18>98))AND(X4>X2))LOOP(32!=X5)X5=93;;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))print(X2);X3=66;;LOOP(32!=59)X3=66;;print(X1);;IF(72/X3==X1)print(X4);IF(X1==X4)X1=84;;LOOP(X3>X6)X1=X3;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)X1=X3;;;
+Generation 33  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X3=66;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(X4>X2))LOOP(32!=X4)X5=93;;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))print(X2);X3=66;;LOOP(32!=59)X3=66;;print(X1);;IF(72/X2==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)X1=X3;;;
+Generation 34  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X3=66;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(X4>X2))LOOP(32!=X1)X5=93;;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))print(X2);X3=66;;LOOP(32!=59)X3=66;;print(X1);;IF(72/X2==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)X1=X3;;;
+Generation 35  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -3322.983361083361
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X3=66;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(X4>X2))LOOP(32!=X1)X5=93;;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))print(X4);X3=66;;LOOP(32!=59)X3=66;;print(X1);;IF(72/X2==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)X1=X3;;;
+Generation 36  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X6>89)OR((64>X3)AND(X2>X1)))print(X1);X3=66;;X1=input;LOOP(((X6>X3)AND(18>98))AND(X1>X2))LOOP(32!=X5)X5=93;;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))print(X2);X3=66;;LOOP(32!=59)X3=66;;print(X1);;IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)X1=X3;;;
+Generation 37  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X3=66;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(X4>X2))LOOP(32!=X5)X5=93;;LOOP((X2>X1)OR((X1>X2)AND(X2>X1)))print(X2);print(X2);X3=66;;LOOP(X3!=59)X1=84;;print(X1);;IF(72/X2==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF((X2>X4)OR((64>X3)AND(64>X3)))X1=X3;;;
+Generation 38  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X1=84;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(X4>X2))X1=84;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))print(X4);X3=66;;LOOP(32!=59)X3=66;;print(X1);;IF(72/X2==X1)print(X1);IF(18>X4)IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;;;
+Generation 39  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -3322.983361083361
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((X4>X2)AND(X2>X4)))print(X2);X1=84;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(X4>X2))X1=84;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))print(X4);X3=66;;LOOP(32!=59)X3=66;;print(X1);;IF(72/X2==X1)print(X1);IF(18>X4)IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;;;
+Generation 40  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((X4>X2)AND(X2>X4)))print(X2);X1=84;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(X4>X2))X1=84;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))print(X4);X3=66;;LOOP(32!=59)X3=66;;print(X1);;IF(72/X2==X1)print(X1);IF(18>X4)IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X3=X1;;;;;
+Generation 41  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X1=84;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(18>X4))X1=84;LOOP(X3!=59)X1=84;;LOOP((32!=X5)AND(X2>X1))X3=66;;print(X1);;IF(72/X2==X1)print(X2);IF(18>X4)IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)IF(72/X3==X4)print(X1);IF(X1==X4)X1=84;;LOOP(X2>X6)X2=X1;;;;;
+Generation 42  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -3326.991680541681
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X1=84;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(18>X4))X1=84;LOOP(X3!=59)X1=84;;LOOP((32!=X5)AND(X2>X1))X3=66;;print(X1);;IF(72/X2==X1)print(X2);IF(18>X4)IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)IF(72/X3==X4)print(X1);IF(X1==X4)X1=84;;LOOP(X2>X6)X2=X1;;;;;
+Generation 43  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -3326.991680541681
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+X1=84;X1=input;LOOP(X1>89)X1=84;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X1=84;;;LOOP(32!=59)X1=X5;;print(X1);;IF(72/X2==X1)print(X1);IF(X1==X4)X1=89;;LOOP(X3>X4)X6=66;;;IF(X2<72)print(X2+X6);X1=X5;X1=input;IF((X4>X3)AND(X3>98))IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;;;
+Generation 44  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+X1=84;X1=input;LOOP(X1>89)X1=84;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X1=84;;;LOOP(32!=59)X1=X5;;print(X1);;IF(72/X2==X1)print(X1);IF(X1==X4)X1=89;;LOOP(X3>X4)X6=66;;;IF(X2<72)print(X2+X6);X1=X5;X1=input;IF((X4>X3)AND(X3>98))IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;LOOP(X3>X6)X2=X1;;;;;
+Generation 45  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+X1=84;X1=input;LOOP(X1>89)X1=84;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X1=84;;;LOOP(32!=59)X1=X5;;print(X1);;IF(72/X2==X1)print(X1);IF(X1==X4)X1=89;;LOOP(X3>X4)X6=66;;;IF(X2<72)print(X2+X6);X1=X5;X1=input;IF(72/X3==X1)IF(72/X3==X1)print(X1);IF(X1==X4)X1=84;;X1=84;;;;
+Generation 46  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -3326.991680541681
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -3326.991680541681
+Final fitness: -3326.991680541681
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X1=84;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(18>X4))X1=84;LOOP(X3!=59)X1=84;;LOOP((32!=X5)AND(X2>X1))X3=66;;print(X1);;IF(72/X2==X1)print(X2);IF(18>X4)IF(72/X3==X1)X6=66;;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)IF(72/X3==X4)print(X1);IF(X1==X4)X1=84;;LOOP(X3!=59)X2=X1;;;;;
+Generation 47  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X1=84;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(18>X4))X1=84;;IF(72/X2==X1)print(X2);IF(18>X4)IF(X5==X1)X6=66;;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)IF(72/X3==X4)print(X1);IF(X1==X4)X1=84;;LOOP(X3!=59)X2=X1;;;;;
+Generation 48  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X1=84;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(18>X4))X1=84;LOOP(X1!=59)X1=84;;LOOP((32!=X5)AND(X2>X1))X3=66;;print(X1);;IF(72/X2==X1)print(X2);IF(18>X4)IF(X5==X1)X6=66;;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)IF(72/X3==X4)print(X1);IF(X1==X4)X1=84;;IF(X5==X1)X6=66;;;;;
+Generation 49  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -26.991680541680545
+Final fitness: -3326.991680541681
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X4)))print(X2);X1=84;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(18>X4))X1=84;LOOP(X1!=59)X1=84;;LOOP((32!=X5)AND(X2>X1))X3=66;;print(X1);;IF(72/X2==X1)print(X2);IF(18>X4)IF(X5==X1)X6=66;;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)IF(72/X3==X4)print(X1);IF(X1==X4)X1=84;;IF(X5==X1)X6=66;;;;;
+Generation 50  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+LOOP((X1>89)OR((64>X3)AND(X2>X1)))print(X2);X1=84;;X1=input;LOOP(((X4>X3)AND(X3>98))AND(18>X4))X1=84;LOOP(X1!=59)X1=84;;LOOP((32!=X5)AND(X2>X1))X3=66;;print(X1);;IF(72/X2==X1)print(X2);IF(18>X4)IF(X5==X1)X6=66;;;LOOP(X3>X4)X2=X1;;;IF(X1<72)print(X2+X6);X1=X5;X1=input;IF(18>X4)IF(72/X3==X4)print(X1);IF(X1==X4)X1=84;;IF(X5==X1)X6=66;;;;;
+Generation 51  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -3326.991680541681
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+X1=84;X1=input;LOOP(X1>89)X1=84;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))X1=X5;;LOOP(32!=59)X1=X5;;print(X1);;IF(72/X2==X1)print(X1);IF(X1==X4)X1=89;;LOOP(X3>X4)X6=66;;;IF(X2<72)print(X3+X6);X1=X5;X1=input;IF(72/X3==X1)IF(72/X3==X2)print(X1);X6=66;LOOP(X3>X6)X2=X1;;;;;
+Generation 52  ------------------------
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -3326.991680541681
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -3326.991680541681
+
+Best fitness: -22.98336108336109  best indiv:
+X1=84;X1=input;LOOP(X1>89)X1=84;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))X1=X5;;LOOP(32!=59)X1=X5;;print(X1);;IF(72/X2==X1)print(X1);IF((X2>X1)OR((64>X3)AND(X2>X1)))X1=89;;LOOP(X3>X4)X6=66;;;IF(X2<72)print(X3+X6);X1=X5;X1=input;IF(72/X3==X1)IF(72/X3==X2)print(X1);X6=66;LOOP(X3>X6)X2=X1;;;;;
+Generation 53  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -3326.991680541681
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -3326.991680541681
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -3326.991680541681
+
+Best fitness: -22.98336108336109  best indiv:
+X1=84;X1=input;LOOP(X1>89)X1=84;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))X1=X1;;LOOP(32!=59)X1=X5;;print(X1);;IF(72/X2==X1)print(X1);IF((X2>X1)OR((64>X3)AND(X2>X1)))X1=89;;LOOP(X3>X4)X6=66;;;IF(X2<72)print(X3+X6);X1=X5;X1=input;IF(72/X3==X1)IF(72/X3==X2)print(X1);X6=66;LOOP(X3>X6)X2=X1;;;;;
+Generation 54  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -6600
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+X1=84;X1=input;LOOP(X1>89)X1=84;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))X1=X1;;LOOP(32!=59)X1=X5;;print(X1);;IF(72/X2==X1)print(X1);IF((X2>X1)OR((64>X3)AND(X2>X1)))X1=89;;LOOP(X3>X4)X6=66;;;IF(X2<72)print(X3+X6);X1=X5;X6=input;IF(72/X3==X1)IF(72/X3==X2)print(X1);X6=66;LOOP(X3>X6)X2=X1;;;;;
+Generation 55  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:
+X1=84;X1=input;LOOP(X1>89)X1=84;LOOP((X2>X1)OR((64>X3)AND(X2>X1)))X1=X1;;LOOP(32!=59)X1=X5;;print(X1);;IF(72/X2==X1)print(X1);IF((X2>X1)OR((64>X3)AND(X2>X1)))X1=89;;LOOP(X3>X4)X6=66;;;IF(X2<72)print(X3+X6);X1=X5;X6=input;IF(72/X3==X3)IF(72/X3==X2)print(X1);X6=66;LOOP(X3>X6)X2=X1;;;;;
+Generation 56  ------------------------
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+Final fitness: -22.98336108336109
+
+Best fitness: -22.98336108336109  best indiv:

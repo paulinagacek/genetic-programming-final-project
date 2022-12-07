@@ -21,6 +21,7 @@ class NodeType(Enum):
 
 class Node:
     nr_of_variables = 0
+    max_nr_of_variables = 10
 
     def __init__(self, node_type: NodeType, children, value=None, can_mutate=True) -> None:
         self.type = node_type
@@ -44,7 +45,7 @@ class Node:
         if type_ == NodeType.INT:
             return random.randint(Node.min_val_int, Node.max_val_int)
         elif type_ == NodeType.VAR_NAME:  # existing
-            if random.random() < 0.1 or Node.nr_of_variables == 0:  # create new
+            if (random.random() < 0.1 and Node.nr_of_variables < Node.max_nr_of_variables) or Node.nr_of_variables == 0:  # create new
                 Node.nr_of_variables += 1
                 return "X" + str(Node.nr_of_variables)
             else:
