@@ -9,6 +9,12 @@ from antlr.PPErrorListener import *
 import pickle
 import numpy as np
 
+def sum_calculator(received_outs, expected_outs):
+    fitness = 0
+    # difference between nr of outputs - multiply by 100
+    fitness -= 100 * abs(len(received_outs) - len(expected_outs))
+    return fitness
+
 class GP:
     def __init__(self, inputs=[], outputs=[]) -> None:
         self.max_depth = 4
@@ -20,11 +26,11 @@ class GP:
         self.expected_output = outputs
         self.tournament_size = 2
         self.mutation_rate = 0.5
-        self.crossover_rate = 0.9
+        self.crossover_rate = 0.5
         self.nr_of_generations = 100
         self.max_traverse_tries = 10
         self.best_indiv_idx = 0
-        self.best_fitness = -10000
+        self.best_fitness = -1000000
 
     def get_train_data(self, filename):
         with open(filename, "r") as f:
@@ -42,28 +48,25 @@ class GP:
         print("Outputs: ", self.expected_output)
 
     def compute_fitness(self, program: str) -> float:
-        fitness = 0 # the smaller the better
+        fitness = 0 # max is 0, should be negative besides
         epochs = len(self.program_input)
         for example_idx in range(epochs):
             data = InputStream(program)
             prints = self.interprateInput(data, self.program_input[example_idx])
-            # difference between nr of outputs - multiply by 100
-            try:
-                fitness += abs(min(prints) - 1)
-            except ValueError:
-                fitness += 10e+9
-            # fitness += 100 * abs(len(prints)-len(self.expected_output[example_idx]))
-            # sth specific for individual
-        # print("Total fitness: ", fitness, " avg fitness per epoch:", fitness/epochs, "\n")
-        return -fitness - 5
+            fitness += sum_calculator(prints, self.expected_output[example_idx])
+            # try:
+            #     fitness += abs(min(prints) - 1)
+            # except ValueError:
+            #     fitness += 10e+9
+        return fitness - 5
 
     def create_random_population(self):
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual())
             program_str = self.generate_program_str(self.population[idx])
-            # print("individual nr: " + str(idx) + ":\n" + program_str + "\n")
             self.program_strings.append(program_str)
             self.fitness.append(self.compute_fitness(program_str))
+        print("Random population generated")
 
     def create_random_individual(self) -> Node:
         Node.nr_of_variables = 0  # no global variables
@@ -124,8 +127,6 @@ class GP:
             for j in range(self.max_traverse_tries):
                 node2 = GP.get_random_node(parent2)
                 if node2.type in Node.get_possible_crossover(node1.type):
-                    # print("Crossover", node1.type,
-                    #       node1.value, node2.type, node2.value)
                     node1.type = node2.type
                     node1.value = node2.value
                     node1.children = node2.children
@@ -216,7 +217,7 @@ class GP:
             steps = self.nr_of_generations
         for generation in range(steps):
             print("Generation", generation, " ------------------------")
-            if self.best_fitness/len(self.population) > -10e-5:
+            if self.best_fitness/len(self.population) > -1:
                 print("Solution found in generation", generation)
                 break
 
@@ -230,7 +231,7 @@ class GP:
                 # print(self.generate_program_str(self.population[i]))
                 # print("Fitness", self.fitness[i])
 
-            print("\n***** Operations ***")
+            # print("\n***** Operations ***")
             for idx in range(len(self.population)):
                 if random.random() < self.crossover_rate:  # 50%
                     parent1 = self.perform_tournament()
@@ -261,14 +262,12 @@ class GP:
                     self.population[weakest_idx] = child_copy
                     child_str = self.generate_program_str(child_copy)
                     self.fitness[weakest_idx] = self.compute_fitness(child_str)
-                # if self.fitness[weakest_idx] > self.best_fitness:
-                #     self.best_fitness = self.fitness[weakest_idx]
-                #     self.best_indiv_idx = weakest_idx
+                if self.fitness[weakest_idx] > self.best_fitness:
+                    self.best_fitness = self.fitness[weakest_idx]
+                    self.best_indiv_idx = weakest_idx
             if copy:
                 self.population = population_copy
                 self.fitness = fitness_copy
-            self.best_fitness = np.min(self.fitness)
-            self.best_indiv_idx = np.argmin(self.fitness)
             print("\nBest fitness:", self.best_fitness, " best indiv:")
             print(self.generate_program_str(self.population[self.best_indiv_idx]))
 

@@ -44,7 +44,7 @@ class Node:
         if type_ == NodeType.INT:
             return random.randint(Node.min_val_int, Node.max_val_int)
         elif type_ == NodeType.VAR_NAME:  # existing
-            if random.random() < 0.3 or Node.nr_of_variables == 0:  # create new
+            if random.random() < 0.1 or Node.nr_of_variables == 0:  # create new
                 Node.nr_of_variables += 1
                 return "X" + str(Node.nr_of_variables)
             else:
