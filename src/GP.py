@@ -13,8 +13,6 @@ def sum_calculator(received_outs, expected_outs):
     fitness = 0
     # difference between nr of outputs - multiply by 100
     fitness -= 100 * abs(len(received_outs) - len(expected_outs))
-    # print("received: ", received_outs)
-    # print("expected: ", expected_outs)
     if len(received_outs) == 0:
         fitness *= 2
     else:
@@ -32,8 +30,8 @@ class GP:
         self.program_input = inputs
         self.expected_output = outputs
         self.tournament_size = 2
-        self.mutation_rate = 0
-        self.crossover_rate = 1
+        self.mutation_rate = 1
+        self.crossover_rate = 0
         self.nr_of_generations = 100
         self.max_traverse_tries = 10
         self.best_indiv_idx = 0
@@ -66,7 +64,6 @@ class GP:
             #     fitness += abs(min(prints) - 1)
             # except ValueError:
             #     fitness += 10e+9
-        print("Final fitness:", fitness)
         return fitness
 
     def create_random_population(self):
@@ -159,6 +156,7 @@ class GP:
         """
         if not curr_node.can_mutate:
             return curr_node
+        
         possibilities = Node.get_possible_point_mutations(curr_node.type)
         if len(possibilities) == 0:  # node cannot be mutated
             return curr_node
@@ -167,8 +165,8 @@ class GP:
             new_node = Node(possibilities[idx], curr_node.children, None)
             if new_node.type == NodeType.INPUT:
                 new_node.value = "input"
-            print("Mutation (", curr_node.type, ", ", curr_node.value,
-                  ") -> (", new_node.type, ", ", new_node.value, ")")
+            # print("Mutation (", curr_node.type, ", ", curr_node.value,
+            #       ") -> (", new_node.type, ", ", new_node.value, ")")
             return new_node
 
     def mutate(self, root: Node) -> Node:
@@ -262,6 +260,7 @@ class GP:
             if copy:
                 self.population = population_copy
                 self.fitness = fitness_copy
+
             self.best_fitness = np.max(self.fitness)
             self.best_indiv_idx = np.argmax(self.fitness)
             print("\nBest fitness:", self.best_fitness, " best indiv:")

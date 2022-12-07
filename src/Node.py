@@ -31,9 +31,6 @@ class Node:
         self.can_mutate = can_mutate
         if not value:
             self.value = Node.generate_random_value(self.type)
-            if self.value == "ERROR":  # calling variable before assignment
-                self.type = NodeType.INT
-                self.value = random.randint(Node.min_val_int, Node.max_val_int)
         else:
             self.value = value
 
@@ -121,7 +118,6 @@ class Node:
     max_val_int = 100
     min_val_int = 0
     variables = []
-    max_nr_of_variables = 100
 
     type_to_children = {
         NodeType.SEQUENCE: [(-1, [NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT, NodeType.LOOP, NodeType.PRINT])],
