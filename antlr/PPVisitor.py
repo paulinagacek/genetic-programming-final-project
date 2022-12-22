@@ -10,11 +10,11 @@ else:
 
 class PPVisitor(ParseTreeVisitor):
 
-    def __init__(self, input_var, max_nr_of_ticks: int = 500) -> None:
+    def __init__(self, input_var=None, max_nr_of_ticks: int = 500) -> None:
         self.variables = {}  # mapps names to values
         self.max_nr_of_ticks = max_nr_of_ticks
         self.ticks = 0
-        self.input_var = input_var
+        self.input_var = input_var if input_var else []
         self.prints = []
 
     def visitProgram(self, ctx: PPParser.ProgramContext):
@@ -88,7 +88,7 @@ class PPVisitor(ParseTreeVisitor):
         op = ctx.op.text
         
         if op == "/" and right == 0: # division by 0
-            right = 0.1
+            right = 0.001
         
         operation = {
             '+': lambda: left + right,

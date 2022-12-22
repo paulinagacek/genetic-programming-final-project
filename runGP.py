@@ -13,4 +13,4 @@ if __name__ == "__main__":
     gp = GP()
     gp.get_train_data(file_name)
     gp.create_random_population()
-    gp.evolve(copy_=True)
+    gp.evolve()

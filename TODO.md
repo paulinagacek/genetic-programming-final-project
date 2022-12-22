@@ -67,6 +67,10 @@ Paulina:
     maximum recursion depth exceeded while getting the str of an object
 ```
 
-- [] błąd rekurencji
-- [] co jeśli dzielimy przez 0
-- [x] czy ustalamy domyślne copy czy nie - tak tylko z copy
+- zmiana deepcopy tree na bfs
+- podrasowac algorytmy
+- popracowac nad crossoverem
+- dodac w wierzchołakch drzewa informacje o liczbie wszystkich jego dzieci i szansa na mutacje to 1/2^sqrt(liczba dzieci)
+- mutacja poddrzewa
+- finess jako parametr
+- dynamiczne zmienianie parametrow szansy na mutacje i crossover

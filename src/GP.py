@@ -226,13 +226,17 @@ class GP:
                 stack.append((level + 1, child))
 
     def deepcopy_tree(self, root: Node) -> Node:
-        new_node = Node(root.type, [], None, root.can_mutate)
+        new_node = Node(root.type, list([]), None, root.can_mutate)
         new_node.value = root.value
-        for child in root.children:
-            new_node.children.append(self.deepcopy_tree(child))
+        try:
+            for child in root.children:
+                new_node.children.append(self.deepcopy_tree(child))
+        except RecursionError:
+            print("Recursion error")
+            # return root
         return new_node
 
-    def evolve(self, copy_=False, steps=-1):
+    def evolve(self, steps=-1):
         if steps == -1:
             steps = self.nr_of_generations
         for generation in range(steps):
@@ -241,39 +245,32 @@ class GP:
                 print("Solution found in generation", generation)
                 break
 
-            if copy_:
-                population_copy = copy.deepcopy(self.population)
-                fitness_copy = copy.deepcopy(self.fitness)
+            population_copy = copy.deepcopy(self.population)
+            fitness_copy = copy.deepcopy(self.fitness)
 
             for idx in range(len(self.population)):
                 if random.random() < self.crossover_rate:  # 50%
                     parent1 = self.perform_tournament()
                     parent2 = self.perform_tournament()
                     if parent1 == parent2:
-                        child = self.mutate(self.population[parent1])
+                        parent_copy = self.deepcopy_tree(self.population[parent1])
+                        child = self.mutate(parent_copy)
                     else:
-                        child = self.perform_crossover(
-                            self.population[parent1], self.population[parent2])
+                        parent1_copy = self.deepcopy_tree(self.population[parent1])
+                        parent2_copy = self.deepcopy_tree(self.population[parent2])
+                        child = self.perform_crossover(parent1_copy, parent2_copy)
                 else:
                     parent1 = self.perform_tournament()
-                    child = self.mutate(self.population[parent1])
+                    parent1_copy = self.deepcopy_tree(self.population[parent1])
+                    child = self.mutate(parent1_copy)
 
                 weakest_idx = self.perform_negative_tournament()
-                child_copy = self.deepcopy_tree(child)
-                if copy_:
-                    population_copy[weakest_idx] = child_copy
-                    child_str = self.generate_program_str(child_copy)
-                    fitness_copy[weakest_idx] = self.compute_fitness(child_str)
-                else:
-                    self.population[weakest_idx] = child_copy
-                    child_str = self.generate_program_str(child_copy)
-                    self.fitness[weakest_idx] = self.compute_fitness(child_str)
-            
-            if copy_:
-                self.population = copy.deepcopy(population_copy)
-                self.fitness = copy.deepcopy(fitness_copy)
-                del population_copy
-                del fitness_copy
+                population_copy[weakest_idx] = child
+                child_str = self.generate_program_str(child)
+                fitness_copy[weakest_idx] = self.compute_fitness(child_str)
+
+            self.population = copy.deepcopy(population_copy)
+            self.fitness = copy.deepcopy(fitness_copy)
 
 
             self.best_indiv_idx = np.argmax(self.fitness)
