@@ -66,3 +66,7 @@ Paulina:
     return Converter.get_loop(node)
     maximum recursion depth exceeded while getting the str of an object
 ```
+
+- [] błąd rekurencji
+- [] co jeśli dzielimy przez 0
+- [x] czy ustalamy domyślne copy czy nie - tak tylko z copy

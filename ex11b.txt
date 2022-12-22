@@ -1,0 +1,403 @@
+Inputs:  [[1], [2], [3], [4], [5], [6], [8], [9], [10], [11], [15], [100]]
+Outputs:  [[789], [789], [789], [789], [789], [789], [789], [789], [789], [789], [789], [789]]
+Random population generated
+Generation 0  ------------------------
+
+Best fitness: -8976.0  best indiv:
+print(24/X3);X1=25*X6-X6;LOOP(((X8<X3)AND(X2!=68))OR((X3==11)OR(93<X2)))IF(X7!=16)X2=X3;;LOOP(97!=X4)X3=X1;;;print(X5-X3);
+Generation 1  ------------------------
+
+Best fitness: -8856.0  best indiv:
+print(74);print(51);print(99/X1);
+Generation 2  ------------------------
+
+Best fitness: -8856.0  best indiv:
+print(X2);print(41);print(X5/X6);
+Generation 3  ------------------------
+
+Best fitness: -8388  best indiv:
+LOOP(((87>X5)AND(X3==22))OR((X5!=X6)AND(83==X3)))IF(X7!=21)X1=X10;;LOOP(X3==X8)X1=X7;;LOOP(38<32)X2=X6;;LOOP(X1!=X2)X1=12;;print(2-X4);;print(90);
+Generation 4  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((31==X8)OR(35==85))AND((X1>X6)OR(X10==88)))IF(61!=X2)X1=X3;;LOOP(40!=1)X1=X10;;IF(66==X1)X2=96;;IF(75<X10)X1=54;;print(60-X10);;print(100);
+Generation 5  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((46==X1)AND(28==78))OR((61!=X9)AND(X3!=84)))LOOP(90!=X4)X1=X7;;LOOP(63!=X8)X1=15;;LOOP(X3==66)X2=0;;LOOP(X10<X10)X1=5;;print(X3-X4);;print(12);
+Generation 6  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((46==X1)AND(28==78))OR((61!=X9)AND(X3!=84)))LOOP(90!=X4)X1=X7;;LOOP(63!=X8)X1=15;;LOOP(X3==66)X2=0;;LOOP(X10<X10)X1=5;;print(X3-X4);;print(12);
+Generation 7  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((X6<X8)AND(92>X9))AND((12!=98)OR(X4==X8)))LOOP(X3>X6)X1=X9;;IF(59!=77)X1=45;;LOOP(X6>X9)X2=X3;;IF(X9==X4)X1=X6;;print(81-78);;print(X1);
+Generation 8  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((X7>X8)OR(13==X4))AND((35==X2)OR(99<X3)))IF(61!=56)X1=28;;LOOP(X7==77)X1=70;;LOOP(95==19)X2=52;;LOOP(27>X8)X1=X2;;print(X10-X5);;print(X3);
+Generation 9  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((X7<3)AND(83==X6))AND((X1<X6)AND(79<63)))IF(X10==31)X1=8;;LOOP(X4>X1)X1=X10;;IF(28<X6)X2=10;;IF(84<X10)X1=X6;;print(X1-63);;print(X1);
+Generation 10  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((X10==39)AND(X7==X9))OR((54<X7)OR(X5<X5)))IF(43<X2)X1=99;;IF(X6>67)X1=85;;LOOP(82>X2)X2=X3;;LOOP(X2>99)X1=X2;;print(77-X9);;print(X1);
+Generation 11  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((30!=X5)AND(18==X1))OR((X6!=X4)OR(X3!=26)))IF(21<X3)X1=75;;LOOP(X9<78)X1=65;;IF(30<X1)X2=99;;LOOP(56!=X5)X1=90;;print(84-X3);;print(50);
+Generation 12  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((X5==76)OR(X4<50))OR((16<72)AND(X2!=53)))IF(X4!=94)X1=X10;;IF(X8!=9)X1=23;;IF(X2!=X5)X2=X2;;LOOP(80==26)X1=8;;print(96-X4);;print(X3);
+Generation 13  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((39!=X4)OR(X5==X5))AND((X1<X8)OR(X8>69)))IF(41!=X10)X1=28;;LOOP(1!=7)X1=55;;LOOP(X3<X2)X2=X10;;LOOP(X2>22)X1=X9;;print(57-X1);;print(X5);
+Generation 14  ------------------------
+
+Best fitness: -8376  best indiv:
+IF(((X2!=84)AND(21==X4))OR((91!=97)OR(X6!=7)))LOOP(X10>54)X1=93;;LOOP(X10<96)X1=96;;LOOP(X7>28)X2=X9;;LOOP(89<X5)X1=16;;print(X3-X8);;print(X2);
+Generation 15  ------------------------
+
+Best fitness: -8376  best indiv:
+LOOP(((4>X3)OR(19==24))OR((90>X2)AND(56<X7)))IF(X4>82)X1=X1;;LOOP(68==X4)X1=37;;LOOP(X4<X10)X2=86;;IF(58<26)X1=77;;print(X6-19);;print(92);
+Generation 16  ------------------------
+
+Best fitness: -8352  best indiv:
+LOOP(((X1!=59)AND(X6>X10))OR((X1==89)AND(84==X4)))LOOP(X8<X3)X1=12;;IF(X4>X6)X1=X4;;LOOP(77!=X9)X2=X10;;LOOP(X1>X8)X1=4;;print(58-X9);;print(93);
+Generation 17  ------------------------
+
+Best fitness: -8352  best indiv:
+IF(((82!=76)OR(73<44))AND((62==X10)AND(X1>X3)))LOOP(X6!=26)X1=X9;;LOOP(15<8)X1=12;;IF(12!=70)X2=X1;;LOOP(88==70)X1=X7;;print(5-26);;print(13);
+Generation 18  ------------------------
+
+Best fitness: -8352  best indiv:
+LOOP(((13==45)OR(68!=X2))AND((63<62)AND(7!=X9)))LOOP(59!=X8)X1=X2;;LOOP(X8==42)X1=57;;LOOP(X3!=X10)X2=90;;LOOP(21==X10)X1=X10;;print(57-13);;print(1);
+Generation 19  ------------------------
+
+Best fitness: -8352  best indiv:
+LOOP(((13==45)OR(68!=X2))AND((63<62)AND(7!=X9)))LOOP(59!=X8)X1=X2;;LOOP(X8==42)X1=57;;LOOP(X3!=X10)X2=90;;LOOP(21==X10)X1=X10;;print(57-13);;print(1);
+Generation 20  ------------------------
+
+Best fitness: -8352  best indiv:
+LOOP(((X8>7)AND(X2!=X4))AND((X8>81)AND(X4<80)))LOOP(1<X5)X1=X9;;LOOP(X6!=X8)X1=X1;;LOOP(X7!=X9)X2=28;;LOOP(X5<X9)X1=X10;;print(X1-17);;print(X7);
+Generation 21  ------------------------
+
+Best fitness: -8352  best indiv:
+LOOP(((53>25)OR(X10>89))AND((X6!=22)AND(11==35)))IF(56==X10)X1=X4;;IF(X3>X4)X1=X5;;LOOP(X9==X7)X2=59;;IF(X5==25)X1=99;;print(44-80);;print(X5);
+Generation 22  ------------------------
+
+Best fitness: -8352  best indiv:
+IF(((73!=X2)OR(X7<X10))OR((X1<14)OR(84!=X10)))LOOP(43<X3)X1=X7;;IF(70!=40)X1=98;;IF(57==42)X2=X2;;LOOP(89!=12)X1=96;;print(X6-X8);;print(X9);
+Generation 23  ------------------------
+
+Best fitness: -8352  best indiv:
+LOOP(((X2>X10)OR(X5!=25))AND((X7==X7)AND(X3>X4)))LOOP(X4<58)X1=26;;LOOP(X9!=49)X1=63;;LOOP(X9<90)X2=41;;LOOP(X1==26)X1=X5;;print(X5-X2);;print(X10);
+Generation 24  ------------------------
+
+Best fitness: -8352  best indiv:
+LOOP(((46>64)AND(X8>X4))AND((X8>X7)AND(X4<48)))LOOP(X2==X7)X1=X1;;IF(64==99)X1=X8;;LOOP(97==92)X2=39;;LOOP(X7==65)X1=47;;print(X8-X7);;print(28);
+Generation 25  ------------------------
+
+Best fitness: -8352  best indiv:
+LOOP(((46>64)AND(X8>X4))AND((X8>X7)AND(X4<48)))LOOP(X2==X7)X1=X1;;IF(64==99)X1=X8;;LOOP(97==92)X2=39;;LOOP(X7==65)X1=47;;print(X8-X7);;print(28);
+Generation 26  ------------------------
+
+Best fitness: -8280  best indiv:
+LOOP(((X10==57)OR(48!=X9))AND((12==33)AND(37==X9)))LOOP(X3<X8)X1=91;;IF(X5<X2)X1=X3;;LOOP(X7>X2)X2=X2;;LOOP(49>82)X1=X9;;print(97-41);;print(99);
+Generation 27  ------------------------
+
+Best fitness: -8280  best indiv:
+IF(((X2!=78)AND(X6==X3))AND((57==79)AND(X2==20)))LOOP(84<X3)X1=29;;IF(X2==X8)X1=21;;LOOP(51!=68)X2=X10;;LOOP(X2!=22)X1=X2;;print(X7-63);;print(X6);
+Generation 28  ------------------------
+
+Best fitness: -8280  best indiv:
+IF(((X2==X10)OR(92<X6))OR((12!=27)AND(X9==52)))LOOP(X8==X1)X1=X5;;IF(X8<83)X1=63;;IF(X9<X7)X2=71;;IF(80<X8)X1=X5;;print(X3-X8);;print(X3);
+Generation 29  ------------------------
+
+Best fitness: -8280  best indiv:
+IF(((6<X8)AND(30==X2))OR((63<57)AND(X5<X8)))IF(X4>X10)X1=X7;;LOOP(72==X7)X1=32;;LOOP(X8<X9)X2=47;;LOOP(X5>28)X1=X5;;print(91-X5);;print(33);
+Generation 30  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((X7!=X4)OR(77<X8))AND((X7<35)OR(X6<71)))IF(28<96)X1=25;;IF(28!=39)X1=27;;IF(X2>82)X2=X5;;LOOP(X2!=55)X1=67;;print(92-X4);;print(X4);
+Generation 31  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((X1<77)OR(85!=X5))AND((X8>17)OR(X7!=27)))IF(X1<30)X1=89;;IF(36==100)X1=96;;IF(X5>93)X2=29;;IF(2<X8)X1=X10;;print(100-X8);;print(16);
+Generation 32  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((X1<77)OR(85!=X5))AND((X8>17)OR(X7!=27)))IF(X1<30)X1=89;;IF(36==100)X1=96;;IF(X5>93)X2=29;;IF(2<X8)X1=X10;;print(100-X8);;print(16);
+Generation 33  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((61!=X7)OR(1==61))OR((X1>X1)AND(X4==X10)))IF(X8==X9)X1=X7;;IF(X9<100)X1=67;;LOOP(35>X1)X2=22;;IF(50>23)X1=70;;print(X8-X6);;print(X6);
+Generation 34  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((X3==X10)OR(46>X10))OR((55>91)AND(X5<80)))IF(100==X8)X1=X7;;IF(X1==33)X1=X7;;IF(X2==48)X2=X2;;IF(70>X1)X1=58;;print(40-X4);;print(67);
+Generation 35  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((53!=X1)AND(22==X10))OR((100!=91)OR(97>80)))IF(X3<X8)X1=62;;IF(14==X7)X1=37;;IF(X9!=75)X2=71;;LOOP(X4<91)X1=X8;;print(66-16);;print(24);
+Generation 36  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((83!=X10)OR(X2!=91))AND((X3==X3)OR(X6==X7)))IF(17<X8)X1=80;;IF(X6==X7)X1=74;;IF(74>57)X2=X7;;IF(X3==X4)X1=1;;print(X3-X2);;print(51);
+Generation 37  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((80!=2)OR(X9!=13))AND((27!=46)AND(44!=56)))IF(X6==X3)X1=48;;IF(X2>X1)X1=X5;;IF(X5<61)X2=25;;LOOP(X9!=70)X1=X10;;print(X1-62);;print(X2);
+Generation 38  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((X7==X1)AND(21<0))AND((X6==9)AND(51==24)))IF(70<X9)X1=X3;;IF(96<X2)X1=X3;;LOOP(30<X4)X2=11;;IF(51<31)X1=44;;print(51-44);;print(100);
+Generation 39  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((50>X7)OR(97!=37))OR((X10<17)AND(15>44)))IF(74!=44)X1=51;;LOOP(X9<X6)X1=31;;LOOP(67!=88)X2=96;;IF(74!=12)X1=X3;;print(8-X8);;print(15);
+Generation 40  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((X7!=X7)OR(97!=X7))OR((X10<X7)AND(54<X1)))LOOP(88==X4)X1=72;;LOOP(69!=81)X1=X2;;IF(X8<X8)X2=55;;LOOP(X7>X1)X1=33;;print(X2-32);;print(X6);
+Generation 41  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((25<29)AND(X1!=X2))OR((74!=X4)AND(X6<77)))LOOP(X6>46)X1=100;;IF(X7>44)X1=2;;LOOP(X5<X6)X2=X9;;LOOP(X8==7)X1=15;;print(13-79);;print(32);
+Generation 42  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((99==38)OR(87<32))AND((56!=70)OR(X9==X6)))LOOP(X3!=X2)X1=35;;LOOP(X2!=78)X1=X10;;IF(X4!=81)X2=X9;;IF(X1<79)X1=X6;;print(X9-X2);;print(0);
+Generation 43  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((X4==55)AND(X9>39))AND((84>X7)AND(66>X4)))LOOP(48==X6)X1=69;;LOOP(43<X2)X1=X8;;LOOP(X3!=X4)X2=X5;;IF(X9==X10)X1=X7;;print(X7-X4);;print(70);
+Generation 44  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((X3!=X5)AND(19!=3))OR((X7<X8)AND(98<X10)))LOOP(X7==72)X1=X2;;IF(22==X2)X1=X2;;LOOP(X10!=X2)X2=33;;IF(95>26)X1=48;;print(26-89);;print(37);
+Generation 45  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((X7==X2)OR(X1!=68))OR((6==X5)OR(X3==66)))IF(62>2)X1=X4;;IF(29<88)X1=52;;LOOP(X10==X5)X2=15;;LOOP(3!=X9)X1=35;;print(7-12);;print(80);
+Generation 46  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((99<X2)OR(X3<X5))AND((24>X10)AND(73>33)))LOOP(X10<68)X1=88;;LOOP(28!=X6)X1=X2;;IF(X4==25)X2=X8;;LOOP(X8==75)X1=X10;;print(X5-X1);;print(47);
+Generation 47  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((X1>73)AND(88==21))OR((53==8)AND(5==66)))IF(85<6)X1=X10;;IF(X7<X1)X1=38;;LOOP(X2==92)X2=X3;;LOOP(41>X2)X1=74;;print(77-X3);;print(72);
+Generation 48  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((X10!=X5)OR(X7==X5))AND((47<X5)OR(X3==X5)))IF(X2!=71)X1=X7;;LOOP(X6!=X8)X1=X6;;LOOP(49>86)X2=38;;LOOP(X7>X6)X1=X6;;print(43-94);;print(X5);
+Generation 49  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((X6==X5)AND(X3!=5))OR((X4!=X10)OR(35!=X6)))LOOP(84>X9)X1=69;;IF(71<77)X1=75;;IF(X7>X2)X2=45;;IF(50<71)X1=X9;;print(X7-51);;print(X3);
+Generation 50  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((X4!=49)OR(X2==X1))OR((X6==X7)OR(X7>50)))IF(90!=37)X1=8;;LOOP(21!=26)X1=X5;;IF(X9!=36)X2=X5;;LOOP(X5<97)X1=X5;;print(31-5);;print(23);
+Generation 51  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((15>95)AND(45>51))OR((36<X2)OR(92!=X5)))LOOP(X8>43)X1=X6;;IF(7==X2)X1=77;;LOOP(X5<X5)X2=X1;;IF(X5>37)X1=X8;;print(79-33);;print(68);
+Generation 52  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((13!=X4)AND(X3==X1))AND((X7!=X2)AND(X9!=32)))IF(X4==34)X1=X1;;IF(X5==X3)X1=X5;;IF(60==1)X2=16;;IF(X8>X9)X1=7;;print(94-15);;print(15);
+Generation 53  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((X6<46)OR(71<X2))OR((X1==86)AND(X1<98)))IF(X9>30)X1=77;;IF(X5==46)X1=X2;;LOOP(X3==41)X2=X9;;LOOP(9==X2)X1=X2;;print(X6-76);;print(26);
+Generation 54  ------------------------
+
+Best fitness: -8316  best indiv:
+IF(((37!=X3)OR(42==X4))AND((54<X2)OR(X1<X5)))LOOP(X9>X1)X1=X3;;IF(36>12)X1=58;;LOOP(72>X9)X2=X1;;IF(X5>X5)X1=X8;;print(49-X6);;print(X8);
+Generation 55  ------------------------
+
+Best fitness: -8304  best indiv:
+IF(((59==98)OR(X6<X5))AND((62<X7)OR(94==X2)))LOOP(X4<96)X1=X2;;IF(X1==X9)X1=18;;LOOP(X4!=25)X2=30;;LOOP(X10==97)X1=X4;;print(X6-X10);;print(97);
+Generation 56  ------------------------
+
+Best fitness: -8304  best indiv:
+IF(((0<X8)AND(29!=X4))OR((X1>13)AND(59!=90)))LOOP(91!=X1)X1=X2;;LOOP(9==78)X1=X7;;IF(X4!=85)X2=X9;;IF(X10<X5)X1=X8;;print(X1-X6);;print(60);
+Generation 57  ------------------------
+
+Best fitness: -8304  best indiv:
+LOOP(((2!=49)AND(X3!=42))AND((69==X4)OR(52<35)))IF(X4!=X4)X1=X1;;IF(X3==X2)X1=59;;LOOP(X4<X4)X2=24;;IF(55!=49)X1=10;;print(X1-0);;print(X10);
+Generation 58  ------------------------
+
+Best fitness: -8304  best indiv:
+LOOP(((69==X1)AND(X6>26))OR((83==50)OR(X4!=X8)))IF(27!=25)X1=X4;;LOOP(92<X3)X1=X7;;IF(X2<72)X2=40;;IF(X7!=37)X1=61;;print(X7-X10);;print(11);
+Generation 59  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((X5>X2)AND(X3!=X2))AND((18!=X9)AND(X4!=X8)))IF(91==57)X1=87;;LOOP(8!=X10)X1=88;;LOOP(95!=X9)X2=86;;LOOP(X2>24)X1=21;;print(4-69);;print(100);
+Generation 60  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((X3==81)AND(X1!=X3))OR((29>X3)OR(X8==83)))IF(61>97)X1=X3;;LOOP(39==X1)X1=X4;;IF(X6<89)X2=X9;;IF(50!=X10)X1=90;;print(X4-X3);;print(X1);
+Generation 61  ------------------------
+
+Best fitness: -8268  best indiv:
+IF(((X6==74)AND(X10<X7))AND((X4>90)OR(X2!=X10)))IF(32!=X4)X1=38;;IF(X4<84)X1=X6;;LOOP(18<16)X2=73;;LOOP(X9<X1)X1=20;;print(X2-X5);;print(X10);
+Generation 62  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((17<98)AND(78>100))AND((X6<X9)AND(X2>3)))IF(X4<X2)X1=X1;;LOOP(X4<X6)X1=X9;;IF(75==82)X2=X7;;LOOP(X5>X7)X1=50;;print(27-71);;print(X4);
+Generation 63  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((20==87)AND(0==2))OR((73==2)OR(X1>X2)))IF(X1!=X5)X1=93;;IF(52!=21)X1=X8;;LOOP(33==28)X2=80;;IF(82!=X6)X1=X4;;print(27-78);;print(X6);
+Generation 64  ------------------------
+
+Best fitness: -8268  best indiv:
+LOOP(((52<X4)AND(X7<58))OR((X3==52)AND(X9<X6)))LOOP(X10!=X4)X1=X9;;LOOP(60==X1)X1=X10;;IF(X4!=35)X2=X7;;LOOP(X4!=X10)X1=X7;;print(45-59);;print(79);
+Generation 65  ------------------------
+
+Best fitness: -8520  best indiv:
+IF(((X6<X7)OR(85>93))AND((X10!=X8)AND(X7>79)))IF(X7==X10)X1=X8;;LOOP(X6<X3)X1=69;;LOOP(81==61)X2=89;;IF(77>37)X1=X1;;print(X4-X7);;print(X7);
+Generation 66  ------------------------
+
+Best fitness: -8520  best indiv:
+LOOP(((X10>36)OR(X3>58))AND((15==X1)OR(X6!=X9)))LOOP(35!=16)X1=14;;IF(X7==X3)X1=20;;LOOP(93==89)X2=X5;;LOOP(X2!=X3)X1=X4;;print(27-16);;print(32);
+Generation 67  ------------------------
+
+Best fitness: -8484  best indiv:
+LOOP(((0!=80)AND(12<X7))AND((23==34)AND(85==X3)))LOOP(X2==X9)X1=83;;LOOP(36>49)X1=68;;IF(X6==35)X2=X1;;LOOP(X4!=X7)X1=X10;;print(X1-89);;print(82);
+Generation 68  ------------------------
+
+Best fitness: -8520  best indiv:
+IF(((X2==X5)OR(X10>29))OR((X9!=67)AND(X10<95)))IF(86<X4)X1=X10;;IF(X6==71)X1=2;;IF(X5<18)X2=54;;IF(97==X9)X1=72;;print(68-42);;print(X5);
+Generation 69  ------------------------
+
+Best fitness: -8520  best indiv:
+IF(((X5<X10)OR(69<X6))AND((15!=X10)OR(71==100)))LOOP(50!=78)X1=X5;;IF(X2>X5)X1=X3;;IF(79>X10)X2=82;;LOOP(X7!=41)X1=X2;;print(85-X8);;print(X4);
+Generation 70  ------------------------
+
+Best fitness: -8520  best indiv:
+LOOP(((93==X3)OR(X4==4))OR((X6!=93)OR(X5>58)))IF(X5==X1)X1=24;;IF(X5!=74)X1=47;;LOOP(X4!=80)X2=X4;;IF(X4!=52)X1=X10;;print(X5-68);;print(95);
+Generation 71  ------------------------
+
+Best fitness: -8340  best indiv:
+LOOP(((X7>X5)OR(X1!=64))AND((11<100)AND(X4!=X5)))LOOP(X1<X10)X1=7;;IF(37<75)X1=X10;;IF(85!=X6)X2=48;;IF(11<X9)X1=93;;print(X9-38);;print(94);
+Generation 72  ------------------------
+
+Best fitness: -8340  best indiv:
+LOOP(((39!=24)OR(X3<X3))OR((42<6)OR(X3!=48)))IF(X9==13)X1=X1;;IF(X9==X3)X1=X5;;LOOP(X8>57)X2=X9;;IF(X7==40)X1=X6;;print(95-57);;print(X4);
+Generation 73  ------------------------
+
+Best fitness: -8328  best indiv:
+IF(((53==X10)OR(15!=42))AND((62==18)AND(X10>X7)))IF(X6!=X9)X1=33;;IF(8<X5)X1=28;;IF(43==57)X2=X9;;IF(22>X9)X1=66;;print(100-97);;print(95);
+Generation 74  ------------------------
+
+Best fitness: -8340  best indiv:
+LOOP(((X9>5)AND(30<44))AND((X8!=14)OR(X5==95)))LOOP(34!=34)X1=X6;;LOOP(90==50)X1=41;;LOOP(0>9)X2=65;;IF(X1>X8)X1=X3;;print(X3-1);;print(X6);
+Generation 75  ------------------------
+
+Best fitness: -8340  best indiv:
+LOOP(((X8==X2)AND(X9!=X6))AND((90<X8)OR(X9<97)))LOOP(X2<X10)X1=39;;LOOP(X6!=80)X1=70;;LOOP(X5>26)X2=65;;IF(82==X4)X1=X6;;print(18-93);;print(X10);
+Generation 76  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((X7!=42)AND(X8<X8))AND((X10>97)OR(X5!=58)))LOOP(29!=X10)X1=X9;;IF(60!=48)X1=X8;;LOOP(17<28)X2=X5;;IF(X6==X9)X1=X3;;print(X5-41);;print(98);
+Generation 77  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((29!=46)AND(52<98))OR((16>X4)OR(X7==X1)))IF(99<46)X1=13;;IF(X4!=70)X1=X3;;LOOP(X8<62)X2=X10;;LOOP(X4==91)X1=51;;print(97-X10);;print(X10);
+Generation 78  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((77<8)OR(X7==X2))OR((X2>X5)AND(7<85)))LOOP(X9>4)X1=X4;;IF(26==69)X1=X7;;LOOP(X3!=X10)X2=72;;LOOP(X3==X3)X1=X3;;print(X6-X10);;print(X5);
+Generation 79  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((X8<X9)OR(X2==X2))OR((X5==47)AND(75!=X10)))IF(X10!=X1)X1=X4;;IF(23==X5)X1=78;;IF(75>X5)X2=98;;IF(44>X3)X1=74;;print(X10-72);;print(36);
+Generation 80  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((X4>83)AND(X5>11))OR((X6!=30)AND(18>21)))IF(X3>29)X1=X4;;LOOP(X3==X1)X1=70;;IF(31>X1)X2=X6;;LOOP(X10!=X2)X1=X2;;print(23-44);;print(X3);
+Generation 81  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((75!=56)AND(X9>30))AND((X10>61)AND(X8!=16)))LOOP(96!=X2)X1=26;;IF(99!=93)X1=X10;;LOOP(4>9)X2=85;;LOOP(X8>61)X1=X3;;print(X8-X6);;print(X10);
+Generation 82  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((54==X6)OR(34!=68))AND((X4==40)OR(X4==14)))IF(33==X4)X1=2;;IF(11==X5)X1=40;;IF(X10!=X9)X2=X1;;IF(X5==37)X1=X2;;print(9-69);;print(X2);
+Generation 83  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((73!=X6)AND(X8!=77))AND((66>X10)OR(X8!=X9)))IF(63!=X8)X1=X9;;LOOP(X4<X3)X1=75;;IF(75>78)X2=X3;;LOOP(73<99)X1=X7;;print(51-16);;print(X4);
+Generation 84  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((X9==85)AND(X3==X7))AND((X3>X8)AND(X9!=46)))LOOP(89!=X9)X1=83;;LOOP(20>X8)X1=X6;;LOOP(X3==39)X2=X7;;LOOP(45!=X7)X1=X1;;print(X1-X3);;print(X7);
+Generation 85  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((X7<19)AND(X8!=X10))OR((74<X8)AND(X4!=X5)))LOOP(X4>7)X1=X8;;IF(X4<X1)X1=30;;LOOP(36<9)X2=X4;;LOOP(47<X6)X1=X1;;print(35-X8);;print(73);
+Generation 86  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((73<X5)AND(X2!=2))OR((81!=50)AND(32>65)))IF(X1!=X10)X1=23;;IF(X9!=X8)X1=X7;;IF(X6<37)X2=4;;LOOP(54>81)X1=50;;print(3-X8);;print(X2);
+Generation 87  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((73<X5)AND(X2!=2))OR((81!=50)AND(32>65)))IF(X1!=X10)X1=23;;IF(X9!=X8)X1=X7;;IF(X6<37)X2=4;;LOOP(54>81)X1=50;;print(3-X8);;print(X2);
+Generation 88  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((X10<X3)AND(X8>50))AND((51!=31)AND(8>6)))LOOP(X4<X2)X1=X2;;LOOP(74<88)X1=10;;IF(X6<20)X2=70;;LOOP(X9==62)X1=X10;;print(X4-X10);;print(75);
+Generation 89  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((X6!=X2)AND(1==31))OR((42==X9)AND(X2>35)))LOOP(X2!=X5)X1=40;;IF(X10<89)X1=X4;;IF(69>99)X2=X10;;LOOP(81>27)X1=98;;print(X2-X5);;print(59);
+Generation 90  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((40!=X3)AND(26!=99))OR((X9<X1)AND(X8!=80)))LOOP(82!=4)X1=X10;;LOOP(X4>98)X1=30;;LOOP(X10==9)X2=X2;;LOOP(89!=42)X1=X5;;print(41-61);;print(X4);
+Generation 91  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((X3>X9)OR(26==X1))AND((X8==20)AND(89==X2)))IF(36!=X5)X1=X5;;IF(X10==X7)X1=X3;;IF(X6!=X6)X2=X10;;LOOP(X1<1)X1=X6;;print(X5-X4);;print(X2);
+Generation 92  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((4>69)AND(X9<7))OR((51!=65)OR(X10>X8)))IF(61<X9)X1=X1;;LOOP(66>X6)X1=68;;LOOP(X6!=X5)X2=75;;LOOP(67==X6)X1=X10;;print(15-5);;print(X2);
+Generation 93  ------------------------
+
+Best fitness: -8292  best indiv:
+IF(((X2>X4)AND(X6>X2))OR((X6==X10)OR(X4<X6)))LOOP(X7<X8)X1=99;;LOOP(98<X6)X1=X9;;LOOP(74==71)X2=X4;;IF(46!=X8)X1=X5;;print(80-X3);;print(X5);
+Generation 94  ------------------------
+
+Best fitness: -8592  best indiv:
+IF(((X8<32)AND(X1!=14))AND((19==X1)OR(X6!=X9)))LOOP(54<42)X1=77;;IF(X8!=X10)X1=X5;;IF(73>99)X2=43;;LOOP(80==84)X1=36;;print(X1-X6);;print(73);
+Generation 95  ------------------------
+
+Best fitness: -8592  best indiv:
+LOOP(((42==X4)AND(X1>X3))AND((X10<X2)AND(78==91)))LOOP(X10>X8)X1=X9;;LOOP(X7!=85)X1=22;;LOOP(X2!=16)X2=97;;IF(14==53)X1=X9;;print(X8-85);;print(14);
+Generation 96  ------------------------
+
+Best fitness: -8484  best indiv:
+IF(((82==X3)AND(X6==X3))AND((22!=X5)OR(69>75)))LOOP(X2==X2)X1=69;;IF(37!=80)X1=X9;;LOOP(76<X10)X2=94;;LOOP(X6==X5)X1=X5;;print(X7-X9);;print(82);
+Generation 97  ------------------------
+
+Best fitness: -8484  best indiv:
+IF(((81!=X7)AND(X4!=95))OR((42!=99)AND(X10>X9)))IF(X4==23)X1=10;;LOOP(X4>X8)X1=2;;LOOP(X10>X5)X2=99;;IF(73>12)X1=X1;;print(63-78);;print(5);
+Generation 98  ------------------------
+
+Best fitness: -8484  best indiv:
+LOOP(((X3>X9)OR(69!=86))AND((X1!=54)OR(X3!=X5)))LOOP(97==X1)X1=X5;;LOOP(50==X2)X1=3;;LOOP(X8>30)X2=7;;LOOP(61==X4)X1=92;;print(X9-52);;print(X2);
+Generation 99  ------------------------
+
+Best fitness: -8292  best indiv:
+LOOP(((4>X6)AND(X6!=X10))OR((X4<X5)OR(X9!=X6)))IF(93<33)X1=X6;;IF(X4>89)X1=16;;IF(X6!=X8)X2=X6;;LOOP(X6!=X4)X1=55;;print(X2-X3);;print(98);

@@ -3,7 +3,7 @@ from src.GP import *
 
 DIR = "examples/"
 # DEFAULT = "linear.txt"
-DEFAULT = "example_1_2_A.txt"
+DEFAULT = "example11B.txt"
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:  # no arguments
@@ -13,4 +13,4 @@ if __name__ == "__main__":
     gp = GP()
     gp.get_train_data(file_name)
     gp.create_random_population()
-    gp.evolve(copy=True)
+    gp.evolve(copy_=True)
