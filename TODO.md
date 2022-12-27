@@ -74,3 +74,5 @@ Paulina:
 - mutacja poddrzewa
 - finess jako parametr
 - dynamiczne zmienianie parametrow szansy na mutacje i crossover
+- [x] naprawienie błędu z wyświetlaniem pustej tablicy - okazało się że problem był znowu z kopiowaniem tablic - interpreter 
+    działał na orginale i po wczytaniu wartości z tablicy usuwał ją sobie i potem inne programy miały puste inputy

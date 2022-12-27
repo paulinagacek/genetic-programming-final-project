@@ -10,24 +10,25 @@ import pickle
 import numpy as np
 import copy
 
+
 def sum_calculator(received_outs, expected_outs):
+    """
+    Returns fitness of received outputs realitvely to expected outputs.
+    Fitness function was created for problems in which the output is expected to consist
+    certain number - specified in expected_outs[0].
+    """
     fitness = 0
-    # difference between nr of outputs - multiply by 100
-    # fitness -= 100 * abs(len(received_outs) - len(expected_outs))
-    # if len(received_outs) == 0:
-    #     fitness *= 2
-    # else:
-    #     fitness -= abs(int(received_outs[0] - expected_outs[0])/expected_outs[0])
-    # print("fitness: ", fitness)
     if len(received_outs) == 0:
         fitness += -10e+9
         return fitness
     try:
-        fitness += -abs((np.min(np.array(received_outs) - expected_outs[0]))/expected_outs[0])
+        fitness += -abs((np.min(np.array(received_outs) -
+                        expected_outs[0]))/expected_outs[0])
     except ValueError:
         fitness += -10e+9
-    # print(received_outs)
+
     return fitness
+
 
 class GP:
     def __init__(self, inputs=None, outputs=None) -> None:
@@ -35,7 +36,7 @@ class GP:
         self.population_size = 10
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
-        self.program_strings = [] # List[str]
+        self.program_strings = []  # List[str]
         self.program_input = inputs if inputs else []
         self.expected_output = outputs if outputs else []
         self.tournament_size = 2
@@ -61,21 +62,18 @@ class GP:
         print("Inputs: ", self.program_input)
         print("Outputs: ", self.expected_output)
 
-    def compute_fitness(self, program: str,pr=False) -> float:
-        fitness = 0 # max is 0, should be negative besides
+    def compute_fitness(self, program: str, pr=False) -> float:
+        fitness = 0  # max is 0, should be negative besides
         epochs = len(self.program_input)
         for example_idx in range(epochs):
             data = InputStream(program)
-            prints = self.interprateInput(data, self.program_input[example_idx])
+            prints = self.interprateInput(
+                data, self.program_input[example_idx].copy())
             if pr:
-                # print('inputs:', self.program_input, example_idx, self.program_input[example_idx])
-                print(prints, self.program_input[example_idx], self.expected_output[example_idx])
-            fitness += sum_calculator(prints, self.expected_output[example_idx])
-            # print("Sum fitness:", fitness)
-            # try:
-            #     fitness += abs(min(prints) - 1)
-            # except ValueError:
-            #     fitness += 10e+9
+                print(
+                    prints, self.program_input[example_idx], self.expected_output[example_idx])
+            fitness += sum_calculator(prints,
+                                      self.expected_output[example_idx])
         return fitness
 
     def create_random_population(self):
@@ -84,6 +82,10 @@ class GP:
             program_str = self.generate_program_str(self.population[idx])
             self.program_strings.append(program_str)
             self.fitness.append(self.compute_fitness(program_str))
+        print("Max initial depth: ", self.max_depth)
+        print("Population size: ", self.population_size)
+        print("Crossover rate: ", self.crossover_rate,
+              "  Mutation rate: ", self.mutation_rate)
         print("Random population generated")
 
     def create_random_individual(self) -> Node:
@@ -100,16 +102,18 @@ class GP:
                     can_mutate = True
                     if node.type == NodeType.ASSIGNMENT and idx == 0:
                         can_mutate = False
-                    node.children.append(Node(children_types[idx], [], None, can_mutate))
+                    node.children.append(
+                        Node(children_types[idx], [], None, can_mutate))
                     queue.append((level+1, node.children[idx]))
-            
+
             elif level < self.max_depth:
                 types = Node.generate_random_children_types(node.type)
                 for idx in range(len(types)):
                     can_mutate = True
                     if node.type == NodeType.ASSIGNMENT and idx == 0:
                         can_mutate = False
-                    node.children.append(Node(types[idx], [], None, can_mutate))
+                    node.children.append(
+                        Node(types[idx], [], None, can_mutate))
                     queue.append((level+1, node.children[idx]))
         return root
 
@@ -153,7 +157,7 @@ class GP:
                     for child in node1.children:
                         child.parent = node1
                     return parent1
-        
+
         parent1_str = self.generate_program_str(parent1)
         parent2_str = self.generate_program_str(parent2)
 
@@ -168,7 +172,7 @@ class GP:
         """
         if not curr_node.can_mutate:
             return curr_node
-        
+
         possibilities = Node.get_possible_point_mutations(curr_node.type)
         if len(possibilities) == 0:  # node cannot be mutated
             return curr_node
@@ -253,12 +257,16 @@ class GP:
                     parent1 = self.perform_tournament()
                     parent2 = self.perform_tournament()
                     if parent1 == parent2:
-                        parent_copy = self.deepcopy_tree(self.population[parent1])
+                        parent_copy = self.deepcopy_tree(
+                            self.population[parent1])
                         child = self.mutate(parent_copy)
                     else:
-                        parent1_copy = self.deepcopy_tree(self.population[parent1])
-                        parent2_copy = self.deepcopy_tree(self.population[parent2])
-                        child = self.perform_crossover(parent1_copy, parent2_copy)
+                        parent1_copy = self.deepcopy_tree(
+                            self.population[parent1])
+                        parent2_copy = self.deepcopy_tree(
+                            self.population[parent2])
+                        child = self.perform_crossover(
+                            parent1_copy, parent2_copy)
                 else:
                     parent1 = self.perform_tournament()
                     parent1_copy = self.deepcopy_tree(self.population[parent1])
@@ -272,16 +280,13 @@ class GP:
             self.population = copy.deepcopy(population_copy)
             self.fitness = copy.deepcopy(fitness_copy)
 
-
             self.best_indiv_idx = np.argmax(self.fitness)
             self.best_fitness = self.fitness[self.best_indiv_idx]
             print("\nBest fitness:", self.best_fitness, " best indiv:")
-            # print(self.fitness)
-            # print(self.best_indiv_idx)
-            best_prog = self.generate_program_str(self.population[self.best_indiv_idx])
+            best_prog = self.generate_program_str(
+                self.population[self.best_indiv_idx])
             best_fit = self.compute_fitness(best_prog, pr=True)
             print(best_prog, " = ", best_fit)
-            # print(self.generate_program_str(self.population[self.best_indiv_idx]))
 
     @staticmethod
     def generate_program_str(root: Node) -> str:
@@ -299,7 +304,7 @@ class GP:
     def load_individual(filename='individual.txt'):
         with open(filename, 'rb') as f:
             return pickle.load(f)
-    
+
     def interprateInput(self, data, input_variables):
         # lexer
         lexer = PPLexer(data)
@@ -314,7 +319,7 @@ class GP:
             return
 
         # evaluator
-        visitor = PPVisitor(input_variables)
+        visitor = PPVisitor()
         return visitor.visit(tree)
 
 
