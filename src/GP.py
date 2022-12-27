@@ -23,7 +23,7 @@ def sum_calculator(received_outs, expected_outs):
         return fitness
     try:
         fitness += -abs((np.min(np.array(received_outs) -
-                        expected_outs[0]))/expected_outs[0])
+                        expected_outs[0]))*100//expected_outs[0]) # int division to prevent Overflow error
     except ValueError:
         fitness += -10e+9
 
@@ -33,19 +33,22 @@ def sum_calculator(received_outs, expected_outs):
 class GP:
     def __init__(self, inputs=None, outputs=None) -> None:
         self.max_depth = 5
-        self.population_size = 10
+        self.population_size = 100
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
-        self.program_strings = []  # List[str]
+        # self.program_strings = []  # List[str]
         self.program_input = inputs if inputs else []
         self.expected_output = outputs if outputs else []
         self.tournament_size = 2
-        self.mutation_rate = 0.1
+        self.mutation_rate = 0.4
         self.crossover_rate = 0.9
         self.nr_of_generations = 100
         self.max_traverse_tries = 10
         self.best_indiv_idx = 0
         self.best_fitness = -1000000
+        self.patience = 5 # nr of epochs without improvement in fitness
+        self.epochs_without_improvement = 0
+        self.nr_of_regenerations = 0
 
     def get_train_data(self, filename):
         with open(filename, "r") as f:
@@ -80,7 +83,7 @@ class GP:
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual())
             program_str = self.generate_program_str(self.population[idx])
-            self.program_strings.append(program_str)
+            # self.program_strings.append(program_str)
             self.fitness.append(self.compute_fitness(program_str))
         print("Max initial depth: ", self.max_depth)
         print("Population size: ", self.population_size)
@@ -245,6 +248,8 @@ class GP:
             steps = self.nr_of_generations
         for generation in range(steps):
             print("Generation", generation, " ------------------------")
+            print("Epochs without improvement:",
+                  self.epochs_without_improvement)
             if self.best_fitness/len(self.population) > -0.0001:
                 print("Solution found in generation", generation)
                 break
@@ -281,12 +286,30 @@ class GP:
             self.fitness = copy.deepcopy(fitness_copy)
 
             self.best_indiv_idx = np.argmax(self.fitness)
-            self.best_fitness = self.fitness[self.best_indiv_idx]
+            new_best_fitness = self.fitness[self.best_indiv_idx]
+            if new_best_fitness <= self.best_fitness:
+                self.epochs_without_improvement += 1
+            else:
+                self.epochs_without_improvement = 0
+            self.best_fitness = new_best_fitness
             print("\nBest fitness:", self.best_fitness, " best indiv:")
             best_prog = self.generate_program_str(
                 self.population[self.best_indiv_idx])
             best_fit = self.compute_fitness(best_prog, pr=True)
             print(best_prog, " = ", best_fit)
+
+            if self.epochs_without_improvement >= self.patience:
+                self.epochs_without_improvement = 0
+                self.nr_of_regenerations += 1
+                ratio_to_generate = min(0.4 + 0.05 * self.nr_of_regenerations, 0.9)
+                for idx in range(0, int(ratio_to_generate * self.population_size)):
+                    if idx == self.best_indiv_idx:
+                        continue # leave the best indiv
+                    self.population[idx] = self.create_random_individual()
+                    program_str = self.generate_program_str(self.population[idx])
+                    self.fitness[idx] = self.compute_fitness(program_str)
+                print(int(ratio_to_generate * self.population_size), "  generated again")
+
 
     @staticmethod
     def generate_program_str(root: Node) -> str:

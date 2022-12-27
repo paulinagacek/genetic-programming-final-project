@@ -74,5 +74,24 @@ Paulina:
 - mutacja poddrzewa
 - finess jako parametr
 - dynamiczne zmienianie parametrow szansy na mutacje i crossover
+- naprawić błąd:
+```
+C:\Users\gacekpau\OneDrive - Intel Corporation\Desktop\3 ROK ISI\genetyczne-vol2>python runGP.py >> log789_5.txt 
+Traceback (most recent call last):
+  File "C:\Users\gacekpau\OneDrive - Intel Corporation\Desktop\3 ROK ISI\genetyczne-vol2\runGP.py", line 16, in <module>
+    gp.evolve()
+  File "C:\Users\gacekpau\OneDrive - Intel Corporation\Desktop\3 ROK ISI\genetyczne-vol2\src\GP.py", line 283, in evolve
+    fitness_copy[weakest_idx] = self.compute_fitness(child_str)
+  File "C:\Users\gacekpau\OneDrive - Intel Corporation\Desktop\3 ROK ISI\genetyczne-vol2\src\GP.py", line 78, in compute_fitness
+    fitness += sum_calculator(prints,
+  File "C:\Users\gacekpau\OneDrive - Intel Corporation\Desktop\3 ROK ISI\genetyczne-vol2\src\GP.py", line 25, in sum_calculator
+    fitness += -abs((np.min(np.array(received_outs) -
+OverflowError: integer division result too large for a float
+```
+
+Paulina:
 - [x] naprawienie błędu z wyświetlaniem pustej tablicy - okazało się że problem był znowu z kopiowaniem tablic - interpreter 
     działał na orginale i po wczytaniu wartości z tablicy usuwał ją sobie i potem inne programy miały puste inputy
+- [ ] dodanie opcji, żeby najsilniejszy potomek zawsze przechodził do następnej generacji
+- [x] dodać mechanizm zapobiegający wpadaniu w lokalne optimum - dodane patience czyli liczba iteracji po której na nowo jest generowane 40% populacji
+- [x] naprawienie błędu OverflowError: integer division result too large for a float
