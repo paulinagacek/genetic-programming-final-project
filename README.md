@@ -55,3 +55,19 @@ antlr4 -Dlanguage=Python3 ./antlr/PP.g4 -visitor -o dist
    - windows: `.\venv\Scripts\activate`
 3. Run programm: 
    - with realtime interpreter - `python runGP.py`
+
+### Fix bug in antlr code
+Go to src/antlr4/tree/Tree.py and change:
+```python
+def aggregateResult(self, aggregate, nextResult):
+      return nextResult
+```
+to
+```python
+def aggregateResult(self, aggregate, nextResult):
+   if aggregate is None:
+      return nextResult
+   elif nextResult is None:
+      return aggregate
+   return aggregate + nextResult
+```
