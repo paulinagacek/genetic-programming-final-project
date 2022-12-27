@@ -66,3 +66,11 @@ Paulina:
     return Converter.get_loop(node)
     maximum recursion depth exceeded while getting the str of an object
 ```
+
+- zmiana deepcopy tree na bfs
+- podrasowac algorytmy
+- popracowac nad crossoverem
+- dodac w wierzchołakch drzewa informacje o liczbie wszystkich jego dzieci i szansa na mutacje to 1/2^sqrt(liczba dzieci)
+- mutacja poddrzewa
+- finess jako parametr
+- dynamiczne zmienianie parametrow szansy na mutacje i crossover

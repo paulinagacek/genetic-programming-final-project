@@ -1,0 +1,9 @@
+Inputs:  [[1], [2], [3], [4], [5], [6], [8], [9], [10], [11], [15], [100]]
+Outputs:  [[1], [1], [1], [1], [1], [1], [1], [1], [1], [1], [1], [1]]
+Random population generated
+Generation 0  ------------------------
+
+Best fitness: 0  best indiv:
+print(X1);print(58);
+Generation 1  ------------------------
+Solution found in generation 1

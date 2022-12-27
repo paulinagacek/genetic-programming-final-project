@@ -1,0 +1,15 @@
+Inputs:  [[1], [2], [3], [4], [5], [6], [8], [9], [10], [11], [15], [100]]
+Outputs:  [[1], [1], [1], [1], [1], [1], [1], [1], [1], [1], [1], [1]]
+Random population generated
+Generation 0  ------------------------
+
+Best fitness: -12  best indiv:
+X1=X2;IF(X1-X2<X2-84)IF(76!=X3)X3=44;;;print(78*13);LOOP(((55<X3)OR(X2==X2))AND((X3==91)OR(75==X2)))IF(30>X1)X1=49;;X1=56;;
+Generation 1  ------------------------
+
+Best fitness: 0  best indiv:
+X1=X88;IF(((X32==16)AND(29==6))AND(X98>X73))LOOP(7>14)X1=X2;;LOOP(2>94)X1=28;;;LOOP((X1>77)AND(40>X16))LOOP(X14<27)X1=X33;;;
+Generation 2  ------------------------
+Solution found in generation 2
+Best fitness: 0  best indiv:
+X1=X88;IF(((X32==16)AND(29==6))AND(X98>X73))LOOP(7>14)X1=X2;;LOOP(2>94)X1=28;;;LOOP((X1>77)AND(40>X16))LOOP(X14<27)X1=X33;;;
