@@ -10,7 +10,7 @@ import pickle
 import numpy as np
 import copy
 
-
+@property
 def sum_calculator(received_outs, expected_outs):
     """
     Returns fitness of received outputs realitvely to expected outputs.
@@ -31,7 +31,7 @@ def sum_calculator(received_outs, expected_outs):
 
 
 class GP:
-    def __init__(self, inputs=None, outputs=None) -> None:
+    def __init__(self, inputs=None, outputs=None, fitness_function=None) -> None:
         self.max_depth = 5
         self.population_size = 100
         self.population = []  # List[Node]
@@ -49,6 +49,7 @@ class GP:
         self.patience = 5  # nr of epochs without improvement in fitness
         self.epochs_without_improvement = 0
         self.nr_of_regenerations = 0
+        self.sum_calculator = fitness_function if fitness_function else sum_calculator
 
     def get_train_data(self, filename):
         with open(filename, "r") as f:
@@ -75,7 +76,7 @@ class GP:
             if pr:
                 print(
                     prints, self.program_input[example_idx], self.expected_output[example_idx])
-            fitness += sum_calculator(prints,
+            fitness += self.sum_calculator(prints,
                                       self.expected_output[example_idx])
         return fitness
 
