@@ -23,7 +23,7 @@ def sum_calculator(received_outs, expected_outs):
         return fitness
     try:
         fitness += -abs((np.min(np.array(received_outs) -
-                        expected_outs[0]))*100//expected_outs[0]) # int division to prevent Overflow error
+                        expected_outs[0]))*100//expected_outs[0])  # int division to prevent Overflow error
     except ValueError:
         fitness += -10e+9
 
@@ -46,7 +46,7 @@ class GP:
         self.max_traverse_tries = 10
         self.best_indiv_idx = 0
         self.best_fitness = -1000000
-        self.patience = 5 # nr of epochs without improvement in fitness
+        self.patience = 5  # nr of epochs without improvement in fitness
         self.epochs_without_improvement = 0
         self.nr_of_regenerations = 0
 
@@ -282,34 +282,50 @@ class GP:
                 child_str = self.generate_program_str(child)
                 fitness_copy[weakest_idx] = self.compute_fitness(child_str)
 
+            # best indiv always survives
+            previous_best_indiv = self.deepcopy_tree(self.population[self.best_indiv_idx])
+            previous_best_fitness = self.fitness[self.best_indiv_idx]
+
             self.population = copy.deepcopy(population_copy)
             self.fitness = copy.deepcopy(fitness_copy)
 
+            weakest_idx = self.perform_negative_tournament()
+            self.population[weakest_idx] = previous_best_indiv
+            self.fitness[weakest_idx] = previous_best_fitness
             self.best_indiv_idx = np.argmax(self.fitness)
-            new_best_fitness = self.fitness[self.best_indiv_idx]
-            if new_best_fitness <= self.best_fitness:
-                self.epochs_without_improvement += 1
-            else:
-                self.epochs_without_improvement = 0
-            self.best_fitness = new_best_fitness
+
+            self.update_best_fitness()
+            
             print("\nBest fitness:", self.best_fitness, " best indiv:")
             best_prog = self.generate_program_str(
                 self.population[self.best_indiv_idx])
             best_fit = self.compute_fitness(best_prog, pr=True)
             print(best_prog, " = ", best_fit)
 
-            if self.epochs_without_improvement >= self.patience:
-                self.epochs_without_improvement = 0
-                self.nr_of_regenerations += 1
-                ratio_to_generate = min(0.4 + 0.05 * self.nr_of_regenerations, 0.9)
-                for idx in range(0, int(ratio_to_generate * self.population_size)):
-                    if idx == self.best_indiv_idx:
-                        continue # leave the best indiv
-                    self.population[idx] = self.create_random_individual()
-                    program_str = self.generate_program_str(self.population[idx])
-                    self.fitness[idx] = self.compute_fitness(program_str)
-                print(int(ratio_to_generate * self.population_size), "  generated again")
+            self.escape_local_optimum()
+    
+    def update_best_fitness(self):
+        new_best_fitness = self.fitness[self.best_indiv_idx]
+        if new_best_fitness <= self.best_fitness:
+            self.epochs_without_improvement += 1
+        else:
+            self.epochs_without_improvement = 0
+        self.best_fitness = new_best_fitness
 
+    def escape_local_optimum(self):
+        if self.epochs_without_improvement >= self.patience:
+            self.epochs_without_improvement = 0
+            self.nr_of_regenerations += 1
+            ratio_to_generate = min(0.4 + 0.05 * self.nr_of_regenerations, 0.9)
+            for idx in range(0, int(ratio_to_generate * self.population_size)):
+                if idx == self.best_indiv_idx:
+                    continue  # leave the best indiv
+                self.population[idx] = self.create_random_individual()
+                program_str = self.generate_program_str(
+                    self.population[idx])
+                self.fitness[idx] = self.compute_fitness(program_str)
+            print(int(ratio_to_generate * self.population_size),
+                  "  generated again")
 
     @staticmethod
     def generate_program_str(root: Node) -> str:
