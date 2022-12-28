@@ -115,7 +115,7 @@ class Node:
     # static attributes
 
     max_nr_of_children = 5
-    max_val_int = 5000
+    max_val_int = 100
     min_val_int = 0
     variables = []
 

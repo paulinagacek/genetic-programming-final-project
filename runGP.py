@@ -3,7 +3,7 @@ from src.GP import *
 
 DIR = "examples/"
 # DEFAULT = "linear.txt"
-DEFAULT = "example11E.txt"
+DEFAULT = "example11A.txt"
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:  # no arguments
