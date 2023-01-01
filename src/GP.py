@@ -86,6 +86,7 @@ class GP:
             program_str = self.generate_program_str(self.population[idx])
             # self.program_strings.append(program_str)
             self.fitness.append(self.compute_fitness(program_str))
+            self.population[idx].nr_of_children = self.update_nr_of_children(self.population[idx])
             # self.display_program(self.population[idx])
         print("Max initial depth: ", self.max_depth)
         print("Population size: ", self.population_size)
@@ -168,10 +169,8 @@ class GP:
         parent2_str = self.generate_program_str(parent2)
 
         if self.compute_fitness(parent1_str) > self.compute_fitness(parent2_str):
-            # self.update_levels(parent1)
             return parent1
         else:
-            # self.update_levels(parent2)
             return parent2
 
     @staticmethod
@@ -190,7 +189,7 @@ class GP:
         else:
             idx = random.randint(0, len(possibilities)-1)
             new_node = Node(
-                possibilities[idx], curr_node.children, None, level=curr_node.level)
+                possibilities[idx], curr_node.children, None, level=curr_node.level, nr_of_children=curr_node.nr_of_children)
             if new_node.type == NodeType.INPUT:
                 new_node.value = "input"
             # print("Mutation (", curr_node.type, ", ", curr_node.value,
@@ -237,7 +236,7 @@ class GP:
         while stack:
             level, node = stack.pop(-1)
             level_display = "".join(["  " for nr in range(level)]) + "|"
-            print(level_display, level, node.type, node.print_value(), "  level:", node.level)
+            print(level_display, level, node.type, node.print_value(), "  level:", node.level, "  nr of children:", node.nr_of_children)
             for child in reversed(node.children):
                 stack.append((level + 1, child))
     
@@ -249,9 +248,16 @@ class GP:
             node.level = level
             for child in reversed(node.children):
                 stack.append((level + 1, child))
+    
+    def update_nr_of_children(self, root) -> int:
+        nr_of_children = 0
+        for child in root.children:
+            child.nr_of_children = self.update_nr_of_children(child)
+            nr_of_children += child.nr_of_children + 1
+        return nr_of_children
 
     def deepcopy_tree(self, root: Node) -> Node:
-        new_node = Node(root.type, list([]), None, root.can_mutate, level=root.level)
+        new_node = Node(root.type, list([]), None, root.can_mutate, level=root.level, nr_of_children=root.nr_of_children)
         new_node.value = root.value
         try:
             for child in root.children:
@@ -296,6 +302,7 @@ class GP:
                     child = self.mutate(parent1_copy)
 
                 self.update_levels(child)
+                child.nr_of_children = self.update_nr_of_children(child)
 
                 weakest_idx = self.perform_negative_tournament()
                 population_copy[weakest_idx] = child

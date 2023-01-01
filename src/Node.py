@@ -23,13 +23,14 @@ class Node:
     nr_of_variables = 0
     max_nr_of_variables = 10
 
-    def __init__(self, node_type: NodeType, children, value=None, can_mutate=True, level=0) -> None:
+    def __init__(self, node_type: NodeType, children, value=None, can_mutate:bool=True, level: int=0, nr_of_children: int=-1) -> None:
         self.type = node_type
         self.children = children  # List[Node]
         self.parent = None  # Node
         self.value = None
         self.can_mutate = can_mutate
         self.level = level
+        self.nr_of_children = nr_of_children
         if not value:
             self.value = Node.generate_random_value(self.type)
         else:
