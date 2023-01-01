@@ -86,6 +86,7 @@ class GP:
             program_str = self.generate_program_str(self.population[idx])
             # self.program_strings.append(program_str)
             self.fitness.append(self.compute_fitness(program_str))
+            # self.display_program(self.population[idx])
         print("Max initial depth: ", self.max_depth)
         print("Population size: ", self.population_size)
         print("Crossover rate: ", self.crossover_rate,
@@ -94,7 +95,8 @@ class GP:
 
     def create_random_individual(self) -> Node:
         Node.nr_of_variables = 0  # no global variables
-        root, level = Node(NodeType.SEQUENCE, [], None), 0
+        level = 0
+        root = Node(NodeType.SEQUENCE, [], None, level = level)
         queue = [(level, root)]  # (int, Node)
         while queue:
             level, node = queue.pop(0)
@@ -107,7 +109,7 @@ class GP:
                     if node.type == NodeType.ASSIGNMENT and idx == 0:
                         can_mutate = False
                     node.children.append(
-                        Node(children_types[idx], [], None, can_mutate))
+                        Node(children_types[idx], [], None, can_mutate, level=level + 1))
                     queue.append((level+1, node.children[idx]))
 
             elif level < self.max_depth:
@@ -117,7 +119,7 @@ class GP:
                     if node.type == NodeType.ASSIGNMENT and idx == 0:
                         can_mutate = False
                     node.children.append(
-                        Node(types[idx], [], None, can_mutate))
+                        Node(types[idx], [], None, can_mutate, level=level + 1))
                     queue.append((level+1, node.children[idx]))
         return root
 
@@ -165,7 +167,12 @@ class GP:
         parent1_str = self.generate_program_str(parent1)
         parent2_str = self.generate_program_str(parent2)
 
-        return parent1 if self.compute_fitness(parent1_str) > self.compute_fitness(parent2_str) else parent2
+        if self.compute_fitness(parent1_str) > self.compute_fitness(parent2_str):
+            # self.update_levels(parent1)
+            return parent1
+        else:
+            # self.update_levels(parent2)
+            return parent2
 
     @staticmethod
     def perform_point_mutation(curr_node: Node) -> Node:
@@ -182,7 +189,8 @@ class GP:
             return curr_node
         else:
             idx = random.randint(0, len(possibilities)-1)
-            new_node = Node(possibilities[idx], curr_node.children, None)
+            new_node = Node(
+                possibilities[idx], curr_node.children, None, level=curr_node.level)
             if new_node.type == NodeType.INPUT:
                 new_node.value = "input"
             # print("Mutation (", curr_node.type, ", ", curr_node.value,
@@ -229,12 +237,21 @@ class GP:
         while stack:
             level, node = stack.pop(-1)
             level_display = "".join(["  " for nr in range(level)]) + "|"
-            print(level_display, level, node.type, node.print_value())
+            print(level_display, level, node.type, node.print_value(), "  level:", node.level)
+            for child in reversed(node.children):
+                stack.append((level + 1, child))
+    
+    def update_levels(self, root: Node):
+        level = 0
+        stack = [(level, root)]
+        while stack:
+            level, node = stack.pop(-1)
+            node.level = level
             for child in reversed(node.children):
                 stack.append((level + 1, child))
 
     def deepcopy_tree(self, root: Node) -> Node:
-        new_node = Node(root.type, list([]), None, root.can_mutate)
+        new_node = Node(root.type, list([]), None, root.can_mutate, level=root.level)
         new_node.value = root.value
         try:
             for child in root.children:
@@ -277,6 +294,8 @@ class GP:
                     parent1 = self.perform_tournament()
                     parent1_copy = self.deepcopy_tree(self.population[parent1])
                     child = self.mutate(parent1_copy)
+
+                self.update_levels(child)
 
                 weakest_idx = self.perform_negative_tournament()
                 population_copy[weakest_idx] = child
