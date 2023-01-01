@@ -1,0 +1,26 @@
+Inputs:  [[1], [2], [3], [4], [5], [6], [8], [9], [10], [11], [15], [100]]
+Outputs:  [[1], [1], [1], [1], [1], [1], [1], [1], [1], [1], [1], [1]]
+Max initial depth:  5
+Population size:  100
+Crossover rate:  0.9   Mutation rate:  0.4
+Random population generated
+Generation 0  ------------------------
+Epochs without improvement: 0
+
+Best fitness: 0  best indiv:
+[1] [1] [1]
+[1] [2] [1]
+[1] [3] [1]
+[1] [4] [1]
+[1] [5] [1]
+[1] [6] [1]
+[1] [8] [1]
+[1] [9] [1]
+[1] [10] [1]
+[1] [11] [1]
+[1] [15] [1]
+[1] [100] [1]
+print(X1);IF((62==95)AND(X1>43))IF(X2<88)IF(38!=43)X2=47;;;;  =  0
+Generation 1  ------------------------
+Epochs without improvement: 0
+Solution found in generation 1
