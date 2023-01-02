@@ -8,6 +8,8 @@ Zrobione:
 
 Do Zrobienia:
 - [ ] popracowac nad crossoverem
-- [ ] dodac w wierzchołakch drzewa informacje o liczbie wszystkich jego dzieci i szansa na mutacje to 1/2^sqrt(liczba dzieci)
+- [x] dodac w wierzchołakch drzewa informacje o liczbie wszystkich jego dzieci i szansa na mutacje to 1/2^log10(liczba dzieci + 1) - możliwe że trzeba będzie i tak zwiększyć podstawę logarytmu, bo na 100 dzieci mutuje tylko kilka nodów (im większa podstawa tym większe szanse na zmutowanie)
+- [ ] szansa na crossover zalezy od poziomu?
 - [ ] mutacja całego poddrzewa
 - [ ] dynamiczne zmienianie parametrow szansy na mutacje i crossover
+- [ ] fitness powinien od pewnego momentu promować rozwiązania krótkie

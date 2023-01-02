@@ -9,6 +9,7 @@ from antlr.PPErrorListener import *
 import pickle
 import numpy as np
 import copy
+from math import log
 
 @property
 def sum_calculator(received_outs, expected_outs):
@@ -40,7 +41,7 @@ class GP:
         self.program_input = inputs if inputs else []
         self.expected_output = outputs if outputs else []
         self.tournament_size = 2
-        self.mutation_rate = 0.4
+        self.mutation_rate = 0.5
         self.crossover_rate = 0.9
         self.nr_of_generations = 100
         self.max_traverse_tries = 10
@@ -50,6 +51,7 @@ class GP:
         self.epochs_without_improvement = 0
         self.nr_of_regenerations = 0
         self.sum_calculator = fitness_function if fitness_function else sum_calculator
+        self.nr_of_mutations = 0
 
     def get_train_data(self, filename):
         with open(filename, "r") as f:
@@ -84,9 +86,7 @@ class GP:
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual())
             program_str = self.generate_program_str(self.population[idx])
-            # self.program_strings.append(program_str)
             self.fitness.append(self.compute_fitness(program_str))
-            self.population[idx].nr_of_children = self.update_nr_of_children(self.population[idx])
             # self.display_program(self.population[idx])
         print("Max initial depth: ", self.max_depth)
         print("Population size: ", self.population_size)
@@ -122,6 +122,8 @@ class GP:
                     node.children.append(
                         Node(types[idx], [], None, can_mutate, level=level + 1))
                     queue.append((level+1, node.children[idx]))
+        root.nr_of_children = self.update_nr_of_children(root)
+        root.height = self.update_height(root)
         return root
 
     def perform_tournament(self) -> int:
@@ -180,11 +182,11 @@ class GP:
         Not all nodes have alternatives for mutations and such nodes cannot
         be mutated using point mutation.
         """
-        if not curr_node.can_mutate:
+        if not curr_node.can_mutate: # e.g variables in assignment
             return curr_node
 
         possibilities = Node.get_possible_point_mutations(curr_node.type)
-        if len(possibilities) == 0:  # node cannot be mutated
+        if len(possibilities) == 0:  # node cannot be mutated, e.g. sequence, assignment
             return curr_node
         else:
             idx = random.randint(0, len(possibilities)-1)
@@ -193,38 +195,46 @@ class GP:
             if new_node.type == NodeType.INPUT:
                 new_node.value = "input"
             # print("Mutation (", curr_node.type, ", ", curr_node.value,
-            #       ") -> (", new_node.type, ", ", new_node.value, ")")
+            #       ") -> (", new_node.type, ", ", new_node.value, ")   nr of children: ",  curr_node.nr_of_children, "prop: ", 1/2**(log(curr_node.nr_of_children + 1, 10)))
             return new_node
 
     def mutate(self, root: Node) -> Node:
         """
-        Performs point or subtree mutation on all nodes starting from root 
-        with probability of self.mutation_rate=10%. 
-        Returns the root of mutated tree
+        Performs point mutation on all nodes starting from root 
+        with probability of self.mutation_rate=50% * 1/2**(log(curr_node.nr_of_children + 1, 10)), 
+        where 0 < 1/2**(sqrt(root.nr_of_children)) <= 1.
+        Returns the root of mutated tree.
         """
-        # print("Before mutation:", self.generate_program_str(root))
         queue = [root]
         while queue:
             node = queue.pop()
-            if random.random() < self.mutation_rate:  # 10%
-                # if random.random() < 0.5 else self.perform_subtree_mutation(node)
-                new_node = GP.perform_point_mutation(node)
-                node.type = new_node.type
-                node.value = new_node.value
-                node.children = new_node.children
-            for child in node.children:
-                queue.append(child)
-        # print("After mutation:",  self.generate_program_str(root))
+            try:
+                if random.random() < self.mutation_rate:  # 50%
+                    if random.random() < 1/2**(log(root.nr_of_children + 1, 20)):
+                        self.nr_of_mutations += 1
+                        new_node = GP.perform_point_mutation(node)
+                        node.type = new_node.type
+                        node.value = new_node.value
+                        node.children = new_node.children
+                for child in node.children:
+                    queue.append(child)
+            except:
+                print("-------------------------- ERROR: nr of children: ",
+                      root.nr_of_children)
+                print(self.display_program(root))
         return root
 
     @staticmethod
     def get_random_node(root: Node) -> Node:
         queue = [root]
         node_set = []
+        weights = []
         while queue:
             node = queue.pop()
             if node != root:
                 node_set.append(node)
+                # weight = root.level
+                # weights.append()
             for child in node.children:
                 queue.append(child)
 
@@ -236,7 +246,7 @@ class GP:
         while stack:
             level, node = stack.pop(-1)
             level_display = "".join(["  " for nr in range(level)]) + "|"
-            print(level_display, level, node.type, node.print_value(), "  level:", node.level, "  nr of children:", node.nr_of_children)
+            print(level_display, level, node.type, node.print_value(), "  level:", node.level, "  nr of children:", node.nr_of_children, "  height: ", node.height)
             for child in reversed(node.children):
                 stack.append((level + 1, child))
     
@@ -255,9 +265,17 @@ class GP:
             child.nr_of_children = self.update_nr_of_children(child)
             nr_of_children += child.nr_of_children + 1
         return nr_of_children
+    
+    def update_height(self, root: Node) -> int:
+        height = -1
+        for child in root.children:
+            child.height = self.update_height(child)
+            height = max(height, child.height) 
+        return height + 1
+
 
     def deepcopy_tree(self, root: Node) -> Node:
-        new_node = Node(root.type, list([]), None, root.can_mutate, level=root.level, nr_of_children=root.nr_of_children)
+        new_node = Node(root.type, list([]), None, root.can_mutate, level=root.level, nr_of_children=root.nr_of_children, height=root.height)
         new_node.value = root.value
         try:
             for child in root.children:
@@ -282,7 +300,7 @@ class GP:
             fitness_copy = copy.deepcopy(self.fitness)
 
             for idx in range(len(self.population)):
-                if random.random() < self.crossover_rate:  # 50%
+                if random.random() < self.crossover_rate:  # 80%
                     parent1 = self.perform_tournament()
                     parent2 = self.perform_tournament()
                     if parent1 == parent2:
@@ -303,6 +321,7 @@ class GP:
 
                 self.update_levels(child)
                 child.nr_of_children = self.update_nr_of_children(child)
+                child.height = self.update_height(child)
 
                 weakest_idx = self.perform_negative_tournament()
                 population_copy[weakest_idx] = child
@@ -328,8 +347,11 @@ class GP:
                 self.population[self.best_indiv_idx])
             best_fit = self.compute_fitness(best_prog, pr=True)
             print(best_prog, " = ", best_fit)
+            print("AVG fitness: ", sum(self.fitness)//self.population_size)
+            print("Nr of mutations: ", self.nr_of_mutations)
 
             self.escape_local_optimum()
+            self.nr_of_mutations = 0
     
     def update_best_fitness(self):
         new_best_fitness = self.fitness[self.best_indiv_idx]

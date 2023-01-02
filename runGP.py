@@ -1,21 +1,16 @@
 import sys
-import os
 from src.GP import *
 import importlib.util
-import pathlib
-import glob
 
 EX_DIR = "examples/"
 MODULE_DIR = "fitness/"
-# DEFAULT = "linear.txt"
+
 DEFAULT = "example11A.txt"
 DEFAULT_FITNESS = "fitness_def.py"
 
 if __name__ == "__main__":
     fitness_module_path = MODULE_DIR + DEFAULT_FITNESS
     example_path = EX_DIR + DEFAULT
-    # if len(sys.argv) == 1:  # no arguments
-    #     file_name = EX_DIR + DEFAULT
     if len(sys.argv) == 2:
         example_path = EX_DIR + sys.argv[1]
     elif len(sys.argv) == 3:
