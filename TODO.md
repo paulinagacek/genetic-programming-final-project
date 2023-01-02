@@ -13,3 +13,4 @@ Do Zrobienia:
 - [ ] mutacja całego poddrzewa
 - [ ] dynamiczne zmienianie parametrow szansy na mutacje i crossover
 - [ ] fitness powinien od pewnego momentu promować rozwiązania krótkie
+- [ ] można spróbować pomodyfikować tournament size i zobaczyć jakie bedą efekty

@@ -29,3 +29,32 @@ Rozwiązanie:
             self.fitness[idx] = self.compute_fitness(program_str)
         print(int(ratio_to_generate * self.population_size), "  generated again")
 ```
+
+--------------------
+
+Problem: ten sam co wyżej
+Poprzednie rozwiązanie pomagało wyjść z lokalnego minimum, ale powodowało ono utratę pamięci, które drzewa były bliżej sukcesu niż pozostałe - drzewa były randomo generowane od początku.
+
+Rozwiązanie:
+Prawdopodobieństwo mutacji jest zależne od tego czy fitness jest mniejszy od średniej - drzewo chętniej mutuje jeżeli ma gorszy fitness:
+```python
+def mutate(self, root: Node, node_idx = -1) -> Node:
+        queue = [root]
+        while queue:
+            node = queue.pop()
+            try:
+                if self.fitness[node_idx] < self.avg_fitness or random.random() < self.mutation_rate:  # 50%
+                    # higher prob to mutate if fitness is worse than average
+                    if random.random() < 1/2**(log(root.height + 1, 4)):
+```
+
+---------------------
+
+Problem:
+W mutacji częściej mutowały nody położone wyżej, często zmieniały się raczej bardziej ogólne części programu (np. LOOP na IF) zamiast bardziej szczegółowych (np. + na -).
+
+Rozwiązanie:
+Prawdopodobieństwo mutacji zależy od wysokości danego node'a zgodnie ze wzorem:
+
+$0.5^{(log(root.height + 1, 4))}$
+

@@ -37,7 +37,6 @@ class GP:
         self.population_size = 100
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
-        # self.program_strings = []  # List[str]
         self.program_input = inputs if inputs else []
         self.expected_output = outputs if outputs else []
         self.tournament_size = 2
@@ -46,12 +45,13 @@ class GP:
         self.nr_of_generations = 100
         self.max_traverse_tries = 10
         self.best_indiv_idx = 0
-        self.best_fitness = -1000000
+        self.best_fitness = -100000000
         self.patience = 5  # nr of epochs without improvement in fitness
         self.epochs_without_improvement = 0
         self.nr_of_regenerations = 0
         self.sum_calculator = fitness_function if fitness_function else sum_calculator
         self.nr_of_mutations = 0
+        self.avg_fitness = -1
 
     def get_train_data(self, filename):
         with open(filename, "r") as f:
@@ -195,22 +195,24 @@ class GP:
             if new_node.type == NodeType.INPUT:
                 new_node.value = "input"
             # print("Mutation (", curr_node.type, ", ", curr_node.value,
-            #       ") -> (", new_node.type, ", ", new_node.value, ")   nr of children: ",  curr_node.nr_of_children, "prop: ", 1/2**(log(curr_node.nr_of_children + 1, 10)))
+            #       ") -> (", new_node.type, ", ", new_node.value, ")   nr of children: ",  curr_node.nr_of_children, 
+            #       "prop: ", 1/2**(log(curr_node.height + 1, 4)), "  height:", curr_node.height)
             return new_node
 
-    def mutate(self, root: Node) -> Node:
+    def mutate(self, root: Node, node_idx = -1) -> Node:
         """
         Performs point mutation on all nodes starting from root 
-        with probability of self.mutation_rate=50% * 1/2**(log(curr_node.nr_of_children + 1, 10)), 
-        where 0 < 1/2**(sqrt(root.nr_of_children)) <= 1.
+        with probability of self.mutation_rate=50% * 1/2**(log(root.height + 1, 2)), 
+        where 0 < 1/2**(log(root.height + 1, 2)) <= 1.
         Returns the root of mutated tree.
         """
         queue = [root]
         while queue:
             node = queue.pop()
             try:
-                if random.random() < self.mutation_rate:  # 50%
-                    if random.random() < 1/2**(log(root.nr_of_children + 1, 20)):
+                if self.fitness[node_idx] < self.avg_fitness or random.random() < self.mutation_rate:  # 50%
+                    # higher prob to mutate if fitness is worse than average
+                    if random.random() < 1/2**(log(root.height + 1, 4)):
                         self.nr_of_mutations += 1
                         new_node = GP.perform_point_mutation(node)
                         node.type = new_node.type
@@ -289,7 +291,7 @@ class GP:
         if steps == -1:
             steps = self.nr_of_generations
         for generation in range(steps):
-            print("Generation", generation, " ------------------------")
+            print("\nGeneration", generation, " ------------------------")
             print("Epochs without improvement:",
                   self.epochs_without_improvement)
             if self.best_fitness/len(self.population) > -0.0001:
@@ -306,7 +308,7 @@ class GP:
                     if parent1 == parent2:
                         parent_copy = self.deepcopy_tree(
                             self.population[parent1])
-                        child = self.mutate(parent_copy)
+                        child = self.mutate(parent_copy, parent1)
                     else:
                         parent1_copy = self.deepcopy_tree(
                             self.population[parent1])
@@ -317,7 +319,7 @@ class GP:
                 else:
                     parent1 = self.perform_tournament()
                     parent1_copy = self.deepcopy_tree(self.population[parent1])
-                    child = self.mutate(parent1_copy)
+                    child = self.mutate(parent1_copy, parent1)
 
                 self.update_levels(child)
                 child.nr_of_children = self.update_nr_of_children(child)
@@ -347,7 +349,8 @@ class GP:
                 self.population[self.best_indiv_idx])
             best_fit = self.compute_fitness(best_prog, pr=True)
             print(best_prog, " = ", best_fit)
-            print("AVG fitness: ", sum(self.fitness)//self.population_size)
+            self.avg_fitness = sum(self.fitness)//self.population_size
+            print("AVG fitness: ", self.avg_fitness)
             print("Nr of mutations: ", self.nr_of_mutations)
 
             self.escape_local_optimum()
@@ -362,10 +365,9 @@ class GP:
         self.best_fitness = new_best_fitness
 
     def escape_local_optimum(self):
-        if self.epochs_without_improvement >= self.patience:
-            self.epochs_without_improvement = 0
-            self.nr_of_regenerations += 1
-            ratio_to_generate = min(0.4 + 0.05 * self.nr_of_regenerations, 0.9)
+        if self.epochs_without_improvement >= self.patience and self.epochs_without_improvement % self.patience in [0, 2]:
+            ratio_to_generate = min(
+                0.4 + 0.01 * self.epochs_without_improvement, 0.9)
             for idx in range(0, int(ratio_to_generate * self.population_size)):
                 if idx == self.best_indiv_idx:
                     continue  # leave the best indiv
