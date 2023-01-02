@@ -6,7 +6,7 @@ def fitness(received_outs, expected_outs):
         return fitness
     try:
         fitness += -abs((np.min(np.array(received_outs) -
-                        expected_outs[0]))*100//expected_outs[0])  # int division to prevent Overflow error
+                        expected_outs[0]))*100)  # int division to prevent Overflow error
     except ValueError:
         fitness += -10e+9
 
