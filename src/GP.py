@@ -152,13 +152,14 @@ class GP:
                 worst = competitor
         return worst
 
-    def perform_crossover(self, parent1: Node, parent2: Node) -> Node:
+    def perform_crossover(self, parent1: Node, parent2: Node, parent1_idx: int, parent2_idx: int) -> Node:
         if parent1 == parent2:
             return parent1
         for i in range(self.max_traverse_tries):
-            node1 = GP.get_random_node(parent1)
+            node1 = self.get_random_node(parent1, self.fitness[parent1_idx], True)
             for j in range(self.max_traverse_tries):
-                node2 = GP.get_random_node(parent2)
+                node2 = self.get_random_node(
+                    parent2, self.fitness[parent2_idx], False)
                 if node2.type in Node.get_possible_crossover(node1.type):
                     node1.type = node2.type
                     node1.value = node2.value
@@ -226,20 +227,26 @@ class GP:
                 print(self.display_program(root))
         return root
 
-    @staticmethod
-    def get_random_node(root: Node) -> Node:
+    def get_random_node(self, root: Node, fitness: int, isBase: bool) -> Node:
         queue = [root]
         node_set = []
         weights = []
+
         while queue:
             node = queue.pop()
             if node != root:
                 node_set.append(node)
-                # weight = root.level
-                # weights.append()
+                if isBase:
+                    if fitness < self.avg_fitness:
+                        weight = 1/(root.level+1)
+                    else:
+                        weight = 1/(root.height+1)
+                    weights.append(weight)
             for child in node.children:
                 queue.append(child)
 
+        if isBase:
+            return random.choices(node_set, weights=weights, k=1)[0] if node_set else root
         return random.choice(node_set) if node_set else root
 
     def display_program(self, root: Node):
@@ -315,7 +322,7 @@ class GP:
                         parent2_copy = self.deepcopy_tree(
                             self.population[parent2])
                         child = self.perform_crossover(
-                            parent1_copy, parent2_copy)
+                            parent1_copy, parent2_copy, parent1, parent2)
                 else:
                     parent1 = self.perform_tournament()
                     parent1_copy = self.deepcopy_tree(self.population[parent1])
@@ -432,15 +439,15 @@ def demonstrate_mutation():
     plotter.plot(root, filename="mut2")
 
 
-def demonstrate_crossover():
-    genetic = GP()
-    plotter = Plotter()
-    root1 = genetic.create_random_individual()
-    root2 = genetic.create_random_individual()
-    plotter.plot(root1, filename="cross1")
-    plotter.plot(root2, filename="ross2")
-    root = genetic.perform_crossover(root1, root2)
-    plotter.plot(root, filename="cross3")
+# def demonstrate_crossover():
+#     genetic = GP()
+#     plotter = Plotter()
+#     root1 = genetic.create_random_individual()
+#     root2 = genetic.create_random_individual()
+#     plotter.plot(root1, filename="cross1")
+#     plotter.plot(root2, filename="ross2")
+#     # root = genetic.perform_crossover(root1, root2)
+#     plotter.plot(root, filename="cross3")
 
 
 if __name__ == "__main__":
