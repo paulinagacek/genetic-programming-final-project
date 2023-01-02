@@ -9,6 +9,7 @@ from antlr.PPErrorListener import *
 import pickle
 import numpy as np
 import copy
+from math import sqrt, log
 
 @property
 def sum_calculator(received_outs, expected_outs):
@@ -40,8 +41,8 @@ class GP:
         self.program_input = inputs if inputs else []
         self.expected_output = outputs if outputs else []
         self.tournament_size = 2
-        self.mutation_rate = 0.4
-        self.crossover_rate = 0.9
+        self.mutation_rate = 0.5
+        self.crossover_rate = 0.8
         self.nr_of_generations = 100
         self.max_traverse_tries = 10
         self.best_indiv_idx = 0
@@ -84,7 +85,7 @@ class GP:
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual())
             program_str = self.generate_program_str(self.population[idx])
-            # self.program_strings.append(program_str)
+
             self.fitness.append(self.compute_fitness(program_str))
             self.population[idx].nr_of_children = self.update_nr_of_children(self.population[idx])
             # self.display_program(self.population[idx])
@@ -180,11 +181,11 @@ class GP:
         Not all nodes have alternatives for mutations and such nodes cannot
         be mutated using point mutation.
         """
-        if not curr_node.can_mutate:
+        if not curr_node.can_mutate: # e.g variables in assignment
             return curr_node
 
         possibilities = Node.get_possible_point_mutations(curr_node.type)
-        if len(possibilities) == 0:  # node cannot be mutated
+        if len(possibilities) == 0:  # node cannot be mutated, e.g. sequence, assignment
             return curr_node
         else:
             idx = random.randint(0, len(possibilities)-1)
@@ -193,28 +194,27 @@ class GP:
             if new_node.type == NodeType.INPUT:
                 new_node.value = "input"
             # print("Mutation (", curr_node.type, ", ", curr_node.value,
-            #       ") -> (", new_node.type, ", ", new_node.value, ")")
+            #       ") -> (", new_node.type, ", ", new_node.value, ")   nr of children: ",  curr_node.nr_of_children, "prop: ", 1/2**(log(curr_node.nr_of_children + 1, 10)))
             return new_node
 
     def mutate(self, root: Node) -> Node:
         """
-        Performs point or subtree mutation on all nodes starting from root 
-        with probability of self.mutation_rate=10%. 
-        Returns the root of mutated tree
+        Performs point mutation on all nodes starting from root 
+        with probability of self.mutation_rate=50% * 1/2**(log(curr_node.nr_of_children + 1, 10)), 
+        where 0 < 1/2**(sqrt(root.nr_of_children)) <= 1.
+        Returns the root of mutated tree.
         """
-        # print("Before mutation:", self.generate_program_str(root))
         queue = [root]
         while queue:
             node = queue.pop()
-            if random.random() < self.mutation_rate:  # 10%
-                # if random.random() < 0.5 else self.perform_subtree_mutation(node)
-                new_node = GP.perform_point_mutation(node)
-                node.type = new_node.type
-                node.value = new_node.value
-                node.children = new_node.children
-            for child in node.children:
-                queue.append(child)
-        # print("After mutation:",  self.generate_program_str(root))
+            if random.random() < self.mutation_rate:  # 50%
+                if random.random() < 1/2**(log(root.nr_of_children + 1, 10)):
+                    new_node = GP.perform_point_mutation(node)
+                    node.type = new_node.type
+                    node.value = new_node.value
+                    node.children = new_node.children
+                for child in node.children:
+                    queue.append(child)
         return root
 
     @staticmethod
