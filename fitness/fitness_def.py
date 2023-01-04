@@ -1,14 +1,15 @@
 import numpy as np
 def fitness(received_outs, expected_outs, nodes=0):
-    fitness = 0
+    fitness_ = 0
     if len(received_outs) == 0:
-        fitness += -10e+9
-        return fitness
+        fitness_ -= 1000
+        fitness_ -= nodes*5
+        return fitness_
     try:
-        fitness += -abs((np.min(np.array(received_outs) -
+        fitness_ -= abs((np.min(np.array(received_outs) -
                         expected_outs[0])))
-        fitness += -nodes
+        fitness_ -= (len(received_outs)-1)*20
     except ValueError:
-        fitness += -10e+9
+        fitness_ -= 1000
 
-    return fitness
+    return fitness_
