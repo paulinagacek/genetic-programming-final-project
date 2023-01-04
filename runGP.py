@@ -6,6 +6,7 @@ EX_DIR = "examples/"
 MODULE_DIR = "fitness/"
 
 DEFAULT = "example11C.txt"
+DEFAULT = "example11B.txt"
 DEFAULT_FITNESS = "fitness_def.py"
 
 if __name__ == "__main__":
