@@ -51,6 +51,7 @@ class GP:
         self.nr_of_regenerations = 0
         self.sum_calculator = fitness_function if fitness_function else sum_calculator
         self.nr_of_mutations = 0
+        self.nr_of_subtree_mutations = 0
         self.avg_fitness = -1
 
     def get_train_data(self, filename):
@@ -178,8 +179,7 @@ class GP:
         else:
             return parent2
 
-    @staticmethod
-    def perform_point_mutation(curr_node: Node) -> Node:
+    def perform_point_mutation(self, curr_node: Node) -> Node:
         """
         Mutates provided node with other randomly chosen.
         Not all nodes have alternatives for mutations and such nodes cannot
@@ -194,13 +194,16 @@ class GP:
         else:
             idx = random.randint(0, len(possibilities)-1)
             new_node = Node(
-                possibilities[idx], curr_node.children, None, level=curr_node.level, nr_of_children=curr_node.nr_of_children)
+                possibilities[idx], curr_node.children, None, level=curr_node.level, nr_of_children=curr_node.nr_of_children, height=curr_node.height)
             if new_node.type == NodeType.INPUT:
                 new_node.value = "input"
             # print("Mutation (", curr_node.type, ", ", curr_node.value,
             #       ") -> (", new_node.type, ", ", new_node.value, ")   nr of children: ",  curr_node.nr_of_children, 
             #       "prop: ", 1/2**(log(curr_node.height + 1, 4)), "  height:", curr_node.height)
             return new_node
+    
+    def perform_subtree_mutation(self, curr_node: Node) -> Node:
+        return curr_node
 
     def mutate(self, root: Node, node_idx = -1) -> Node:
         """
@@ -215,12 +218,17 @@ class GP:
             try:
                 if self.fitness[node_idx] < self.avg_fitness or random.random() < self.mutation_rate:  # 50%
                     # higher prob to mutate if fitness is worse than average
-                    if random.random() < 1/2**(log(root.height + 1, 4)):
-                        self.nr_of_mutations += 1
-                        new_node = GP.perform_point_mutation(node)
-                        node.type = new_node.type
-                        node.value = new_node.value
-                        node.children = new_node.children
+                    if random.random() < 1/2**(log(root.height + 1, 10)):
+                        if Node.can_be_point_mutated(node):
+                            self.nr_of_mutations += 1
+                            new_node = self.perform_point_mutation(node)
+                            node.type = new_node.type
+                            node.value = new_node.value
+                            node.children = new_node.children
+                        elif Node.can_be_subtree_mutated(node):
+                            self.nr_of_subtree_mutations += 1
+                            new_node = self.perform_subtree_mutation(node)
+
                 for child in node.children:
                     queue.append(child)
             except:
@@ -377,10 +385,11 @@ class GP:
             print(best_prog, " = ", best_fit)
             self.avg_fitness = sum(self.fitness)//self.population_size
             print("AVG fitness: ", self.avg_fitness)
-            print("Nr of mutations: ", self.nr_of_mutations)
-
+            print("Nr of point mutations: ", self.nr_of_mutations)
+            print("Nr of subtree mutations: ", self.nr_of_subtree_mutations)
             self.escape_local_optimum()
             self.nr_of_mutations = 0
+            self.nr_of_subtree_mutations = 0
     
     def update_best_fitness(self):
         new_best_fitness = self.fitness[self.best_indiv_idx]

@@ -1,0 +1,132 @@
+Generation 11  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -216  best indiv:
+[807] [1] [789]
+[807] [2] [789]
+[807] [3] [789]
+[807] [4] [789]
+[807] [5] [789]
+[807] [6] [789]
+[807] [8] [789]
+[807] [9] [789]
+[807] [10] [789]
+[807] [11] [789]
+[807] [15] [789]
+[807] [100] [789]
+print(94+87-87+91+X2+X2+82+91+X2+87+X2+91+X2+X2+87+X2+91+X2+X2+X2+X2+82);  =  -216
+AVG fitness:  -8122
+Nr of point mutations:  448
+Nr of subtree mutations:  9
+
+Generation 12  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -156  best indiv:
+[802] [1] [789]
+[802] [2] [789]
+[802] [3] [789]
+[802] [4] [789]
+[802] [5] [789]
+[802] [6] [789]
+[802] [8] [789]
+[802] [9] [789]
+[802] [10] [789]
+[802] [11] [789]
+[802] [15] [789]
+[802] [100] [789]
+print(94+87-87+87+X2+82+91+X2+87+X2+91+X2+X2+87+X2+91+X2+X2+X2+X2+82);  =  -156
+AVG fitness:  -84669
+Nr of point mutations:  362
+Nr of subtree mutations:  11
+
+Generation 13  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -108  best indiv:
+[798] [1] [789]
+[798] [2] [789]
+[798] [3] [789]
+[798] [4] [789]
+[798] [5] [789]
+[798] [6] [789]
+[798] [8] [789]
+[798] [9] [789]
+[798] [10] [789]
+[798] [11] [789]
+[798] [15] [789]
+[798] [100] [789]
+print(87+87+94+87-X7+91+X2+X2-X6+91/X2+87+91+X2+82);  =  -108
+AVG fitness:  -3487
+Nr of point mutations:  514
+Nr of subtree mutations:  9
+
+Generation 14  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -108  best indiv:
+[798] [1] [789]
+[798] [2] [789]
+[798] [3] [789]
+[798] [4] [789]
+[798] [5] [789]
+[798] [6] [789]
+[798] [8] [789]
+[798] [9] [789]
+[798] [10] [789]
+[798] [11] [789]
+[798] [15] [789]
+[798] [100] [789]
+print(87+87+94+87-X7+91+X2+X2-X6+91/X2+87+91+X2+82);  =  -108
+AVG fitness:  -361052
+Nr of point mutations:  676
+Nr of subtree mutations:  10
+
+Generation 15  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -84  best indiv:
+[796] [1] [789]
+[796] [2] [789]
+[796] [3] [789]
+[796] [4] [789]
+[796] [5] [789]
+[796] [6] [789]
+[796] [8] [789]
+[796] [9] [789]
+[796] [10] [789]
+[796] [11] [789]
+[796] [15] [789]
+[796] [100] [789]
+print(94+87-X2+82+87+X2+87+X2+91+X2+X2+87+X2+91+X2+X2+X2+X2+82);  =  -84
+AVG fitness:  -2715
+Nr of point mutations:  619
+Nr of subtree mutations:  13
+
+Generation 16  ------------------------
+Epochs without improvement: 0
+C:\Users\gacekpau\OneDrive - Intel Corporation\Desktop\3 ROK ISI\genetyczne-vol2\src\GP.py:82: RuntimeWarning: overflow encountered in scalar add
+  fitness += self.sum_calculator(prints,
+
+Best fitness: 1467874900  best indiv:
+[235591822] [1] [789]
+[235591822] [2] [789]
+[235591822] [3] [789]
+[235591822] [4] [789]
+[235591822] [5] [789]
+[235591822] [6] [789]
+[235591822] [8] [789]
+[235591822] [9] [789]
+[235591822] [10] [789]
+[235591822] [11] [789]
+[235591822] [15] [789]
+[235591822] [100] [789]
+print(94+87-X2/X2+82+91+X7*87+X8+91+X2*93+87+X2+91+29+X2-X4/X2*82);  =  1467874900
+AVG fitness:  14671681
+Nr of point mutations:  448
+Nr of subtree mutations:  11
+
+Generation 17  ------------------------
+Epochs without improvement: 0
+Solution found in generation 17
+PS C:\Users\gacekpau\OneDrive - Intel Corporation\Desktop\3 ROK ISI\genetyczne-vol2> 

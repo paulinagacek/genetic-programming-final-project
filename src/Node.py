@@ -114,9 +114,16 @@ class Node:
         if it is leaf parent (we want to finish as fast as possible)
         """
         return random.choice([NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT, NodeType.LOOP])
+    
+    @staticmethod
+    def can_be_point_mutated(node):
+        return node.type in [NodeType.INT, NodeType.VAR_NAME, NodeType.INPUT, NodeType.COMPARISON,
+                             NodeType.LOGICAL_OP, NodeType.LOOP, NodeType.CONDITIONAL_STATEMENT, NodeType.ARITHMETICAL_OP]
+    @staticmethod
+    def can_be_subtree_mutated(node):
+        return node.type in [NodeType.ARITHMETICAL_OP, NodeType.LOGICAL_OP, NodeType.ASSIGNMENT, NodeType.LOOP, NodeType.PRINT]
 
     # static attributes
-
     max_nr_of_children = 5
     max_val_int = 100
     min_val_int = 0
@@ -153,7 +160,7 @@ class Node:
 
         # ARITHMETICAL EXPR
         NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME, NodeType.INT], 0.35),
-                              (2, [NodeType.VAR_NAME, NodeType.INPUT], 0.2),
+                              (2, [NodeType.VAR_NAME, NodeType.INPUT], 0.3),
                               (2, [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP], 0.35),
                               (2, [NodeType.VAR_NAME, NodeType.VAR_NAME], 0.1)],
         NodeType.ARITHMETICAL_OP: [
@@ -179,13 +186,14 @@ class Node:
     }
 
     type_to_point_mutation = {
-        NodeType.INT: [NodeType.VAR_NAME, NodeType.INT], # INPUT
-        NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.INT], # INPUT
-        NodeType.INPUT: [NodeType.VAR_NAME, NodeType.INT], # INPUT
+        NodeType.INT: [NodeType.VAR_NAME, NodeType.INT],
+        NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.INT],
+        NodeType.INPUT: [NodeType.VAR_NAME, NodeType.INT], 
         NodeType.COMPARISON: [NodeType.COMPARISON],
         NodeType.LOGICAL_OP: [NodeType.LOGICAL_OP],
         NodeType.LOOP: [NodeType.CONDITIONAL_STATEMENT, NodeType.LOOP],
         NodeType.CONDITIONAL_STATEMENT: [NodeType.LOOP, NodeType.CONDITIONAL_STATEMENT],
+        NodeType.ARITHMETICAL_OP: [NodeType.ARITHMETICAL_OP]
     }
 
     type_to_cross_over = {
