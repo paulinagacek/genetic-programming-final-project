@@ -85,9 +85,10 @@ class GP:
     def create_random_population(self):
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual())
+            # self.display_program(self.population[idx])
             program_str = self.generate_program_str(self.population[idx])
             self.fitness.append(self.compute_fitness(program_str, total_no_nodes=self.population[idx].nr_of_children))
-            # self.display_program(self.population[idx])
+            
             print(idx, ": ", program_str)
         print("Max initial depth: ", self.max_depth)
         print("Population size: ", self.population_size)
@@ -114,7 +115,7 @@ class GP:
                         Node(children_types[idx], [], None, can_mutate, level=level + 1))
                     queue.append((level+1, node.children[idx]))
 
-            elif level < self.max_depth:
+            else:
                 types = Node.generate_random_children_types(node.type)
                 for idx in range(len(types)):
                     can_mutate = True

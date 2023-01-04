@@ -5,6 +5,7 @@ from typing import List
 
 class NodeType(Enum):
     SEQUENCE = 0,
+    INSTRUCTION = 1,
     CONDITIONAL_STATEMENT = 10,
     COMPARISON = 11,
     LOGICAL_OP = 12,
@@ -129,8 +130,15 @@ class Node:
     variables = []
 
     type_to_children = {
-        NodeType.SEQUENCE: [(-1, [NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT, NodeType.LOOP, NodeType.PRINT], 1)],
-
+        NodeType.SEQUENCE: [(1, [NodeType.INSTRUCTION], 2), 
+                            (2, [NodeType.INSTRUCTION, NodeType.INSTRUCTION], 1.8), 
+                            (3, [NodeType.INSTRUCTION, NodeType.INSTRUCTION, NodeType.INSTRUCTION], 1.5), 
+                            (4, [NodeType.INSTRUCTION, NodeType.INSTRUCTION,NodeType.INSTRUCTION, NodeType.INSTRUCTION], 1),
+                            (5, [NodeType.INSTRUCTION, NodeType.INSTRUCTION, NodeType.INSTRUCTION, NodeType.INSTRUCTION, NodeType.INSTRUCTION], 1)],
+        NodeType.INSTRUCTION: [(1, [NodeType.CONDITIONAL_STATEMENT], 1),
+                               (1, [NodeType.ASSIGNMENT], 1),
+                               (1, [NodeType.LOOP], 1),
+                               (1, [NodeType.PRINT], 3)],
         # CONDITIONAL STATEMENTS, LOOPS
         NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.LOGICAL_OP, NodeType.SEQUENCE], 0.1),
                                          (2, [NodeType.COMPARISON, NodeType.SEQUENCE], 0.9)],

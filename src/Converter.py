@@ -68,9 +68,10 @@ class Converter:
 
     @staticmethod
     def get_print(node: Node) -> str:
-        leftchild = Converter.get_arithmetical_op(
+        # print("node:", node.type, node.children)
+        child = Converter.get_arithmetical_op(
             node.children[0]) if node.children[0].type == NodeType.ARITHMETICAL_OP else node.children[0].value
-        return "print(" + str(leftchild) + ");"
+        return "print(" + str(child) + ");"
 
     @staticmethod
     def get_proper_node(node: Node) -> str:
@@ -79,6 +80,8 @@ class Converter:
             for child in node.children:
                 output += Converter.get_proper_node(child)
             return output
+        elif node.type == NodeType.INSTRUCTION:
+            return Converter.get_proper_node(node.children[0])
         elif node.type == NodeType.ASSIGNMENT:
             return Converter.get_assignment(node)
         elif node.type == NodeType.LOOP:
