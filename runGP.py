@@ -5,7 +5,7 @@ import importlib.util
 EX_DIR = "examples/"
 MODULE_DIR = "fitness/"
 
-DEFAULT = "example11A.txt"
+DEFAULT = "example11C.txt"
 DEFAULT_FITNESS = "fitness_def.py"
 
 if __name__ == "__main__":

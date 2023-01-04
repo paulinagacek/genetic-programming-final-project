@@ -12,7 +12,7 @@ import copy
 from math import log
 
 @property
-def sum_calculator(received_outs, expected_outs):
+def sum_calculator(received_outs, expected_outs, program_length=0):
     """
     Returns fitness of received outputs realitvely to expected outputs.
     Fitness function was created for problems in which the output is expected to consist
@@ -39,7 +39,7 @@ class GP:
         self.fitness = []  # List[float]
         self.program_input = inputs if inputs else []
         self.expected_output = outputs if outputs else []
-        self.tournament_size = 2
+        self.tournament_size = 10
         self.mutation_rate = 0.5
         self.crossover_rate = 0.9
         self.nr_of_generations = 100
@@ -68,7 +68,7 @@ class GP:
         print("Inputs: ", self.program_input)
         print("Outputs: ", self.expected_output)
 
-    def compute_fitness(self, program: str, pr=False) -> float:
+    def compute_fitness(self, program: str, pr=False, total_no_nodes=0) -> float:
         fitness = 0  # max is 0, should be negative besides
         epochs = len(self.program_input)
         for example_idx in range(epochs):
@@ -79,14 +79,14 @@ class GP:
                 print(
                     prints, self.program_input[example_idx], self.expected_output[example_idx])
             fitness += self.sum_calculator(prints,
-                                      self.expected_output[example_idx])
+                                      self.expected_output[example_idx], total_no_nodes)
         return fitness
 
     def create_random_population(self):
         for idx in range(self.population_size):
             self.population.append(self.create_random_individual())
             program_str = self.generate_program_str(self.population[idx])
-            self.fitness.append(self.compute_fitness(program_str))
+            self.fitness.append(self.compute_fitness(program_str, total_no_nodes=self.population[idx].nr_of_children))
             # self.display_program(self.population[idx])
         print("Max initial depth: ", self.max_depth)
         print("Population size: ", self.population_size)
@@ -171,7 +171,7 @@ class GP:
         parent1_str = self.generate_program_str(parent1)
         parent2_str = self.generate_program_str(parent2)
 
-        if self.compute_fitness(parent1_str) > self.compute_fitness(parent2_str):
+        if self.compute_fitness(parent1_str, total_no_nodes=parent1.nr_of_children) > self.compute_fitness(parent2_str, total_no_nodes=parent2.nr_of_children):
             return parent1
         else:
             return parent2
@@ -335,7 +335,7 @@ class GP:
                 weakest_idx = self.perform_negative_tournament()
                 population_copy[weakest_idx] = child
                 child_str = self.generate_program_str(child)
-                fitness_copy[weakest_idx] = self.compute_fitness(child_str)
+                fitness_copy[weakest_idx] = self.compute_fitness(child_str, total_no_nodes=child.nr_of_children)
 
             # best indiv always survives
             previous_best_indiv = self.deepcopy_tree(self.population[self.best_indiv_idx])
@@ -354,7 +354,7 @@ class GP:
             print("\nBest fitness:", self.best_fitness, " best indiv:")
             best_prog = self.generate_program_str(
                 self.population[self.best_indiv_idx])
-            best_fit = self.compute_fitness(best_prog, pr=True)
+            best_fit = self.compute_fitness(best_prog, pr=True, total_no_nodes=self.population[self.best_indiv_idx].nr_of_children)
             print(best_prog, " = ", best_fit)
             self.avg_fitness = sum(self.fitness)//self.population_size
             print("AVG fitness: ", self.avg_fitness)
@@ -381,7 +381,7 @@ class GP:
                 self.population[idx] = self.create_random_individual()
                 program_str = self.generate_program_str(
                     self.population[idx])
-                self.fitness[idx] = self.compute_fitness(program_str)
+                self.fitness[idx] = self.compute_fitness(program_str, total_no_nodes=self.population[idx].nr_of_children)
             print(int(ratio_to_generate * self.population_size),
                   "  generated again")
 
@@ -463,4 +463,4 @@ if __name__ == "__main__":
     # gp.display_program(gp.population[gp.fitness.index(max(gp.fitness))])
     demonstrate_load_save()
     demonstrate_mutation()
-    demonstrate_crossover()
+    # demonstrate_crossover()
