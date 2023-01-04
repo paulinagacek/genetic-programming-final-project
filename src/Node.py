@@ -17,13 +17,6 @@ class NodeType(Enum):
     PRINT = 70,
     INPUT = 71,
 
-class Prob():
-    LOGICAL_OP_PROB = 0.2
-    COMPARISON_OP_PROB = 0.8
-    COMP_INT_PROB = 0.7
-    COMP_ART_PROB = 0.1
-    COMP_INT_ART_PROB = 0.2
-
 
 class Node:
     nr_of_variables = 0
@@ -174,7 +167,7 @@ class Node:
             (2, [NodeType.VAR_NAME, NodeType.INT], 0.2),
             (2, [NodeType.INT, NodeType.VAR_NAME], 0.2)],
 
-        NodeType.PRINT: [(1, [NodeType.ARITHMETICAL_OP], 0.4),
+        NodeType.PRINT: [(1, [NodeType.ARITHMETICAL_OP], 1),
                          (1, [NodeType.INT], 0.3),
                          (1, [NodeType.VAR_NAME], 0.3)]
     }

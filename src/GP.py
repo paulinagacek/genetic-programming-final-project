@@ -40,8 +40,8 @@ class GP:
         self.program_input = inputs if inputs else []
         self.expected_output = outputs if outputs else []
         self.tournament_size = 10
-        self.mutation_rate = 0.5
-        self.crossover_rate = 0.9
+        self.mutation_rate = 0.7
+        self.crossover_rate = 0.7
         self.nr_of_generations = 100
         self.max_traverse_tries = 10
         self.best_indiv_idx = 0
