@@ -13,10 +13,15 @@ class NodeType(Enum):
     INT = 31,
     VAR_NAME = 33,
     LOOP = 50,
-    LEFT_BRACKET = 60,
-    RIGHT_BRACKET = 61,
     PRINT = 70,
     INPUT = 71,
+
+class Prob():
+    LOGICAL_OP_PROB = 0.2
+    COMPARISON_OP_PROB = 0.8
+    COMP_INT_PROB = 0.7
+    COMP_ART_PROB = 0.1
+    COMP_INT_ART_PROB = 0.2
 
 
 class Node:
@@ -65,12 +70,13 @@ class Node:
 
     @staticmethod
     def generate_random_children_types(parent: NodeType) -> List[NodeType]:
-        possible_combinations = len(Node.get_possible_children(parent))
-        if possible_combinations == 0:
+        possible_combinations = Node.get_possible_children(parent)
+        if len(possible_combinations) == 0:
             return []
-        idx = random.randint(0, possible_combinations-1)
-        nr_of_children, children_types = Node.get_possible_children(parent)[
-            idx]
+        
+        weights = list(map(lambda x: x[2], possible_combinations))
+        nr_of_children, children_types, prob = random.choices(
+            possible_combinations, weights=weights, k=1)[0]
 
         if nr_of_children != -1:
             return children_types
@@ -123,45 +129,46 @@ class Node:
     variables = []
 
     type_to_children = {
-        NodeType.SEQUENCE: [(-1, [NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT, NodeType.LOOP, NodeType.PRINT])],
+        NodeType.SEQUENCE: [(-1, [NodeType.CONDITIONAL_STATEMENT, NodeType.ASSIGNMENT, NodeType.LOOP, NodeType.PRINT], 1)],
 
         # CONDITIONAL STATEMENTS, LOOPS
-        NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.LOGICAL_OP, NodeType.SEQUENCE]),
-                                         (2, [NodeType.COMPARISON, NodeType.SEQUENCE])],
-        NodeType.LOGICAL_OP: [(2, [NodeType.LOGICAL_OP, NodeType.LOGICAL_OP]),
-                              (2, [NodeType.COMPARISON, NodeType.COMPARISON]),
+        NodeType.CONDITIONAL_STATEMENT: [(2, [NodeType.LOGICAL_OP, NodeType.SEQUENCE], 0.1),
+                                         (2, [NodeType.COMPARISON, NodeType.SEQUENCE], 0.9)],
+        NodeType.LOGICAL_OP: [(2, [NodeType.LOGICAL_OP, NodeType.LOGICAL_OP], 0.04),
+                              (2, [NodeType.COMPARISON, NodeType.COMPARISON], 0.8),
                               (2, [NodeType.LOGICAL_OP,
-                                   NodeType.COMPARISON]),
-                              (2, [NodeType.COMPARISON, NodeType.LOGICAL_OP])],
-        NodeType.COMPARISON: [(2, [NodeType.ARITHMETICAL_OP, NodeType.ARITHMETICAL_OP]),
-                              (2, [NodeType.INT, NodeType.VAR_NAME]),
-                              (2, [NodeType.VAR_NAME, NodeType.VAR_NAME]),
-                              (2, [NodeType.VAR_NAME, NodeType.INT]),
-                              (2, [NodeType.INT, NodeType.INT]),
-                              (2, [NodeType.ARITHMETICAL_OP, NodeType.VAR_NAME]),
-                              (2, [NodeType.ARITHMETICAL_OP, NodeType.INT])],
+                                   NodeType.COMPARISON], 0.08),
+                              (2, [NodeType.COMPARISON, NodeType.LOGICAL_OP], 0.08)],
+        NodeType.COMPARISON: [(2, [NodeType.ARITHMETICAL_OP, NodeType.ARITHMETICAL_OP], 0.4),
+                              (2, [NodeType.INT, NodeType.VAR_NAME], 0.2),
+                              (2, [NodeType.VAR_NAME, NodeType.VAR_NAME], 0.12),
+                              (2, [NodeType.VAR_NAME, NodeType.INT], 0.2),
+                              (2, [NodeType.INT, NodeType.INT], 0.2),
+                              (2, [NodeType.ARITHMETICAL_OP, NodeType.VAR_NAME], 0.12),
+                              (2, [NodeType.ARITHMETICAL_OP, NodeType.INT], 0.12)],
 
-        NodeType.LOOP: [(2, [NodeType.LOGICAL_OP, NodeType.SEQUENCE])],
+        NodeType.LOOP: [(2, [NodeType.LOGICAL_OP, NodeType.SEQUENCE], 0.1),
+                        (2, [NodeType.COMPARISON, NodeType.SEQUENCE], 0.9)],
 
         # ARITHMETICAL EXPR
-        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME, NodeType.INT]),
-                              (2, [NodeType.VAR_NAME, NodeType.INPUT]),
-                              (2, [NodeType.VAR_NAME,
-                               NodeType.ARITHMETICAL_OP]),
-                              (2, [NodeType.VAR_NAME, NodeType.VAR_NAME])],
+        NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME, NodeType.INT], 0.35),
+                              (2, [NodeType.VAR_NAME, NodeType.INPUT], 0.2),
+                              (2, [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP], 0.35),
+                              (2, [NodeType.VAR_NAME, NodeType.VAR_NAME], 0.1)],
         NodeType.ARITHMETICAL_OP: [
-            (2, [NodeType.ARITHMETICAL_OP, NodeType.ARITHMETICAL_OP]),
-            (2, [NodeType.INT, NodeType.ARITHMETICAL_OP]),
-            (2, [NodeType.ARITHMETICAL_OP, NodeType.INT]),
-            (2, [NodeType.INT, NodeType.INT]),
-            (2, [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP]),
-            (2, [NodeType.ARITHMETICAL_OP, NodeType.VAR_NAME]),
-            (2, [NodeType.VAR_NAME, NodeType.VAR_NAME]),
-            (2, [NodeType.VAR_NAME, NodeType.INT]),
-            (2, [NodeType.INT, NodeType.VAR_NAME])],
-        NodeType.PRINT: [(1, [NodeType.ARITHMETICAL_OP]),
-                         (1, [NodeType.INT]),
-                         (1, [NodeType.VAR_NAME])]
+            (2, [NodeType.ARITHMETICAL_OP, NodeType.ARITHMETICAL_OP], 0.1),
+            (2, [NodeType.INT, NodeType.ARITHMETICAL_OP], 0.1),
+            (2, [NodeType.ARITHMETICAL_OP, NodeType.INT], 0.1),
+            (2, [NodeType.INT, NodeType.INT], 0.3),
+            (2, [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP], 0.05),
+            (2, [NodeType.ARITHMETICAL_OP, NodeType.VAR_NAME], 0.05),
+            (2, [NodeType.VAR_NAME, NodeType.VAR_NAME], 0.1),
+            (2, [NodeType.VAR_NAME, NodeType.INT], 0.2),
+            (2, [NodeType.INT, NodeType.VAR_NAME], 0.2)],
+
+        NodeType.PRINT: [(1, [NodeType.ARITHMETICAL_OP], 0.4),
+                         (1, [NodeType.INT], 0.3),
+                         (1, [NodeType.VAR_NAME], 0.3)]
     }
 
     type_to_possible_value = {

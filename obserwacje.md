@@ -58,6 +58,8 @@ Prawdopodobieństwo mutacji zależy od wysokości danego node'a zgodnie ze wzore
 
 $0.5^{(log(root.height + 1, 4))}$
 
+Crossover jest tym większy im gorszy jest fitness (przepinany jest node wyżej)
+
 ---------------------
 
 Problem:
@@ -65,4 +67,5 @@ Generowane rozwiązania miały bardzo duże drzewa
 
 Rozwiązanie:
 Dodanie długości programu jako parametru funkcji fitness
+
 

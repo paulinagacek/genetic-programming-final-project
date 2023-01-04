@@ -88,6 +88,7 @@ class GP:
             program_str = self.generate_program_str(self.population[idx])
             self.fitness.append(self.compute_fitness(program_str, total_no_nodes=self.population[idx].nr_of_children))
             # self.display_program(self.population[idx])
+            print(idx, ": ", program_str)
         print("Max initial depth: ", self.max_depth)
         print("Population size: ", self.population_size)
         print("Crossover rate: ", self.crossover_rate,
