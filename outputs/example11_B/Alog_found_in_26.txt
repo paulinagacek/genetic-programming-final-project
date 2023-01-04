@@ -1,0 +1,652 @@
+Inputs:  [[1], [2], [3], [4], [5], [6], [8], [9], [10], [11], [15], [100]]
+Outputs:  [[789], [789], [789], [789], [789], [789], [789], [789], [789], [789], [789], [789]]
+0 :  print(X1-X1/X1);LOOP(X1<90)print(X1*46);;IF(X1>34)print(X1);;
+1 :  IF(X1/44==X1)X1=63;LOOP(X1==35)X1=92;;print(X1-X1);print(X1);;X1=input;IF(X1==40)print(X1);print(X1);LOOP(57<39)X1=46;;;LOOP(X1+9>X1-59)print(X1-12);LOOP(X1!=88)X1=14;;IF(X1==X1)X1=1;;;LOOP(X1-52<92/X1)print(X1);IF(88>45)X1=3;;;
+2 :  print(X1);
+3 :  LOOP(16/X1<74/X1)IF(X1<X2)X2=2;;print(15);;
+4 :  X1=8-83-34;print(21);print(93-X1);print(X1);
+5 :  print(X1*X1-X1);print(95);print(100);X1=28/68;print(X1);
+6 :  IF(X2==93)print(96-X2);;X1=34+X2;
+7 :  print(63);IF(3<48)X1=65;;
+8 :  LOOP(X1/63==X1)X1=66;print(X2*99);;
+9 :  print(0);print(X1*X1);print(86);
+10 :  IF(41*56>X1)print(X1*75);LOOP(X2!=75)X1=45;;IF(58<90)X1=3;;print(89*58);;
+11 :  print(35/51+X1);LOOP(X1==X1)X1=65;;X1=68;print(X1+X1+X1);
+12 :  print(17);
+13 :  LOOP(X1*87!=X1*18)print(X1*2);print(86-X2);LOOP(15>X2)X2=29;;;IF((36!=47)OR(43>89))X1=53;LOOP(X2<X2)X2=51;;;print(X2*X1-71);print(X1*X1);
+14 :  LOOP(X1!=X1)print(71*X1);IF(X1==91)X1=32;;;
+15 :  print(85);
+16 :  IF(X1<81)print(X1);print(X1/X1);;X1=29;
+17 :  IF(2!=72)IF(X1>6)X1=11;;print(57*X1);print(24/X1);IF(X1==X1)X1=71;;print(X1*X1);;LOOP(87!=X1)IF(X1==X1)X1=26;;print(96*X1);print(87+X1);;LOOP(18<X1)X1=23;print(71-X1);X1=36;X1=46;;print(X1*39);
+18 :  print(X1-X1);
+19 :  print(X1-0);print(38);LOOP((74>65)OR(X1<44))LOOP(X1>X1)X2=9;;;
+20 :  IF((90>X1)OR(X1!=X1))print(17);;print(X1);
+21 :  print(X1);
+22 :  print(X1);
+23 :  print(X1*X1);X1=12;X1=29*6;print(31-59-37);IF(3>31)IF(61<X2)X2=16;;print(X2/X2);IF(85!=53)X1=81;;print(X1/15);;
+24 :  IF((70>40)OR(63>X2))print(24/29);IF(X2!=X2)X1=11;;print(82/X1);print(71);X3=28;;print(36);X1=9;IF(93+24!=X1+39)IF(X2>X2)X4=83;;;print(X2);
+25 :  LOOP(44<X1)X1=89;X1=94;IF(X1>X1)X1=56;;IF(5>11)X1=72;;IF(68==71)X1=53;;;
+26 :  IF(63-X1==X1+49)print(39);print(X1);X1=23;print(X1);;X1=48+X1-87;
+27 :  X1=4+X1;print(33*73);print(72+24/63);print(13/X2-X1);
+28 :  LOOP(X1==X1)X1=33;;print(50-64);print(48/83);
+29 :  X1=87;print(93*X1);X1=86;
+30 :  IF(53<69)print(X1*12);LOOP(X1!=X1)X1=69;;print(X1/X1);;
+31 :  X1=58*X1*X2;
+32 :  IF(X1<X1)IF(X1!=X2)X2=84;;print(X3*X1);print(X1);;print(43-24);IF((8!=X1)OR(X1<11))X1=70;print(25);print(X2/X2);;print(X1-X1+35);
+33 :  print(49);
+34 :  IF(X1!=X1)IF(X1>32)X1=91;;print(3);;print(X1);print(85+69);
+35 :  print(58);LOOP(29<X1)X1=23;print(X1);IF(83>X1)X1=59;;;print(29/53*26);LOOP(19+98==X1)X1=71;LOOP(92!=76)X1=13;;IF(47==37)X1=96;;print(30);;
+36 :  print(X1/X1);print(22+X1);IF(X1/X1!=X1*X2)X2=10;;IF(X2*26>1/X1)LOOP(X1!=X2)X1=60;;X2=31;print(36/X2);IF(6==46)X1=6;;IF(X1<68)X3=8;;;
+37 :  IF(43<59)print(X1);IF(17<X1)X2=68;;;
+38 :  print(X1+4*X1*42);
+39 :  X1=62;print(73*20);
+40 :  print(X1+74);print(81-1);IF(29*68==66)print(X2-97);print(83*X1);print(33);LOOP(82<X1)X3=1;;print(X1);;LOOP((X1!=X1)AND(X1!=43))print(95);X2=84;;IF(X2-X1==X1*X1)X3=92;X2=33;print(81);;
+41 :  IF(80-79!=X2+5)print(47*93);print(17);;print(59*X1);LOOP(X1>X2)IF(X2<X1)X1=70;;print(40-62);IF(X2<21)X2=47;;print(X1);print(66);;
+42 :  LOOP(X2*X2<X1*X1)X2=76;IF(72!=X2)X2=3;;LOOP(X2<X1)X1=78;;print(X2*X1);;X1=input;
+43 :  print(3+X1);X1=76-X2;print(X2*X3-X1);print(9);
+44 :  print(X1);
+45 :  print(X1/59-47+X1);LOOP(X1*X1<65)X1=50;;
+46 :  print(94*X1);IF(87/94==35+X1)print(X3);print(14+52);LOOP(X2>X2)X2=33;;LOOP(61>X1)X2=78;;;LOOP(X2+X1<X1)X3=27;;
+47 :  print(2);print(81+X1);
+48 :  print(0);print(92);print(70+X1);
+49 :  print(X1-X1);print(47+X1-36);
+50 :  print(X1);
+51 :  print(57);IF(38>82)IF(X1<60)X2=1;;print(55);print(X1-X2);print(X1/X2);LOOP(X2<X2)X1=8;;;
+52 :  X1=62/19+27/28;
+53 :  IF(X1/X2!=20)X1=40;X2=16;X1=69;print(96);IF(11>13)X2=45;;;print(19+X1);print(X2-X2+93);X1=input;
+54 :  IF(53>X1)IF(X1!=10)X1=84;;print(X1+X1);print(X1);IF(51>25)X1=47;;;LOOP(X1<24)LOOP(58>X1)X1=7;;;LOOP(X1/X1!=X1)print(X1);LOOP(X1<88)X1=72;;X1=85;X1=17;print(76-62);;
+55 :  print(6);LOOP(88>X1)print(64);LOOP(X1==X1)X1=49;;LOOP(X1==X1)X1=88;;;print(X1);IF(94*98!=97)print(X1/4);X1=43;;
+56 :  LOOP(X1*42<95)print(X2);print(43*X2);IF(X2>65)X2=17;;IF(82>X1)X2=53;;;print(X1+66);LOOP(87<90)X2=87;IF(X2!=80)X2=9;;IF(26>13)X2=81;;print(X1*38);LOOP(26<X2)X2=82;;;
+57 :  print(0/78);print(X1*X1);LOOP(9<50)print(75-62);X1=11;IF(X2!=X2)X3=7;;;print(68/X1);IF(50/X1<61/21)X2=63;;
+58 :  print(X1*X1*X1*X1);print(30*X1);
+59 :  IF(X1<89)X1=53;X1=39;;IF(59<33)X1=60;IF(X1>61)X1=63;;print(X1);IF(X1!=53)X1=31;;;
+60 :  print(49/23+X1);
+61 :  print(74-45);print(66);
+62 :  print(32-35*1+X1);
+63 :  X1=69;print(15-98);X1=input;X2=X1+X2;
+64 :  X1=90;
+65 :  LOOP(24<91)print(65/42);print(X1);IF(X1!=92)X1=31;;;
+66 :  LOOP(X1*X1>X1-X1)IF(64>18)X2=12;;print(20);print(37);print(46-X1);;IF(93*X1<53)print(X1);print(94-X1);;print(X2*X1+X1+X1);
+67 :  IF(16>81)print(X1);print(3/78);LOOP(X1!=56)X1=57;;X1=59;LOOP(48>89)X1=47;;;
+68 :  LOOP((52!=X1)AND(81<26))print(49);print(51);print(X1/X1);LOOP(54>82)X1=75;;IF(X1<86)X1=65;;;print(X1-X1);X1=X1*X1+X1;
+69 :  X1=input;print(X1);
+70 :  print(51);
+71 :  print(31);print(52*X1);LOOP(26>X2)print(X1);LOOP(83==X4)X3=59;;;IF(71/X2==35/9)print(66);print(X3);;
+72 :  print(84+79);X1=input;
+73 :  print(X1+X1);print(100+92);
+74 :  X1=21*31;LOOP(X1<X1)IF(75!=X1)X1=99;;LOOP(91==89)X1=87;;;
+75 :  X1=X1;print(X1*X1);print(X1);print(89+17);
+76 :  IF(22>58)X1=87;X1=90;print(49);;LOOP(94!=26)print(X1*X1);IF(X1==X1)X1=57;;IF(82==90)X2=15;;;IF(79*X1!=X1*X1)print(77+17);;IF(81==50)print(X1+X1);X1=15;print(51+X1);X1=30;print(X1);;
+77 :  IF(70/7==66*92)print(X1);IF(X1!=99)X1=61;;print(X1);;
+78 :  IF(36-56<98/X1)IF(71!=72)X1=9;;LOOP(99==X1)X1=0;;print(6);print(X1-X1);X1=79;;print(5*X1*72+61);
+79 :  LOOP(77>62)LOOP(29!=X1)X1=48;;;
+80 :  X1=33+44;LOOP(70!=X1)print(46*X1);;
+81 :  IF(X1*92<X1+33)print(9/X1);;
+82 :  LOOP(9+X1>13-54)print(29/90);;IF((X1==45)AND(X1==X1))print(X1-99);print(43+68);print(X1);IF(X1==X1)X1=22;;;print(86/37);
+83 :  LOOP(96*X1!=X1)print(X1*X1);X1=75;X1=80;X1=39;print(53/X1);;
+84 :  print(35*X1+X1);print(X2/16-X1);X1=34;IF(((78<52)AND(53<X3))OR(X2==X1))IF(X1!=X1)X2=74;;X1=21;X1=53;X3=67;LOOP(X1!=X2)X3=80;;;IF((X3!=15)AND(X3!=X1))IF(38==49)X3=2;;;
+85 :  X1=input;
+86 :  LOOP(7+24>69+96)IF(X3>56)X4=77;;LOOP(X1!=8)X4=48;;;IF(X1*65>X1-X2)print(24+35);;print(X2/X3*X1);
+87 :  LOOP(X1<6)print(X1*X1);X1=22;;print(X1);
+88 :  print(80*89);IF(85==X1)LOOP(X1<X1)X1=11;;print(9*X1);;X1=X1;X1=95;
+89 :  X1=5/80;X1=X1*64;
+90 :  LOOP(34/X1>82*X1)X1=17;LOOP(X2==24)X1=52;;print(X2+4);;
+91 :  print(59/98/36);
+92 :  print(65+X1);print(X1);print(94/X1-1);
+93 :  print(90);X1=60+22+66;IF(X2*26>X1)LOOP(66>14)X1=10;;;
+94 :  print(9);LOOP(25+X1==X1-X1)print(X1+40);X1=23;IF(17!=47)X1=63;;;IF((6!=X1)AND(86!=X1))X1=31;;
+95 :  LOOP(62<43)LOOP(16<65)X1=42;;IF(51>X1)X1=35;;IF(X1==X1)X1=9;;print(55/92);IF(73==X1)X1=28;;;
+96 :  print(X1*2);
+97 :  print(X1*53/45+X1);LOOP(X1==91)LOOP(X1>X1)X1=37;;print(20-5);print(X1*X1);print(35-X1);;
+98 :  X1=38;
+99 :  X1=78;print(67*X1+23);
+Max initial depth:  5
+Population size:  100
+Crossover rate:  0.7   Mutation rate:  0.7
+Random population generated
+
+Generation 0  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -6948  best indiv:
+[210] [1] [789]
+[210] [2] [789]
+[210] [3] [789]
+[210] [4] [789]
+[210] [5] [789]
+[210] [6] [789]
+[210] [8] [789]
+[210] [9] [789]
+[210] [10] [789]
+[210] [11] [789]
+[210] [15] [789]
+[210] [100] [789]
+print(X1+4*X1*42);  =  -6948
+AVG fitness:  -10781
+Nr of mutations:  238
+
+Generation 1  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -4428  best indiv:
+[420] [1] [789]
+[420] [2] [789]
+[420] [3] [789]
+[420] [4] [789]
+[420] [5] [789]
+[420] [6] [789]
+[420] [8] [789]
+[420] [9] [789]
+[420] [10] [789]
+[420] [11] [789]
+[420] [15] [789]
+[420] [100] [789]
+print(X1+4*X1*84);  =  -4428
+AVG fitness:  -9025
+Nr of mutations:  206
+
+Generation 2  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -660  best indiv:
+[844] [1] [789]
+[844] [2] [789]
+[844] [3] [789]
+[844] [4] [789]
+[844] [5] [789]
+[844] [6] [789]
+[844] [8] [789]
+[844] [9] [789]
+[844] [10] [789]
+[844] [11] [789]
+[844] [15] [789]
+[844] [100] [789]
+print(X1+8*X1*85+79);  =  -660
+AVG fitness:  -39299
+Nr of mutations:  76
+
+Generation 3  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -552  best indiv:
+[835] [1] [789]
+[835] [2] [789]
+[835] [3] [789]
+[835] [4] [789]
+[835] [5] [789]
+[835] [6] [789]
+[835] [8] [789]
+[835] [9] [789]
+[835] [10] [789]
+[835] [11] [789]
+[835] [15] [789]
+[835] [100] [789]
+print(X1+8*X1*84+79);  =  -552
+AVG fitness:  -12050
+Nr of mutations:  102
+
+Generation 4  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -360  best indiv:
+[759] [1] [789]
+[759] [2] [789]
+[759] [3] [789]
+[759] [4] [789]
+[759] [5] [789]
+[759] [6] [789]
+[759] [8] [789]
+[759] [9] [789]
+[759] [10] [789]
+[759] [11] [789]
+[759] [15] [789]
+[759] [100] [789]
+print(8*X1*85+79);  =  -360
+AVG fitness:  -8266
+Nr of mutations:  120
+
+Generation 5  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -276  best indiv:
+[766] [1] [789]
+[766] [2] [789]
+[766] [3] [789]
+[766] [4] [789]
+[766] [5] [789]
+[766] [6] [789]
+[766] [8] [789]
+[766] [9] [789]
+[766] [10] [789]
+[766] [11] [789]
+[766] [15] [789]
+[766] [100] [789]
+print(X1+8*X1*85+X1);  =  -276
+AVG fitness:  -8307
+Nr of mutations:  107
+
+Generation 6  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -276  best indiv:
+[766] [1] [789]
+[766] [2] [789]
+[766] [3] [789]
+[766] [4] [789]
+[766] [5] [789]
+[766] [6] [789]
+[766] [8] [789]
+[766] [9] [789]
+[766] [10] [789]
+[766] [11] [789]
+[766] [15] [789]
+[766] [100] [789]
+print(X1+8*X1*85+X1);  =  -276
+AVG fitness:  -14524
+Nr of mutations:  99
+
+Generation 7  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -276  best indiv:
+[766] [1] [789]
+[766] [2] [789]
+[766] [3] [789]
+[766] [4] [789]
+[766] [5] [789]
+[766] [6] [789]
+[766] [8] [789]
+[766] [9] [789]
+[766] [10] [789]
+[766] [11] [789]
+[766] [15] [789]
+[766] [100] [789]
+print(X1+8*X1*85+X1);  =  -276
+AVG fitness:  -13221
+Nr of mutations:  109
+
+Generation 8  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -276  best indiv:
+[766] [1] [789]
+[766] [2] [789]
+[766] [3] [789]
+[766] [4] [789]
+[766] [5] [789]
+[766] [6] [789]
+[766] [8] [789]
+[766] [9] [789]
+[766] [10] [789]
+[766] [11] [789]
+[766] [15] [789]
+[766] [100] [789]
+print(X1+8*X1*85+X1);  =  -276
+AVG fitness:  -36473
+Nr of mutations:  71
+
+Generation 9  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -252  best indiv:
+[768] [1] [789]
+[768] [2] [789]
+[768] [3] [789]
+[768] [4] [789]
+[768] [5] [789]
+[768] [6] [789]
+[768] [8] [789]
+[768] [9] [789]
+[768] [10] [789]
+[768] [11] [789]
+[768] [15] [789]
+[768] [100] [789]
+print(X3+8*X1*85+3);  =  -252
+AVG fitness:  -62180
+Nr of mutations:  109
+
+Generation 10  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -252  best indiv:
+[768] [1] [789]
+[768] [2] [789]
+[768] [3] [789]
+[768] [4] [789]
+[768] [5] [789]
+[768] [6] [789]
+[768] [8] [789]
+[768] [9] [789]
+[768] [10] [789]
+[768] [11] [789]
+[768] [15] [789]
+[768] [100] [789]
+print(X3+8*X1*85+3);  =  -252
+AVG fitness:  -9238
+Nr of mutations:  82
+
+Generation 11  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -192  best indiv:
+[773] [1] [789]
+[773] [2] [789]
+[773] [3] [789]
+[773] [4] [789]
+[773] [5] [789]
+[773] [6] [789]
+[773] [8] [789]
+[773] [9] [789]
+[773] [10] [789]
+[773] [11] [789]
+[773] [15] [789]
+[773] [100] [789]
+print(X3+8*X1*85+8);  =  -192
+AVG fitness:  -7617
+Nr of mutations:  96
+
+Generation 12  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -192  best indiv:
+[773] [1] [789]
+[773] [2] [789]
+[773] [3] [789]
+[773] [4] [789]
+[773] [5] [789]
+[773] [6] [789]
+[773] [8] [789]
+[773] [9] [789]
+[773] [10] [789]
+[773] [11] [789]
+[773] [15] [789]
+[773] [100] [789]
+print(X3+8*X1*85+8);  =  -192
+AVG fitness:  -11263
+Nr of mutations:  102
+
+Generation 13  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -156  best indiv:
+[776] [1] [789]
+[776] [2] [789]
+[776] [3] [789]
+[776] [4] [789]
+[776] [5] [789]
+[776] [6] [789]
+[776] [8] [789]
+[776] [9] [789]
+[776] [10] [789]
+[776] [11] [789]
+[776] [15] [789]
+[776] [100] [789]
+print(X3+8*X1*85+3+8);  =  -156
+AVG fitness:  -17629
+Nr of mutations:  144
+
+Generation 14  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -156  best indiv:
+[776] [1] [789]
+[776] [2] [789]
+[776] [3] [789]
+[776] [4] [789]
+[776] [5] [789]
+[776] [6] [789]
+[776] [8] [789]
+[776] [9] [789]
+[776] [10] [789]
+[776] [11] [789]
+[776] [15] [789]
+[776] [100] [789]
+print(X3+8*X1*85+3+8);  =  -156
+AVG fitness:  -3618
+Nr of mutations:  126
+
+Generation 15  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -96  best indiv:
+[781] [1] [789]
+[781] [2] [789]
+[781] [3] [789]
+[781] [4] [789]
+[781] [5] [789]
+[781] [6] [789]
+[781] [8] [789]
+[781] [9] [789]
+[781] [10] [789]
+[781] [11] [789]
+[781] [15] [789]
+[781] [100] [789]
+print(X3+8*X1*85+8+8);  =  -96
+AVG fitness:  -13804
+Nr of mutations:  111
+
+Generation 16  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -60  best indiv:
+[784] [1] [789]
+[784] [2] [789]
+[784] [3] [789]
+[784] [4] [789]
+[784] [5] [789]
+[784] [6] [789]
+[784] [8] [789]
+[784] [9] [789]
+[784] [10] [789]
+[784] [11] [789]
+[784] [15] [789]
+[784] [100] [789]
+print(X3+8*X1*85+8+3+8);  =  -60
+AVG fitness:  -31911
+Nr of mutations:  134
+
+Generation 17  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -12  best indiv:
+[788] [1] [789]
+[788] [2] [789]
+[788] [3] [789]
+[788] [4] [789]
+[788] [5] [789]
+[788] [6] [789]
+[788] [8] [789]
+[788] [9] [789]
+[788] [10] [789]
+[788] [11] [789]
+[788] [15] [789]
+[788] [100] [789]
+print(X3+8*X1*85+3+8+8+3+X9);  =  -12
+AVG fitness:  -35284
+Nr of mutations:  114
+
+Generation 18  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -12  best indiv:
+[788] [1] [789]
+[788] [2] [789]
+[788] [3] [789]
+[788] [4] [789]
+[788] [5] [789]
+[788] [6] [789]
+[788] [8] [789]
+[788] [9] [789]
+[788] [10] [789]
+[788] [11] [789]
+[788] [15] [789]
+[788] [100] [789]
+print(X3+8*X1*85+3+8+8+3+X9);  =  -12
+AVG fitness:  -11123
+Nr of mutations:  132
+
+Generation 19  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -12  best indiv:
+[790] [1] [789]
+[790] [2] [789]
+[790] [3] [789]
+[790] [4] [789]
+[790] [5] [789]
+[790] [6] [789]
+[790] [8] [789]
+[790] [9] [789]
+[790] [10] [789]
+[790] [11] [789]
+[790] [15] [789]
+[790] [100] [789]
+print(X3+8*X1*85+X3+8+8+8);  =  -12
+AVG fitness:  -40134
+Nr of mutations:  121
+
+Generation 20  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -12  best indiv:
+[790] [1] [789]
+[790] [2] [789]
+[790] [3] [789]
+[790] [4] [789]
+[790] [5] [789]
+[790] [6] [789]
+[790] [8] [789]
+[790] [9] [789]
+[790] [10] [789]
+[790] [11] [789]
+[790] [15] [789]
+[790] [100] [789]
+print(X3+8*X9*85+X3+8+8+8);  =  -12
+AVG fitness:  -9421
+Nr of mutations:  135
+
+Generation 21  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -12  best indiv:
+[790] [1] [789]
+[790] [2] [789]
+[790] [3] [789]
+[790] [4] [789]
+[790] [5] [789]
+[790] [6] [789]
+[790] [8] [789]
+[790] [9] [789]
+[790] [10] [789]
+[790] [11] [789]
+[790] [15] [789]
+[790] [100] [789]
+print(X5+8*X1*85+X3+8+8+8);  =  -12
+AVG fitness:  -10981
+Nr of mutations:  148
+
+Generation 22  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -12  best indiv:
+[790] [1] [789]
+[790] [2] [789]
+[790] [3] [789]
+[790] [4] [789]
+[790] [5] [789]
+[790] [6] [789]
+[790] [8] [789]
+[790] [9] [789]
+[790] [10] [789]
+[790] [11] [789]
+[790] [15] [789]
+[790] [100] [789]
+print(X5+8*X1*85+X3+8+8+8);  =  -12
+AVG fitness:  -40400
+Nr of mutations:  141
+45   generated again
+
+Generation 23  ------------------------
+Epochs without improvement: 5
+
+Best fitness: -12  best indiv:
+[790] [1] [789]
+[790] [2] [789]
+[790] [3] [789]
+[790] [4] [789]
+[790] [5] [789]
+[790] [6] [789]
+[790] [8] [789]
+[790] [9] [789]
+[790] [10] [789]
+[790] [11] [789]
+[790] [15] [789]
+[790] [100] [789]
+print(X5+8*X1*85+X3+8+8+8);  =  -12
+AVG fitness:  -8059
+Nr of mutations:  147
+
+Generation 24  ------------------------
+Epochs without improvement: 6
+
+Best fitness: -12  best indiv:
+[790] [1] [789]
+[790] [2] [789]
+[790] [3] [789]
+[790] [4] [789]
+[790] [5] [789]
+[790] [6] [789]
+[790] [8] [789]
+[790] [9] [789]
+[790] [10] [789]
+[790] [11] [789]
+[790] [15] [789]
+[790] [100] [789]
+print(X5+8*X1*85+X3+8+8+8);  =  -12
+AVG fitness:  -17061
+Nr of mutations:  129
+47   generated again
+
+Generation 25  ------------------------
+Epochs without improvement: 7
+
+Best fitness: -12  best indiv:
+[790] [1] [789]
+[790] [2] [789]
+[790] [3] [789]
+[790] [4] [789]
+[790] [5] [789]
+[790] [6] [789]
+[790] [8] [789]
+[790] [9] [789]
+[790] [10] [789]
+[790] [11] [789]
+[790] [15] [789]
+[790] [100] [789]
+print(X5+8*X1*85+X3+8+8+8);  =  -12
+AVG fitness:  -22255
+Nr of mutations:  157
+
+Generation 26  ------------------------
+Epochs without improvement: 8
+
+Best fitness: 0  best indiv:
+[789] [1] [789]
+[789] [2] [789]
+[789] [3] [789]
+[789] [4] [789]
+[789] [5] [789]
+[789] [6] [789]
+[789] [8] [789]
+[789] [9] [789]
+[789] [10] [789]
+[789] [11] [789]
+[789] [15] [789]
+[789] [100] [789]
+print(X3+8*X5*85+8+8+8);  =  0
+AVG fitness:  -4202
+Nr of mutations:  127
+
+Generation 27  ------------------------
+Epochs without improvement: 0
+Solution found in generation 27

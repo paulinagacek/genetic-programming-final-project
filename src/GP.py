@@ -41,7 +41,7 @@ class GP:
         self.expected_output = outputs if outputs else []
         self.tournament_size = 10
         self.mutation_rate = 0.7
-        self.crossover_rate = 0.7
+        self.crossover_rate = 0.6
         self.nr_of_generations = 100
         self.max_traverse_tries = 10
         self.best_indiv_idx = 0
@@ -229,6 +229,21 @@ class GP:
                 print(self.display_program(root))
         return root
 
+    def perform_cut_off(self, root: Node):
+        queue = [root]
+        while queue:
+            node = queue.pop()
+            if node.type == NodeType.SEQUENCE:
+                nr_of_children = len(root.children)
+                if nr_of_children > 1 and random.random() < nr_of_children * 0.03 * (self.epochs_without_improvement+1):
+                    idx = random.randint(0, nr_of_children-1)
+                    root.children.pop(idx)
+                for child in node.children:
+                    queue.append(child.children[0])
+            elif node.type in [NodeType.CONDITIONAL_STATEMENT, NodeType.LOOP]:
+                queue.append(node.children[1])
+
+
     def get_random_node(self, root: Node, fitness: int, isBase: bool) -> Node:
         queue = [root]
         node_set = []
@@ -329,6 +344,8 @@ class GP:
                     parent1 = self.perform_tournament()
                     parent1_copy = self.deepcopy_tree(self.population[parent1])
                     child = self.mutate(parent1_copy, parent1)
+                
+                self.perform_cut_off(child)
 
                 self.update_levels(child)
                 child.nr_of_children = self.update_nr_of_children(child)
