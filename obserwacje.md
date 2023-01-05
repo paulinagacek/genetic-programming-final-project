@@ -68,4 +68,19 @@ Generowane rozwiązania miały bardzo duże drzewa
 Rozwiązanie:
 Dodanie długości programu jako parametru funkcji fitness
 
+---------------------
+
+Problem:
+Overflow w funkcji kosztu
+
+Rozwiązanie:
+Dodanie parametru max_fitness, który mówi jaki jest minimalny fitness programu, ustawione na -milion
+
+---------------------
+
+Problem:
+Przy próbie wyskoczenia z lokalnego optimum nowe programy nie miały czasu dopasować się do danych, przez co znowu były na nowo losowane
+
+Rozwiązanie:
+Resetowanie licznika epoki bez poprawy fitness po każdej próbie ucieczki z optimum
 
