@@ -13,6 +13,8 @@ printExpression: 'print(' arithmeticalExpression ');';
 
 inputExpression: 'input';
 
+readExpression: 'read(' positiveInteger ');';
+
 conditionalStatement:
 	'IF(' cond = logicalExpression ')' con_body = conditionBody ';';
 
@@ -30,6 +32,7 @@ logicalExpression:
 
 arithmeticalExpression:
 	left = arithmeticalExpression op = ('+' | '-' | '/' | '*') right = arithmeticalExpression
+	| read_ = readExpression
 	| integer_ = integer
 	| variable_name_ = variableName;
 
@@ -46,6 +49,8 @@ variableName: 'X' NONZERODIGIT (NONZERODIGIT | ZERO)*;
 
 integer: (minus = '-')? NONZERODIGIT (NONZERODIGIT | ZERO)*
 	| ZERO;
+
+positiveInteger: NONZERODIGIT (NONZERODIGIT | ZERO)*;
 
 conditionBody: (instruction)+;
 

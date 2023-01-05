@@ -3,7 +3,7 @@ from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .PPParser import PPParser
 else:
-    from antlr.PPParser import PPParser
+    from PPParser import PPParser
 
 # This class defines a complete listener for a parse tree produced by PPParser.
 class PPListener(ParseTreeListener):
@@ -41,6 +41,15 @@ class PPListener(ParseTreeListener):
 
     # Exit a parse tree produced by PPParser#inputExpression.
     def exitInputExpression(self, ctx:PPParser.InputExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by PPParser#readExpression.
+    def enterReadExpression(self, ctx:PPParser.ReadExpressionContext):
+        pass
+
+    # Exit a parse tree produced by PPParser#readExpression.
+    def exitReadExpression(self, ctx:PPParser.ReadExpressionContext):
         pass
 
 
@@ -113,6 +122,15 @@ class PPListener(ParseTreeListener):
 
     # Exit a parse tree produced by PPParser#integer.
     def exitInteger(self, ctx:PPParser.IntegerContext):
+        pass
+
+
+    # Enter a parse tree produced by PPParser#positiveInteger.
+    def enterPositiveInteger(self, ctx:PPParser.PositiveIntegerContext):
+        pass
+
+    # Exit a parse tree produced by PPParser#positiveInteger.
+    def exitPositiveInteger(self, ctx:PPParser.PositiveIntegerContext):
         pass
 
 

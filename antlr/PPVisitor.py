@@ -20,14 +20,14 @@ class PPVisitor(ParseTreeVisitor):
     def visitProgram(self, ctx: PPParser.ProgramContext):
         self.visitChildren(ctx)
         return self.prints
-        # self.display_variables()
+        self.display_variables()
 
     def visitInstruction(self, ctx: PPParser.InstructionContext):
         return self.visitChildren(ctx)
 
     def visitPrintExpression(self, ctx: PPParser.PrintExpressionContext):
         value_to_print = self.visitChildren(ctx)
-        # print("print:", value_to_print)
+        print("print:", value_to_print)
         self.prints.append(value_to_print)
 
     def visitInputExpression(self, ctx: PPParser.InputExpressionContext):
@@ -42,6 +42,9 @@ class PPVisitor(ParseTreeVisitor):
                 self.variables[value] = 1
             value = self.variables.get(value)
         return value
+    
+    def visitReadExpression(self, ctx:PPParser.ReadExpressionContext):
+        return self.visitChildren(ctx)
 
     def visitConditionalStatement(self, ctx: PPParser.ConditionalStatementContext):
         self.ticks += 1
@@ -75,6 +78,8 @@ class PPVisitor(ParseTreeVisitor):
         return operation[op](left, right)
 
     def visitArithmeticalExpression(self, ctx: PPParser.ArithmeticalExpressionContext):
+        if ctx.read_:
+            return self.visit(ctx.read_)
         if ctx.integer_:
             return self.visit(ctx.integer_)
         if ctx.variable_name_:
@@ -121,6 +126,9 @@ class PPVisitor(ParseTreeVisitor):
         return varname
 
     def visitInteger(self, ctx: PPParser.IntegerContext):
+        return int(ctx.getText())
+    
+    def visitPositiveInteger(self, ctx:PPParser.PositiveIntegerContext):
         return int(ctx.getText())
 
     def visitConditionBody(self, ctx: PPParser.ConditionBodyContext):

@@ -11,7 +11,7 @@ def interprateInput(data):
     stream = CommonTokenStream(lexer)
     # parser
     parser = PPParser(stream)
-    parser.addErrorListener(PPErrorListener())  # add error listener
+    # parser.addErrorListener(PPErrorListener())  # add error listener
     try:
         tree = parser.program()
     except Exception as e:
@@ -21,6 +21,7 @@ def interprateInput(data):
     # evaluator
     visitor = PPVisitor()
     output = visitor.visit(tree)
+    
 
 DIR = "examples/"
 

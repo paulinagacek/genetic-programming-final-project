@@ -18,10 +18,7 @@
     cd ${project folder}
     python3 -m venv venv
     source venv/bin/activate
-    pip install --upgrade setuptools
-    pip install wheel
-    pip install antlr4-python3-runtime==4.9.2
-    pip install graphviz
+    pip install -r requirements.txt
 ```
 4. Add to your .bashrc:
 ```
