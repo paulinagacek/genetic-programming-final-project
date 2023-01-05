@@ -13,7 +13,6 @@ class NodeType(Enum):
     ARITHMETICAL_OP = 22,
     INT = 31,
     VAR_NAME = 33,
-    IDX = 34,
     LOOP = 50,
     PRINT = 70,
     INPUT = 71,
@@ -27,7 +26,7 @@ class Node:
     max_val_int = 100
     min_val_int = 0
     variables = []
-    nr_of_inputs = 1
+    nr_of_inputs = 2
 
     def __init__(self, node_type: NodeType, children, value=None, can_mutate:bool=True, level: int=0, nr_of_children: int=-1, height=-1) -> None:
         self.type = node_type
@@ -57,7 +56,7 @@ class Node:
             else:
                 idx = random.randint(1, Node.nr_of_variables)
                 return "X" + str(idx)
-        elif type_ == NodeType.IDX:
+        elif type_ == NodeType.READ:
             return random.randint(1, Node.nr_of_inputs)
         else:
             possibilities = Node.type_to_possible_value.get(type_, [])
@@ -181,15 +180,14 @@ class Node:
             (2, [NodeType.INT, NodeType.READ], 0.35),
             (2, [NodeType.VAR_NAME, NodeType.READ], 0.05),
             (2, [NodeType.READ, NodeType.VAR_NAME], 0.05),
-            (2, [NodeType.READ, NodeType.READ], 0.1),
+            (2, [NodeType.READ, NodeType.READ], 0.3),
             (2, [NodeType.READ, NodeType.ARITHMETICAL_OP], 0.3),
             (2, [NodeType.ARITHMETICAL_OP, NodeType.READ], 0.3),
             (2, [NodeType.INT, NodeType.VAR_NAME], 0.2)],
 
-        NodeType.PRINT: [(1, [NodeType.ARITHMETICAL_OP], 1),
+        NodeType.PRINT: [(1, [NodeType.ARITHMETICAL_OP], 2),
                          (1, [NodeType.INT], 0.5),
                          (1, [NodeType.VAR_NAME], 0.3)],
-        NodeType.READ: [(1, [NodeType.IDX],1)],
     }
 
     type_to_possible_value = {
@@ -199,8 +197,8 @@ class Node:
     }
 
     type_to_point_mutation = {
-        NodeType.INT: [NodeType.VAR_NAME, NodeType.INT],
-        NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.INT],
+        NodeType.INT: [NodeType.VAR_NAME, NodeType.INT, NodeType.READ],
+        NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.INT, NodeType.READ],
         # NodeType.INPUT: [NodeType.VAR_NAME, NodeType.INT], 
         NodeType.COMPARISON: [NodeType.COMPARISON],
         NodeType.LOGICAL_OP: [NodeType.LOGICAL_OP],

@@ -81,8 +81,7 @@ class Converter:
     
     @staticmethod
     def get_read(node: Node) -> str:
-        child =  node.children[0].value
-        return "read(" + str(child) + ");"
+        return "read(" + str(node.value) + ");"
 
     @staticmethod
     def get_proper_node(node: Node) -> str:
@@ -102,5 +101,4 @@ class Converter:
         elif node.type == NodeType.PRINT:
             return Converter.get_print(node)
         elif node.type == NodeType.READ:
-            print("-----------read------------")
             return Converter.get_read(node)
