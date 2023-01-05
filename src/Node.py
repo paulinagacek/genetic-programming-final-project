@@ -126,7 +126,7 @@ class Node:
     
     @staticmethod
     def can_be_point_mutated(node):
-        return node.type in [NodeType.INT, NodeType.VAR_NAME, NodeType.INPUT, NodeType.COMPARISON,
+        return node.type in [NodeType.INT, NodeType.VAR_NAME, NodeType.COMPARISON,
                              NodeType.LOGICAL_OP, NodeType.LOOP, NodeType.CONDITIONAL_STATEMENT, NodeType.ARITHMETICAL_OP]
     @staticmethod
     def can_be_subtree_mutated(node):
@@ -165,23 +165,29 @@ class Node:
 
         # ARITHMETICAL EXPR
         NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME, NodeType.INT], 0.35),
-                              (2, [NodeType.VAR_NAME, NodeType.INPUT], 0.3),
+                            #   (2, [NodeType.VAR_NAME, NodeType.INPUT], 0.3),
                               (2, [NodeType.VAR_NAME, NodeType.READ], 0.3),
                               (2, [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP], 0.35),
                               (2, [NodeType.VAR_NAME, NodeType.VAR_NAME], 0.1)],
         NodeType.ARITHMETICAL_OP: [
-            (2, [NodeType.ARITHMETICAL_OP, NodeType.ARITHMETICAL_OP], 0.1),
-            (2, [NodeType.INT, NodeType.ARITHMETICAL_OP], 0.1),
-            (2, [NodeType.ARITHMETICAL_OP, NodeType.INT], 0.1),
-            (2, [NodeType.INT, NodeType.INT], 0.3),
+            (2, [NodeType.ARITHMETICAL_OP, NodeType.ARITHMETICAL_OP], 0.2),
+            (2, [NodeType.INT, NodeType.ARITHMETICAL_OP], 0.35),
+            (2, [NodeType.ARITHMETICAL_OP, NodeType.INT], 0.35),
+            (2, [NodeType.INT, NodeType.INT], 0.45),
             (2, [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP], 0.05),
             (2, [NodeType.ARITHMETICAL_OP, NodeType.VAR_NAME], 0.05),
             (2, [NodeType.VAR_NAME, NodeType.VAR_NAME], 0.1),
-            (2, [NodeType.VAR_NAME, NodeType.INT], 0.2),
+            (2, [NodeType.VAR_NAME, NodeType.INT], 0.25),
+            (2, [NodeType.INT, NodeType.READ], 0.35),
+            (2, [NodeType.VAR_NAME, NodeType.READ], 0.05),
+            (2, [NodeType.READ, NodeType.VAR_NAME], 0.05),
+            (2, [NodeType.READ, NodeType.READ], 0.1),
+            (2, [NodeType.READ, NodeType.ARITHMETICAL_OP], 0.3),
+            (2, [NodeType.ARITHMETICAL_OP, NodeType.READ], 0.3),
             (2, [NodeType.INT, NodeType.VAR_NAME], 0.2)],
 
         NodeType.PRINT: [(1, [NodeType.ARITHMETICAL_OP], 1),
-                         (1, [NodeType.INT], 0.3),
+                         (1, [NodeType.INT], 0.5),
                          (1, [NodeType.VAR_NAME], 0.3)],
         NodeType.READ: [(1, [NodeType.IDX],1)],
     }
@@ -195,12 +201,12 @@ class Node:
     type_to_point_mutation = {
         NodeType.INT: [NodeType.VAR_NAME, NodeType.INT],
         NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.INT],
-        NodeType.INPUT: [NodeType.VAR_NAME, NodeType.INT], 
+        # NodeType.INPUT: [NodeType.VAR_NAME, NodeType.INT], 
         NodeType.COMPARISON: [NodeType.COMPARISON],
         NodeType.LOGICAL_OP: [NodeType.LOGICAL_OP],
         NodeType.LOOP: [NodeType.CONDITIONAL_STATEMENT, NodeType.LOOP],
         NodeType.CONDITIONAL_STATEMENT: [NodeType.LOOP, NodeType.CONDITIONAL_STATEMENT],
-        NodeType.ARITHMETICAL_OP: [NodeType.ARITHMETICAL_OP]
+        NodeType.ARITHMETICAL_OP: [NodeType.ARITHMETICAL_OP],
     }
 
     type_to_cross_over = {
@@ -214,7 +220,7 @@ class Node:
         NodeType.VAR_NAME: [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP, NodeType.INT],
         NodeType.INT: [NodeType.INT, NodeType.ARITHMETICAL_OP, NodeType.VAR_NAME],
         NodeType.VAR_NAME: [NodeType.VAR_NAME],
-        NodeType.INPUT: [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP, NodeType.INT],
+        # NodeType.INPUT: [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP, NodeType.INT],
     }
 
     type_to_finish = {

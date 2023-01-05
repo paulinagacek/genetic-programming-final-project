@@ -44,6 +44,7 @@ class PPVisitor(ParseTreeVisitor):
         return value
     
     def visitReadExpression(self, ctx:PPParser.ReadExpressionContext):
+        self.ticks += 1
         idx = self.visitChildren(ctx)
         return self.input_var[idx-1] if len(self.input_var) >= idx else 1
 

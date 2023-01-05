@@ -44,10 +44,10 @@ class Converter:
         if node.children[1].type == NodeType.ARITHMETICAL_OP:
             rightchild = str(Converter.get_arithmetical_op(node.children[1]))
         elif node.children[1].type == NodeType.READ:
-            leftchild = Converter.get_read(node.children[1])
+            rightchild = Converter.get_read(node.children[1])
         else:
             rightchild = str(node.children[1].value)
-        return leftchild + middlechild+rightchild
+        return leftchild + middlechild+ rightchild
 
     @staticmethod
     def get_logical_op(node: Node) -> str:
