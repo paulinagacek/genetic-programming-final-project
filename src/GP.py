@@ -414,6 +414,7 @@ class GP:
                 self.fitness[idx] = self.compute_fitness(program_str, total_no_nodes=self.population[idx].nr_of_children)
             print(int(ratio_to_generate * self.population_size),
                   "  generated again")
+            self.epochs_without_improvement = 0
 
     @staticmethod
     def generate_program_str(root: Node) -> str:

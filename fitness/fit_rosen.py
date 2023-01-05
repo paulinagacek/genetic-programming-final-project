@@ -6,7 +6,7 @@ def fitness(received_outs, expected_outs, nodes=0):
     if len(received_outs) == 0:
         fitness_ -= 1000
         fitness_ -= nodes * 5
-        return fitness_
+        return max(fitness_, -1000000)
 
     expe = expected_outs[0]
     got = received_outs[0]
@@ -15,4 +15,4 @@ def fitness(received_outs, expected_outs, nodes=0):
         return fitness_
     fitness_ -= diff
 
-    return fitness_
+    return max(fitness_, -1000000)
