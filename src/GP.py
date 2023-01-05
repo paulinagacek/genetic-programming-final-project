@@ -446,7 +446,7 @@ class GP:
             return
 
         # evaluator
-        visitor = PPVisitor()
+        visitor = PPVisitor(input_var=input_variables)
         return visitor.visit(tree)
 
 
