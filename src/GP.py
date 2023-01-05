@@ -34,7 +34,7 @@ def sum_calculator(received_outs, expected_outs, program_length=0):
 class GP:
     def __init__(self, inputs=None, outputs=None, fitness_function=None) -> None:
         self.max_depth = 5
-        self.population_size = 100
+        self.population_size = 1000
         self.population = []  # List[Node]
         self.fitness = []  # List[float]
         self.program_input = inputs if inputs else []
@@ -403,6 +403,7 @@ class GP:
                 self.fitness[idx] = self.compute_fitness(program_str, total_no_nodes=self.population[idx].nr_of_children)
             print(int(ratio_to_generate * self.population_size),
                   "  generated again")
+            self.epochs_without_improvement = 0
 
     @staticmethod
     def generate_program_str(root: Node) -> str:

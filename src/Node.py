@@ -129,7 +129,7 @@ class Node:
                             (4, [NodeType.INSTRUCTION, NodeType.INSTRUCTION,NodeType.INSTRUCTION, NodeType.INSTRUCTION], 1),
                             (5, [NodeType.INSTRUCTION, NodeType.INSTRUCTION, NodeType.INSTRUCTION, NodeType.INSTRUCTION, NodeType.INSTRUCTION], 1)],
         NodeType.INSTRUCTION: [(1, [NodeType.CONDITIONAL_STATEMENT], 1),
-                               (1, [NodeType.ASSIGNMENT], 1),
+                               (1, [NodeType.ASSIGNMENT], 3),
                                (1, [NodeType.LOOP], 1),
                                (1, [NodeType.PRINT], 3)],
         # CONDITIONAL STATEMENTS, LOOPS
@@ -153,7 +153,7 @@ class Node:
 
         # ARITHMETICAL EXPR
         NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME, NodeType.INT], 0.35),
-                              (2, [NodeType.VAR_NAME, NodeType.INPUT], 0.2),
+                              (2, [NodeType.VAR_NAME, NodeType.INPUT], 1),
                               (2, [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP], 0.35),
                               (2, [NodeType.VAR_NAME, NodeType.VAR_NAME], 0.1)],
         NodeType.ARITHMETICAL_OP: [

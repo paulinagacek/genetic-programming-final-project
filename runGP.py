@@ -5,8 +5,8 @@ import importlib.util
 EX_DIR = "examples/"
 MODULE_DIR = "fitness/"
 
-DEFAULT = "example11B.txt"
-DEFAULT_FITNESS = "fitness_def.py"
+DEFAULT = "example_1_2_A.txt"
+DEFAULT_FITNESS = "fit_ex_12.py"
 
 if __name__ == "__main__":
     fitness_module_path = MODULE_DIR + DEFAULT_FITNESS
