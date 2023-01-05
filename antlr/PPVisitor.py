@@ -20,14 +20,14 @@ class PPVisitor(ParseTreeVisitor):
     def visitProgram(self, ctx: PPParser.ProgramContext):
         self.visitChildren(ctx)
         return self.prints
-        self.display_variables()
+        # self.display_variables()
 
     def visitInstruction(self, ctx: PPParser.InstructionContext):
         return self.visitChildren(ctx)
 
     def visitPrintExpression(self, ctx: PPParser.PrintExpressionContext):
         value_to_print = self.visitChildren(ctx)
-        print("print:", value_to_print)
+        # print("print:", value_to_print)
         self.prints.append(value_to_print)
 
     def visitInputExpression(self, ctx: PPParser.InputExpressionContext):

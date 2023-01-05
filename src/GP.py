@@ -88,7 +88,9 @@ class GP:
             self.population.append(self.create_random_individual())
             # self.display_program(self.population[idx])
             program_str = self.generate_program_str(self.population[idx])
+            # print(program_str)
             self.fitness.append(self.compute_fitness(program_str, total_no_nodes=self.population[idx].nr_of_children))
+            
             
             print(idx, ": ", program_str)
         print("Max initial depth: ", self.max_depth)

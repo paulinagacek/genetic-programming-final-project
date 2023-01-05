@@ -13,14 +13,21 @@ class NodeType(Enum):
     ARITHMETICAL_OP = 22,
     INT = 31,
     VAR_NAME = 33,
+    IDX = 34,
     LOOP = 50,
     PRINT = 70,
     INPUT = 71,
+    READ = 72,
 
 
 class Node:
     nr_of_variables = 0
     max_nr_of_variables = 10
+    max_nr_of_children = 5
+    max_val_int = 100
+    min_val_int = 0
+    variables = []
+    nr_of_inputs = 1
 
     def __init__(self, node_type: NodeType, children, value=None, can_mutate:bool=True, level: int=0, nr_of_children: int=-1, height=-1) -> None:
         self.type = node_type
@@ -50,6 +57,8 @@ class Node:
             else:
                 idx = random.randint(1, Node.nr_of_variables)
                 return "X" + str(idx)
+        elif type_ == NodeType.IDX:
+            return random.randint(1, Node.nr_of_inputs)
         else:
             possibilities = Node.type_to_possible_value.get(type_, [])
             if len(possibilities) > 0:
@@ -123,11 +132,7 @@ class Node:
     def can_be_subtree_mutated(node):
         return node.type in [NodeType.ARITHMETICAL_OP, NodeType.LOGICAL_OP, NodeType.ASSIGNMENT, NodeType.LOOP, NodeType.PRINT]
 
-    # static attributes
-    max_nr_of_children = 5
-    max_val_int = 100
-    min_val_int = 0
-    variables = []
+    
 
     type_to_children = {
         NodeType.SEQUENCE: [(1, [NodeType.INSTRUCTION], 2), 
@@ -161,6 +166,7 @@ class Node:
         # ARITHMETICAL EXPR
         NodeType.ASSIGNMENT: [(2, [NodeType.VAR_NAME, NodeType.INT], 0.35),
                               (2, [NodeType.VAR_NAME, NodeType.INPUT], 0.3),
+                              (2, [NodeType.VAR_NAME, NodeType.READ], 0.3),
                               (2, [NodeType.VAR_NAME, NodeType.ARITHMETICAL_OP], 0.35),
                               (2, [NodeType.VAR_NAME, NodeType.VAR_NAME], 0.1)],
         NodeType.ARITHMETICAL_OP: [
@@ -176,7 +182,8 @@ class Node:
 
         NodeType.PRINT: [(1, [NodeType.ARITHMETICAL_OP], 1),
                          (1, [NodeType.INT], 0.3),
-                         (1, [NodeType.VAR_NAME], 0.3)]
+                         (1, [NodeType.VAR_NAME], 0.3)],
+        NodeType.READ: [(1, [NodeType.IDX],1)],
     }
 
     type_to_possible_value = {
