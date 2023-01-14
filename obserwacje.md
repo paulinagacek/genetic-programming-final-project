@@ -109,3 +109,9 @@ Rozwiązanie:
 Naprawa błędu w bibliotece lokalnie. Próbowaliśmy zrobić PR na oficjalne repo, ale zostało odrzucone, przez błędy z kompatybilnością wsteczną.
 
 ---------------------
+
+Problem:
+Overflow error przy obliczaniu outputu programu
+
+Rozwiązanie:
+Dodanie ograniczenia przy dzielienu przez liczby bliskie zeru
