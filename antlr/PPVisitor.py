@@ -94,7 +94,7 @@ class PPVisitor(ParseTreeVisitor):
         right = self.visit(ctx.right)
         op = ctx.op.text
         
-        if op == "/" and right == 0: # division by 0
+        if op == "/" and abs(right) < 10e-5: # division by 0
             right = 0.001
         
         operation = {
