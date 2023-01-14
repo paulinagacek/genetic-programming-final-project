@@ -84,3 +84,28 @@ Przy próbie wyskoczenia z lokalnego optimum nowe programy nie miały czasu dopa
 Rozwiązanie:
 Resetowanie licznika epoki bez poprawy fitness po każdej próbie ucieczki z optimum
 
+---------------------
+
+Problem:
+Program niepoprawnie wczytywał dane z pliku
+
+Rozwiązanie:
+Zmiana gramatyki, dodanie konstrukcji read(x); do wczytywania danych
+
+---------------------
+
+Problem:
+Program nie potrafił znaleźć rozwiązania dla problemu ze wczytywaniem liczby
+
+Rozwiązanie:
+Dodanie różnych prawdopodobieństw mutacji dla różnych typów node'ów
+
+---------------------
+
+Problem:
+Błędna implementacja agregacji outputu wierzchołków w bibliotece ANTLR
+
+Rozwiązanie:
+Naprawa błędu w bibliotece lokalnie. Próbowaliśmy zrobić PR na oficjalne repo, ale zostało odrzucone, przez błędy z kompatybilnością wsteczną.
+
+---------------------
