@@ -10,7 +10,7 @@ def fitness(received_outs, expected_outs, nodes=0):
 
     expe = expected_outs[0]
     got = received_outs[0]
-    diff = int(np.log(((got**2 - expe**2)**2+(got-expe)**2) + 1)*10)
+    diff = int(np.log(((got**2 - expe**2)**2+(got-expe)**2) + 1.0)*10)
     if diff == 0:
         return fitness_
     fitness_ -= diff
