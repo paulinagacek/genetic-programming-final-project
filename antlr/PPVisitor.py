@@ -101,7 +101,7 @@ class PPVisitor(ParseTreeVisitor):
             '+': lambda: left + right,
             '-': lambda: left - right,
             '*': lambda: int(left * right),
-            '/': lambda: int(left // right),
+            '/': lambda: int(min(left,10**100) // min(right, 10**100)),
         }
         return operation.get(op, lambda: None)()
 
