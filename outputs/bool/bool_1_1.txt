@@ -1,0 +1,123 @@
+C:\Users\Pawel\PycharmProjects\genetic-programming-vol2\venv\Scripts\python.exe C:\Users\Pawel\PycharmProjects\genetic-programming-vol2\runGP.py
+Inputs:  [[1]]
+Outputs:  [[1]]
+0 :  X1=read(1);*read(2);;X1=X1+30*read(1);;IF(X1-X1<84)X1=17;;
+1 :  print(X1);print(X1*26+18);
+2 :  X1=27;print(X1+18+X1-X1);X1=96/35-41;print(76/read(2););
+3 :  print(97);
+4 :  print(24+read(2););X1=57+67*X2;LOOP(11<76)X2=72;print(5/45);IF(X2<6)X2=87;;X2=83;LOOP(X2<X1)X1=61;;;IF(97-X2>X2)print(78/12);;
+5 :  IF(X1>82)X1=0;;
+6 :  print(read(1);+read(1););
+7 :  print(10);X1=19;print(X1/65*28+99);
+8 :  LOOP(56-X1<92*X1)LOOP(53>X1)X1=25;;IF(X2<X1)X1=90;;;
+9 :  IF(60/47!=X1)LOOP(X1>X1)X1=65;;X1=85;X1=37;;
+10 :  X1=99;IF(7+X1<X1*40)LOOP(19<X1)X1=26;;;LOOP(65+33!=X1*X1)X1=79;;
+11 :  IF(44/X1!=65-72)print(95+X1);;print(X1);IF(33!=X2)print(76*X3);;
+12 :  print(62/X1+71);print(X1*8/13);print(33*read(2););
+13 :  print(62);LOOP(X1-X1!=21-X1)print(X1);LOOP(X1!=9)X1=59;;print(71+X1);LOOP(X1<X1)X1=92;;print(11/62);;
+14 :  LOOP(39!=X1)print(23-74);LOOP(32<X1)X1=100;;print(X1*62);LOOP(54>6)X2=28;;print(X1-X1);;LOOP(45!=X2)IF(X3<3)X3=85;;LOOP(X3<X1)X2=52;;X2=89;;print(73-X1/X2/X2);
+15 :  IF(X1+X1==0/91)print(39/4);X1=39;print(X3*X4);;print(94-read(2););print(X1/X2+55);
+16 :  IF(X1*X1>X1+X1)IF(41>X1)X1=60;;print(21/X1);IF(61==60)X1=52;;print(6/X2);LOOP(15>X1)X1=90;;;
+17 :  print(89*X1);X1=44;IF(X1==21)IF(X1!=75)X1=6;;;print(92+X1-82);
+18 :  IF(X1>X1)X1=24;;
+19 :  IF(45-X1!=96+X1)print(X1*X1);X1=21;;print(80);
+20 :  print(32+76);print(94*72);IF(X1==83)print(X1*24);LOOP(X1>91)X1=56;;print(X1+80);print(X1+22);;
+21 :  IF(24-8==14)LOOP(X1>98)X1=28;;;print(X1);IF(10>X1)LOOP(X1==X1)X1=99;;;X1=read(2);;X1=X1;
+22 :  X1=X1/83+72;print(read(1);/read(2););IF(69==45)LOOP(X2>X3)X2=76;;IF(84>X2)X3=44;;LOOP(X3!=X1)X2=51;;print(X1);print(X3-X3);;print(11/29);LOOP(9>44)IF(66!=40)X1=54;;print(X4-X5);;
+23 :  X1=read(1);/X1*9;print(X1*read(2););
+24 :  print(X1/51);LOOP(97==X1)print(X1+X1);LOOP(X1>73)X1=12;;;print(X1);X1=50;
+25 :  print(79);
+26 :  LOOP(80==31)IF(X1!=X1)X3=83;;IF(X3<X3)X1=100;;;print(91+15);print(read(1);+read(1););LOOP(((X1!=54)AND(X1==X1))AND((X2==69)AND(24==X1)))X3=70;print(X3);X2=53;;
+27 :  print(X1);LOOP(58>X1)print(56*X2);IF(95==86)X2=31;;LOOP(86==X2)X1=35;;print(49);print(73-X1);;print(10*94);IF(X1+X2!=X1)print(23);IF(X2<X1)X1=99;;IF(33<X3)X2=64;;print(82);print(X1/12);;LOOP(1-X2!=X1)print(X2);;
+28 :  print(X1);print(1/98);X1=X2;print(77+65+X1);
+29 :  X1=X1+5;
+30 :  print(11/X1);
+31 :  print(read(1);-X1+32);LOOP(47*X1<X1*X1)LOOP(6>76)X2=65;;;
+32 :  print(18+X1/read(2););LOOP(79<91)print(22);X1=30;LOOP(61==X1)X1=99;;X1=64;;print(read(2);+X1/X1);X1=read(1);;print(59);
+33 :  IF(20>X1)IF(7!=11)X1=56;;print(X1);LOOP(X1==X1)X1=19;;print(39);LOOP(X1<X1)X1=92;;;print(X1+X1);print(64*95);print(74);print(71*X1*34-92);
+34 :  IF(89>X1)print(X3+X3);;LOOP(X2==43)print(13*X2);IF(48>X2)X3=22;;LOOP(X2==94)X2=46;;;X1=X1;
+35 :  X1=X1;print(66);print(read(2);+read(2););print(X1);print(read(1);/read(2););
+36 :  print(70);LOOP(X1/X1!=64-88)print(7+X1);print(X2);print(42-53);print(X3*91);X1=70;;
+37 :  print(46-X1+10);
+38 :  print(82+read(2););print(read(1);+X1*97);print(read(2);*X1);
+39 :  IF(X1/74>14-X1)print(X1+X1);;print(87-X1/63-X2);X1=27;
+40 :  IF(X1*30>X1-X2)IF(X2==64)X2=88;;X1=69;;print(read(1);/read(2););print(72);
+41 :  X1=70-26;
+42 :  print(12/X1/31);X1=X2;print(X2);print(48/read(2););X1=61;
+43 :  LOOP(8>X1)IF(X1==41)X1=75;;LOOP(80==86)X1=82;;print(X1*42);;X1=read(2);;print(50*80*X1-X1);
+44 :  print(X1);print(100/89);print(62-42/22);print(93+95);
+45 :  X1=1*39;print(5*16);X1=read(1);;print(X1+76);print(31+X1-16);
+46 :  print(92+X1+17);print(83);print(92);print(X1/51);
+47 :  print(67);print(16);IF(65-X1!=X1-X1)print(X1-X2);print(98);;
+48 :  print(X1);print(11+73);
+49 :  X1=22-read(2);;print(29+X2);
+50 :  IF(X1<X2)print(X1*48);;LOOP(X3==X1)print(X2);X1=12;;
+51 :  LOOP(56!=X1)print(80+X1);;print(read(2);+74+16);print(91/1-X1);print(X1);
+52 :  LOOP(95+20!=X1+X1)LOOP(51<X1)X2=80;;LOOP(76<4)X1=5;;;X1=X1+81;
+53 :  X1=100;IF(X1+9<51)print(57/X1);print(X1+X1);;
+54 :  print(X1-2);X1=read(1);;
+55 :  print(87+4);LOOP(27>X1)print(22-X2);print(55-0);X1=62;IF(27==87)X2=63;;;
+56 :  print(97+read(1););
+57 :  print(X1);print(68-X1-7);
+58 :  LOOP(X1+X1==X1/X1)IF(X1<X2)X2=31;;print(X3*X1);print(X2-X3);;
+59 :  LOOP(((X1==X3)AND(10<X2))OR(X1==X1))print(93-X3);print(X4-9);;X1=29;print(read(1);-18/X1);IF(X2/31>93-37)print(96-X4);;print(read(2);/read(2););
+60 :  print(36/X1);print(X1+X2*28);LOOP(41==15)print(X1/X1);print(52/X1);IF(X1==9)X2=13;;LOOP(X1<X2)X1=55;;;print(X1*X1+read(2););IF(X1<X1)print(0-0);print(50/X2);print(11-X2);;
+61 :  print(64+29);LOOP(74==52)LOOP(27>X1)X1=57;;;print(74);
+62 :  X1=69;LOOP(62==24)print(24-X2);LOOP(X1==X2)X1=12;;print(97-32);LOOP(62<64)X1=57;;X1=94;;LOOP(X1!=46)X2=50;print(83-X2);;print(X1/72+71);X2=65;
+63 :  LOOP((76==75)OR(X1==X2))print(66*59);print(57*X1);LOOP(X3==27)X2=2;;X1=62;LOOP(2!=57)X1=4;;;print(82-read(1););print(15/3+X2*X1);LOOP(46>73)X3=64;print(5*X2);;IF(X1*X1>X2/31)print(63-X4);print(78*X4);;
+64 :  print(30/X1/X1/X2);print(read(1);*read(2););
+65 :  print(82);print(X1-63/read(2););LOOP(9==80)LOOP(X2>X1)X2=4;;print(31*83);print(41+X2);;IF(X1!=X1)print(X1-X2);IF(X2!=30)X2=87;;;
+66 :  print(read(1);/read(2););IF(X1>34)LOOP(25>X2)X2=71;;LOOP(X2==X1)X2=39;;;
+67 :  print(5);print(X1+X1+2);print(79-read(2););X1=48;print(X1);
+68 :  X1=read(2);;IF(26!=98)X1=26;print(X1+43);print(47+X1);LOOP(X1<61)X1=37;;;print(49+81/read(2););
+69 :  X1=55-95*79;print(32);
+70 :  print(43+read(1););print(45);print(X1);print(58/X1);IF(87-3==X1*44)X1=50;IF(X1>X2)X2=73;;LOOP(54!=X1)X1=14;;IF(7>65)X1=88;;;
+71 :  print(X1*98*X1/13);X1=20;print(42-81);
+72 :  print(X1);IF(X1!=X1)print(X1*X1);print(X1*X1);LOOP(X1<77)X2=67;;print(X1);;
+73 :  print(X1);print(1/57);
+74 :  X1=X2+X3-X2-47;
+75 :  print(86*X1+X1);print(6);
+76 :  print(14);X1=7+62+29;print(read(1);+read(1););X1=read(1);;print(13*63);
+77 :  print(64);
+78 :  LOOP(32==93)IF(81==17)X1=18;;X1=91;print(85);;IF(88/X1<61)X1=28;print(97*7);print(X1+X1);print(X1/76);;print(read(2);/X1*89);LOOP(X1>15)LOOP(X1!=X1)X1=49;;;LOOP((20>X1)AND((58<X1)OR(85<X2)))print(19);print(50*5);;
+79 :  print(X1/0*45);print(44+51);print(69);LOOP(8!=X1)LOOP(85<X1)X1=61;;;
+80 :  LOOP((70<21)OR(X1<X1))print(X1/X1);IF(49<37)X2=5;;;LOOP(63+X2!=X1-74)print(X2+X1);X2=33;IF(45<24)X2=85;;print(9+X1);;
+81 :  print(X1);print(61/read(2););
+82 :  IF(36*22>65/27)print(9);LOOP(35>88)X1=36;;IF(X1<X1)X1=89;;;LOOP(X1==15)LOOP(X1!=X1)X1=5;;LOOP(X1!=X1)X1=40;;;print(read(1);/X1/42);LOOP(X1-14==59)print(X1*52);IF(68<X1)X1=70;;LOOP(6!=X1)X1=39;;print(X1/X1);print(10/63);;print(13);
+83 :  print(X1*74+X1/13);
+84 :  X1=8/2+37;
+85 :  LOOP(94-X1>49)LOOP(81<X1)X3=48;;print(45-51);IF(0==14)X4=13;;LOOP(27!=80)X3=90;;;print(12+X1);LOOP(X2==X3)print(X2/X4);;print(50);print(X1);
+86 :  print(X1);print(read(2);-13/84);
+87 :  X1=read(1);;print(X1);X1=read(2);;
+88 :  X1=15;IF(X2!=82)LOOP(46!=X1)X2=81;;;
+89 :  print(read(2);-100*86);IF(X1<X1)print(36+6);X1=13;;print(read(2);*X1-18);LOOP(78==76)X1=9;print(0);;X1=58;
+90 :  IF(X1!=75)print(X1+11);print(56/X1);;
+91 :  print(X1*10/82);
+92 :  LOOP((X1!=38)AND(X1!=63))IF(X1<X1)X1=69;;X1=57;X1=26;;X1=55;X1=X1;LOOP((9>X1)AND(41!=X1))print(90);LOOP(X1>X1)X1=50;;;
+93 :  print(X1+X1/94-X1);print(92*read(2););
+94 :  print(X1*read(2););print(read(1);-X1);
+95 :  LOOP(6*X1==80-72)IF(X1>X1)X1=27;;print(X1+98);;
+96 :  print(14/X1);IF(83/44>X2/4)LOOP(82!=52)X1=52;;print(59+77);IF(12>50)X2=64;;LOOP(X3<X1)X2=29;;;
+97 :  print(X1-30);
+98 :  LOOP(X1<41)IF(95==85)X1=82;;print(X1+X1);;
+99 :  print(33);X1=X1*78-read(2);;print(47/62);
+Max initial depth:  5
+Population size:  100
+Crossover rate:  0.6   Mutation rate:  0.7
+Random population generated
+
+Generation 0  ------------------------
+Epochs without improvement: 0
+
+Best fitness: 0  best indiv:
+[1] [1] [1]
+print(X2);IF(X1>34)LOOP(25>X2)X2=71;;LOOP(X2==X1)X2=39;;;  =  0
+AVG fitness:  -11409
+Nr of point mutations:  246
+Nr of subtree mutations:  65
+
+Generation 1  ------------------------
+Epochs without improvement: 0
+Solution found in generation 1
+
+Process finished with exit code 0

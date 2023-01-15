@@ -1,0 +1,1428 @@
+C:\Users\Pawel\PycharmProjects\genetic-programming-vol2\venv\Scripts\python.exe C:\Users\Pawel\PycharmProjects\genetic-programming-vol2\runGP.py
+Inputs:  [[0, 0], [0, 1], [1, 0], [1, 1]]
+Outputs:  [[1], [0], [0], [0]]
+0 :  print(1-X1+79);print(77-98+X1);
+1 :  print(35);
+2 :  print(X1);print(57+54);print(read(2);-73+X1);
+3 :  print(X1+X1);LOOP(((X1==X1)AND(X2!=X2))AND(74!=X1))print(X2/66);print(25+X1);;X1=100/1*X1;
+4 :  print(read(1);-read(1););print(80*31);
+5 :  print(X1/43-40);
+6 :  print(X1/32);print(26-23);print(X1-95);print(X1-94/read(1););print(X1/1-read(2););
+7 :  LOOP(84+11<X1+X1)print(X1);print(92);print(46-100);X1=75;;print(91-40/15);LOOP(5>10)print(58-25);print(88*13);print(X1*12);;print(X1*X1);
+8 :  print(82-read(2););print(28);
+9 :  X1=X2;print(75);LOOP(42+77<X1-6)print(63);;print(read(2);*52+X2);print(90-read(2););
+10 :  print(11);
+11 :  print(19-26*read(1););IF(X1/60==1*X1)print(63);print(X1*X1);X1=87;;
+12 :  IF(19<24)print(70+82);;LOOP(X1+98!=46*72)IF(95<46)X3=54;;IF(3==X2)X1=19;;X3=80;LOOP(X3>X2)X4=38;;print(X2-97);;print(read(1);/48*X1);LOOP(X1*X2!=21/X1)IF(X1<X3)X2=67;;LOOP(X3>X1)X2=30;;;
+13 :  IF(47-X1>64-X1)print(24*X1);print(X2/X1);;print(39/X1-X1);
+14 :  print(14);print(16*11*93);X1=64;print(10/23);
+15 :  X1=read(1);;X1=94*89;
+16 :  print(X3/X2/read(2););LOOP(92!=51)LOOP(17!=23)X3=29;;;print(13/73);LOOP(X1!=X2)print(X4*38);LOOP(54!=94)X3=33;;;
+17 :  print(37);print(read(2);+read(2););IF(X1/X1<40)print(94-33);;
+18 :  IF(59==56)X1=78;X1=68;LOOP(17>41)X1=76;;;IF(86<98)print(X1);print(78);IF(95<X2)X1=28;;;
+19 :  X1=read(1);+X1+94;print(47);print(X1/X1);print(31);print(50*X1+X1);
+20 :  print(82);print(29-6);
+21 :  X1=48;print(X1);
+22 :  LOOP(X1<X2)IF(38==66)X1=84;;print(X1*X2);IF(X1!=X1)X1=36;;LOOP(X1==65)X1=8;;;LOOP(7*47==X2-100)print(X2);LOOP(97>X2)X1=52;;IF(33<X3)X2=88;;print(80*X1);;print(X1-52);
+23 :  IF(2>0)X1=47;print(X1);LOOP(X1>X1)X1=34;;;IF(X1!=60)print(23/62);print(X1/26);;print(50-26);
+24 :  IF(73/60==X1)X1=17;print(68);print(50*46);X1=29;print(70);;print(X1);
+25 :  print(96-X1);X1=97;
+26 :  IF(X1-16<41+91)print(X1/78);;
+27 :  IF(X1>X1)print(X1*X1);;print(read(1);-X1+9);IF(X1+X1<X1-X1)print(X1*X1);LOOP(X1>17)X1=34;;IF(X1!=70)X1=56;;X1=61;;print(62*92);print(read(1);-read(1););
+28 :  LOOP(X1>X1)print(X1+18);;print(30/read(2););
+29 :  print(read(2);*read(1););
+30 :  LOOP(32<26)X2=95;X1=25;print(56-7);;LOOP(X1*X2<X2-X1)print(28-X3);LOOP(3!=X3)X3=50;;IF(X2<30)X1=85;;print(93/X2);;LOOP(71-95>X2-83)print(X3*X3);print(45);;
+31 :  LOOP((X1>23)AND(X1>X1))LOOP(18>X1)X1=36;;;print(7/70);
+32 :  print(read(1);/11+60);LOOP(97==73)print(34+83);print(36/X1);print(83);print(49);print(12-10);;LOOP(X1!=10)LOOP(X1<98)X1=54;;;X1=1;print(X1*X1*read(2););
+33 :  print(read(1);-read(2););print(59-48);print(X1);X1=read(1);;print(read(2);-read(2););
+34 :  print(52);IF(17-X1!=52)IF(X1==35)X1=5;;X1=76;;print(X1);print(read(2);+read(1););
+35 :  print(X1*70+15);X1=70;IF(X1+11==X1+X1)print(X2+X2);;print(X1*X2+29);
+36 :  print(X1+X1+read(1););LOOP(X1-9<33)IF(60==X1)X1=33;;print(X1);print(8-X1);X1=78;;
+37 :  print(X1);print(77);
+38 :  IF(62>69)IF(X1>18)X1=47;;IF(66!=79)X1=14;;;print(4);LOOP(4!=X1)LOOP(31!=X1)X1=29;;LOOP(X1==24)X1=38;;IF(X1==X1)X1=59;;print(55/X1);LOOP(X1!=X1)X1=32;;;
+39 :  IF(X1!=X1)print(39*X1);LOOP(X1==X1)X2=39;;LOOP(46>X3)X3=60;;LOOP(23<X2)X1=86;;;
+40 :  LOOP(13*100>X1/50)IF(6==74)X2=9;;;
+41 :  LOOP((7<X1)OR(26>34))X2=61;print(29-X1);X1=9;print(50/92);;print(X1);
+42 :  IF(54==51)print(43+X1);print(X1-62);print(X1/59);print(X1/X1);;print(read(2);-read(1););
+43 :  print(X1+78);print(84-read(1););
+44 :  print(X1);print(X1+38/read(1););
+45 :  IF(49<44)X1=27;LOOP(X1<98)X1=82;;print(X1/54);;LOOP(39<X1)print(33);;LOOP(57<8)X1=39;;X1=64;print(read(1);*read(1););
+46 :  print(56/96);LOOP((X1==72)OR(X1<X1))print(X1*X1);LOOP(84!=X1)X2=70;;IF(X2>41)X3=96;;;print(63);print(X1/X1+X1);
+47 :  print(X1+X1);X1=82;print(91);print(X1);
+48 :  print(X1*61);X1=X1;IF(88*26==71*X1)IF(X1==73)X1=100;;;print(48-15);LOOP(11*X1>X1*X1)LOOP(X1!=X1)X1=4;;IF(X1==X1)X1=27;;;
+49 :  print(50-read(2););print(read(1);*X1+47);
+50 :  LOOP(79!=68)print(34);print(X1);;
+51 :  X1=47-52/read(1);;print(63);
+52 :  print(73+19/15);
+53 :  print(X1);
+54 :  IF(60+X3<49+80)X3=9;print(X2/X2);print(X1);print(16+X2);X1=24;;print(73);print(X1);print(16*X2);
+55 :  IF(24-X1!=X1+22)LOOP(X1>1)X1=55;;;print(8);
+56 :  IF(84+91<73+X1)LOOP(20>29)X1=11;;LOOP(53!=89)X1=82;;X1=94;;X1=read(2);;LOOP(X1>6)print(15+X1);print(57);;print(X1*18);
+57 :  print(60+55);
+58 :  print(8/read(1););LOOP(9+69==90)print(X2/4);LOOP(X2>98)X1=12;;print(X1-38);IF(X1<X1)X1=93;;;IF(X1<26)IF(71!=X2)X2=0;;print(28);print(X1/X1);print(X2+X2);print(X2/45);;print(read(2);+X1/72);
+59 :  IF(X1-X2!=X2*93)IF(X2==31)X2=60;;LOOP(65==27)X1=4;;;print(92*X1);IF(22-95!=18-17)print(X2);print(X2/7);;IF(X1==X1)print(39-63);;print(1*0*X2);
+60 :  LOOP(63+61<X1)X2=87;print(X1-62);;print(X1);print(81);print(31*75*94);
+61 :  X1=39;print(0);
+62 :  X1=read(1);-X1+54;
+63 :  IF(X1!=X1)print(15);print(18/X1);;print(read(2);/read(2););
+64 :  IF(32>X1)print(X1);print(X1);;
+65 :  X1=20/22/read(2);;LOOP(((6>X1)OR(41!=55))OR(36==44))print(7*92);;print(76-44);print(45/31+85);
+66 :  IF(65<1)print(X1+84);;print(23+1*86);X1=47;
+67 :  IF(X1*X1==15)print(52);print(X1-29);LOOP(17>47)X1=41;;;IF(50>X1)print(16/92);print(89);LOOP(36<X1)X1=2;;;X1=X1+15;
+68 :  print(1*X1*read(1););IF(X1<X1)LOOP(81<X2)X2=2;;X1=95;;print(96*read(2););IF(X1*X1<68)print(X1+96);print(X3*X2);;print(X1);
+69 :  LOOP(91>61)print(31);;LOOP(X1-79>40)X2=72;;print(X1-61);
+70 :  LOOP(17/62!=75/98)X1=43;print(60/X1);X1=68;X1=48;print(13-25);;print(52);print(X1/X1);IF(60*X1==21)print(2);;
+71 :  X1=read(1);;print(read(1);-90/88);
+72 :  X1=X2+56/read(2);;print(99+X1*30);LOOP(((X1!=13)OR(14<X3))AND((72<98)AND(73==31)))X3=61;;X2=93;
+73 :  print(6/16*X1);IF(7*X1>54+X1)print(X2+X3);;IF(4>1)print(30);;LOOP(40>66)LOOP(25!=X3)X3=69;;LOOP(56==26)X4=65;;print(X4-39);LOOP(71==51)X1=93;;print(75);;IF(X1+X1>X1)IF(47>X2)X3=15;;print(X3+90);;
+74 :  print(read(2);/read(1););LOOP(13==87)print(25);LOOP(96==X1)X2=9;;print(X2*14);print(X1);;print(51*X1-26);LOOP(99==33)LOOP(89==X3)X1=31;;print(3);IF(72<X1)X2=57;;print(10+X4);X2=46;;print(15+X1-21);
+75 :  X1=read(1);;print(X1);print(74);X1=read(1);;
+76 :  LOOP(32-X2==X2*X1)X1=51;;LOOP((68>7)OR(80!=14))print(X2/20);X1=41;print(25);print(11*X1);print(X1-X2);;LOOP(24>X1)IF(52==56)X1=49;;IF(X3!=28)X3=55;;print(X1*X2);;print(44*8);
+77 :  print(X1-34);print(49-read(2););IF(X1!=58)X1=94;print(28+X1);;LOOP(10+96==7)print(X1-X1);;
+78 :  print(read(1);/read(1););LOOP(24>X1)IF(9>X2)X1=75;;LOOP(X2!=23)X1=56;;;print(89);
+79 :  IF(X1!=X1)IF(X1==5)X2=14;;print(X1*X3);;X1=X1-36;LOOP(22-76<X1*X1)print(X3+X3);print(X1);X1=48;X2=74;;
+80 :  print(94);LOOP(X2!=X2)LOOP(31!=X1)X3=87;;print(27);X1=50;IF(18<X1)X2=25;;print(81/39);;print(X1);IF(X1<X1)LOOP(X1<X3)X3=52;;print(X3-51);;
+81 :  IF(X1==43)IF(28==12)X1=49;;IF(X1>34)X1=28;;LOOP(X1==X1)X1=18;;LOOP(X1<X1)X1=13;;X1=26;;
+82 :  LOOP(X1==51)LOOP(X1>18)X1=75;;;
+83 :  LOOP(19+X1>25+65)print(X1*X1);print(74+X1);print(7);LOOP(X1==6)X1=81;;LOOP(X1>92)X1=92;;;print(95*87+34);print(24-41);X1=15;
+84 :  print(79+21);print(41);LOOP(41/X1>15)print(99-8);;X1=X2/X1/25;
+85 :  IF(X1>X1)LOOP(63<17)X1=71;;;print(27*read(1););
+86 :  X1=30;print(X1*92+1);IF(X1-9!=29/75)X1=81;X1=96;print(33+31);;
+87 :  print(X1+X1/28);print(X1-66);
+88 :  X1=read(2);;
+89 :  print(40);IF((82>X1)OR(X1<55))LOOP(X1<64)X1=58;;print(35-12);;print(36*7);
+90 :  X1=read(2);;print(75*13);
+91 :  print(X1+X1/98);print(X2*4);LOOP(X2<X2)print(X2+X2);X1=9;;
+92 :  LOOP((X1!=X1)AND(84<59))LOOP(28>X1)X1=54;;print(X1*46);;print(69);
+93 :  IF(11==35)print(1+X1);;
+94 :  X1=57;print(X1+X1-17);
+95 :  IF(30>X2)print(X1+96);;print(read(1);+X1/X2);LOOP(4<54)IF(15!=X1)X1=20;;print(X1-65);;IF(X1*52!=47)print(48-X2);print(X2+X1);;X1=X1+X1;
+96 :  LOOP(X1>50)print(X1/X1);IF(83>X1)X1=86;;;IF(X1>X1)X1=31;print(X1/X1);print(28);;print(12+X1+89);
+97 :  print(83*read(1););IF(1<15)X1=87;;
+98 :  print(79);LOOP(X1==28)LOOP(27!=48)X1=90;;LOOP(20!=X1)X2=52;;;print(X1+58);
+99 :  print(read(1);*76/X1);print(7+11);LOOP(17==X1)LOOP(X1<7)X1=76;;IF(6<73)X1=92;;IF(X1!=X2)X2=5;;IF(X2<X2)X3=38;;;X1=X1;
+Max initial depth:  5
+Population size:  100
+Crossover rate:  0.6   Mutation rate:  0.7
+Random population generated
+
+Generation 0  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+IF(X1-16<41+91)print(X1/78);;  =  -10000
+AVG fitness:  -42600
+Nr of point mutations:  346
+Nr of subtree mutations:  73
+
+Generation 1  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -31620
+Nr of point mutations:  313
+Nr of subtree mutations:  69
+
+Generation 2  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -40679
+Nr of point mutations:  100
+Nr of subtree mutations:  25
+
+Generation 3  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -27400
+Nr of point mutations:  143
+Nr of subtree mutations:  43
+
+Generation 4  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -12848
+Nr of point mutations:  118
+Nr of subtree mutations:  26
+
+Generation 5  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -39851
+Nr of point mutations:  109
+Nr of subtree mutations:  20
+45   generated again
+
+Generation 6  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -17684
+Nr of point mutations:  119
+Nr of subtree mutations:  27
+
+Generation 7  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -24925
+Nr of point mutations:  124
+Nr of subtree mutations:  18
+
+Generation 8  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -39623
+Nr of point mutations:  120
+Nr of subtree mutations:  29
+
+Generation 9  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -23408
+Nr of point mutations:  137
+Nr of subtree mutations:  28
+
+Generation 10  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -24474
+Nr of point mutations:  84
+Nr of subtree mutations:  31
+45   generated again
+
+Generation 11  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -35213
+Nr of point mutations:  121
+Nr of subtree mutations:  34
+
+Generation 12  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -14240
+Nr of point mutations:  116
+Nr of subtree mutations:  27
+
+Generation 13  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -27816
+Nr of point mutations:  74
+Nr of subtree mutations:  22
+
+Generation 14  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -24706
+Nr of point mutations:  116
+Nr of subtree mutations:  27
+
+Generation 15  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -29607
+Nr of point mutations:  75
+Nr of subtree mutations:  23
+45   generated again
+
+Generation 16  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -20402
+Nr of point mutations:  121
+Nr of subtree mutations:  26
+
+Generation 17  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -25930
+Nr of point mutations:  80
+Nr of subtree mutations:  23
+
+Generation 18  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -13906
+Nr of point mutations:  132
+Nr of subtree mutations:  31
+
+Generation 19  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -46612
+Nr of point mutations:  102
+Nr of subtree mutations:  26
+
+Generation 20  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -43016
+Nr of point mutations:  92
+Nr of subtree mutations:  25
+45   generated again
+
+Generation 21  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -26598
+Nr of point mutations:  52
+Nr of subtree mutations:  22
+
+Generation 22  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -18307
+Nr of point mutations:  112
+Nr of subtree mutations:  31
+
+Generation 23  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -40809
+Nr of point mutations:  76
+Nr of subtree mutations:  32
+
+Generation 24  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -21075
+Nr of point mutations:  131
+Nr of subtree mutations:  33
+
+Generation 25  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -26602
+Nr of point mutations:  86
+Nr of subtree mutations:  25
+45   generated again
+
+Generation 26  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -28556
+Nr of point mutations:  112
+Nr of subtree mutations:  24
+
+Generation 27  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -23407
+Nr of point mutations:  95
+Nr of subtree mutations:  24
+
+Generation 28  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -21705
+Nr of point mutations:  90
+Nr of subtree mutations:  19
+
+Generation 29  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -31876
+Nr of point mutations:  91
+Nr of subtree mutations:  20
+
+Generation 30  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -18194
+Nr of point mutations:  95
+Nr of subtree mutations:  27
+45   generated again
+
+Generation 31  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -27690
+Nr of point mutations:  94
+Nr of subtree mutations:  27
+
+Generation 32  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -26857
+Nr of point mutations:  87
+Nr of subtree mutations:  24
+
+Generation 33  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -22495
+Nr of point mutations:  91
+Nr of subtree mutations:  33
+
+Generation 34  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -25301
+Nr of point mutations:  77
+Nr of subtree mutations:  16
+
+Generation 35  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -27513
+Nr of point mutations:  72
+Nr of subtree mutations:  32
+45   generated again
+
+Generation 36  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -27064
+Nr of point mutations:  78
+Nr of subtree mutations:  25
+
+Generation 37  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -27828
+Nr of point mutations:  96
+Nr of subtree mutations:  20
+
+Generation 38  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -17608
+Nr of point mutations:  77
+Nr of subtree mutations:  23
+
+Generation 39  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -24906
+Nr of point mutations:  54
+Nr of subtree mutations:  25
+
+Generation 40  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -21895
+Nr of point mutations:  60
+Nr of subtree mutations:  17
+45   generated again
+
+Generation 41  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -17752
+Nr of point mutations:  47
+Nr of subtree mutations:  17
+
+Generation 42  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -21910
+Nr of point mutations:  45
+Nr of subtree mutations:  18
+
+Generation 43  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+X1=read(1);;print(0);  =  -10000
+AVG fitness:  -22698
+Nr of point mutations:  71
+Nr of subtree mutations:  23
+
+Generation 44  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[1] [0, 0] [1]
+[0] [0, 1] [0]
+[1] [1, 0] [0]
+[0] [1, 1] [0]
+print(X1-read(2););  =  -10000
+AVG fitness:  -27599
+Nr of point mutations:  61
+Nr of subtree mutations:  22
+
+Generation 45  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[1] [0, 0] [1]
+[0] [0, 1] [0]
+[1] [1, 0] [0]
+[0] [1, 1] [0]
+print(X1-read(2););  =  -10000
+AVG fitness:  -16902
+Nr of point mutations:  53
+Nr of subtree mutations:  24
+45   generated again
+
+Generation 46  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[1] [0, 0] [1]
+[0] [0, 1] [0]
+[1] [1, 0] [0]
+[0] [1, 1] [0]
+print(X1-read(2););  =  -10000
+AVG fitness:  -18142
+Nr of point mutations:  47
+Nr of subtree mutations:  21
+
+Generation 47  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[1] [0, 0] [1]
+[0] [0, 1] [0]
+[1] [1, 0] [0]
+[0] [1, 1] [0]
+print(X1-read(2););  =  -10000
+AVG fitness:  -15935
+Nr of point mutations:  43
+Nr of subtree mutations:  23
+
+Generation 48  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[1] [0, 0] [1]
+[0] [0, 1] [0]
+[1] [1, 0] [0]
+[0] [1, 1] [0]
+print(X1-read(2););  =  -10000
+AVG fitness:  -16403
+Nr of point mutations:  39
+Nr of subtree mutations:  26
+
+Generation 49  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[1] [0, 0] [1]
+[0] [0, 1] [0]
+[1] [1, 0] [0]
+[0] [1, 1] [0]
+print(X1-read(2););  =  -10000
+AVG fitness:  -11800
+Nr of point mutations:  46
+Nr of subtree mutations:  24
+
+Generation 50  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[1] [0, 0] [1]
+[0] [0, 1] [0]
+[1] [1, 0] [0]
+[0] [1, 1] [0]
+print(X1-read(2););  =  -10000
+AVG fitness:  -13800
+Nr of point mutations:  36
+Nr of subtree mutations:  24
+45   generated again
+
+Generation 51  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[1] [0, 0] [1]
+[0] [0, 1] [0]
+[1] [1, 0] [0]
+[0] [1, 1] [0]
+print(X1-read(2););  =  -10000
+AVG fitness:  -16916
+Nr of point mutations:  29
+Nr of subtree mutations:  19
+
+Generation 52  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[1] [0, 0] [1]
+[0] [0, 1] [0]
+[1] [1, 0] [0]
+[0] [1, 1] [0]
+print(X1-read(2););  =  -10000
+AVG fitness:  -13104
+Nr of point mutations:  37
+Nr of subtree mutations:  14
+
+Generation 53  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11600
+Nr of point mutations:  27
+Nr of subtree mutations:  14
+
+Generation 54  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -14702
+Nr of point mutations:  34
+Nr of subtree mutations:  21
+
+Generation 55  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11800
+Nr of point mutations:  27
+Nr of subtree mutations:  23
+45   generated again
+
+Generation 56  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -17452
+Nr of point mutations:  30
+Nr of subtree mutations:  20
+
+Generation 57  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -12316
+Nr of point mutations:  21
+Nr of subtree mutations:  19
+
+Generation 58  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -15003
+Nr of point mutations:  26
+Nr of subtree mutations:  10
+
+Generation 59  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(read(2);-read(2););  =  -10000
+AVG fitness:  -12100
+Nr of point mutations:  25
+Nr of subtree mutations:  25
+
+Generation 60  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(read(2);-read(2););  =  -10000
+AVG fitness:  -26099
+Nr of point mutations:  38
+Nr of subtree mutations:  16
+45   generated again
+
+Generation 61  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(read(2);-read(2););  =  -10000
+AVG fitness:  -17248
+Nr of point mutations:  47
+Nr of subtree mutations:  23
+
+Generation 62  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(read(2);-read(2););  =  -10000
+AVG fitness:  -13504
+Nr of point mutations:  29
+Nr of subtree mutations:  16
+
+Generation 63  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(read(2);-read(2););  =  -10000
+AVG fitness:  -15415
+Nr of point mutations:  61
+Nr of subtree mutations:  26
+
+Generation 64  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(read(2);-read(2););  =  -10000
+AVG fitness:  -20900
+Nr of point mutations:  54
+Nr of subtree mutations:  18
+
+Generation 65  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -15303
+Nr of point mutations:  44
+Nr of subtree mutations:  19
+45   generated again
+
+Generation 66  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -18828
+Nr of point mutations:  21
+Nr of subtree mutations:  18
+
+Generation 67  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11304
+Nr of point mutations:  20
+Nr of subtree mutations:  17
+
+Generation 68  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -16307
+Nr of point mutations:  23
+Nr of subtree mutations:  16
+
+Generation 69  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -12400
+Nr of point mutations:  14
+Nr of subtree mutations:  11
+
+Generation 70  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -16903
+Nr of point mutations:  21
+Nr of subtree mutations:  15
+45   generated again
+
+Generation 71  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -15620
+Nr of point mutations:  16
+Nr of subtree mutations:  23
+
+Generation 72  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11504
+Nr of point mutations:  17
+Nr of subtree mutations:  12
+
+Generation 73  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11500
+Nr of point mutations:  21
+Nr of subtree mutations:  18
+
+Generation 74  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -12200
+Nr of point mutations:  26
+Nr of subtree mutations:  18
+
+Generation 75  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11200
+Nr of point mutations:  15
+Nr of subtree mutations:  19
+45   generated again
+
+Generation 76  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -14444
+Nr of point mutations:  29
+Nr of subtree mutations:  23
+
+Generation 77  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -12000
+Nr of point mutations:  41
+Nr of subtree mutations:  18
+
+Generation 78  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11500
+Nr of point mutations:  66
+Nr of subtree mutations:  24
+
+Generation 79  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11300
+Nr of point mutations:  18
+Nr of subtree mutations:  23
+
+Generation 80  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -12700
+Nr of point mutations:  30
+Nr of subtree mutations:  17
+45   generated again
+
+Generation 81  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -16344
+Nr of point mutations:  31
+Nr of subtree mutations:  20
+
+Generation 82  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11908
+Nr of point mutations:  46
+Nr of subtree mutations:  20
+
+Generation 83  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -12000
+Nr of point mutations:  21
+Nr of subtree mutations:  20
+
+Generation 84  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -12300
+Nr of point mutations:  25
+Nr of subtree mutations:  22
+
+Generation 85  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -12400
+Nr of point mutations:  21
+Nr of subtree mutations:  16
+45   generated again
+
+Generation 86  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -15640
+Nr of point mutations:  20
+Nr of subtree mutations:  21
+
+Generation 87  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11500
+Nr of point mutations:  20
+Nr of subtree mutations:  16
+
+Generation 88  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11500
+Nr of point mutations:  14
+Nr of subtree mutations:  23
+
+Generation 89  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -13300
+Nr of point mutations:  20
+Nr of subtree mutations:  20
+
+Generation 90  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -12100
+Nr of point mutations:  19
+Nr of subtree mutations:  17
+45   generated again
+
+Generation 91  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -15236
+Nr of point mutations:  19
+Nr of subtree mutations:  14
+
+Generation 92  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11400
+Nr of point mutations:  27
+Nr of subtree mutations:  21
+
+Generation 93  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -12000
+Nr of point mutations:  24
+Nr of subtree mutations:  26
+
+Generation 94  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -13200
+Nr of point mutations:  25
+Nr of subtree mutations:  24
+
+Generation 95  ------------------------
+Epochs without improvement: 4
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11700
+Nr of point mutations:  20
+Nr of subtree mutations:  21
+45   generated again
+
+Generation 96  ------------------------
+Epochs without improvement: 0
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -15472
+Nr of point mutations:  27
+Nr of subtree mutations:  21
+
+Generation 97  ------------------------
+Epochs without improvement: 1
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -10908
+Nr of point mutations:  17
+Nr of subtree mutations:  25
+
+Generation 98  ------------------------
+Epochs without improvement: 2
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11900
+Nr of point mutations:  20
+Nr of subtree mutations:  18
+
+Generation 99  ------------------------
+Epochs without improvement: 3
+
+Best fitness: -10000  best indiv:
+[0] [0, 0] [1]
+[0] [0, 1] [0]
+[0] [1, 0] [0]
+[0] [1, 1] [0]
+print(0);  =  -10000
+AVG fitness:  -11100
+Nr of point mutations:  17
+Nr of subtree mutations:  25
+
+Process finished with exit code 0
